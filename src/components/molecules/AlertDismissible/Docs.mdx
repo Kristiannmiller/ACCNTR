@@ -1,0 +1,92 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as AlertDismissibleStories from './AlertDismissible.stories';
+
+<Meta title="Design System/molecules/AlertDismissible/Docs" of={ AlertDismissibleStories} />
+
+# AlertDismissible
+
+Story Link: [#148](https://github.com/ahc-digital/migration-planning-tracking/issues/148)
+
+## Description
+The AlertDismissible component is a type of Alert that can be configured to be dismissed.
+
+### Sitecore Details
+Rendering Name: A01 - Alert
+Template Name: A01 - Alert
+**Fields:**
+- Alert Type - Droplink
+  - Info [Default]
+  - Warning
+  - Error
+  - Success
+  - Utility
+- Alert function - Droplink
+  - Dismissible [Default]
+  - Expanding
+- Hide icon - Checkbox
+- Dismiss Period - Droplink
+  - 1 day [Default]
+  - 1 week
+  - 1 month
+  - End of session
+- Primary alert text - Rich Text [Required]
+  - Should use content author rich text profile
+- Expanded alert text - Rich Text [Optional]
+  - Should use content author rich text profile
+- Mobile alert text - Rich Text [Optional]
+- Is page specific
+- Override
+
+**Dictionary Items**
+Alert - Show More (Used for expandable alerts on mobile)
+Alert - Show Less (Used for expandable alerts on mobile)
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Content authors are able to pick between 5 alert types: info, warning, error, success, utility. The color and icon of the alert are automatically set based off of the alert type.
+
+Content authors may optionally configure an alert to be dismissible. If an alert is marked as dismissible, content authors may choose how long it is dismissed for. The options are: 1 day, 1 week, 1 month, and end of session.
+
+If the "Expanded alert text" field is filled out, the alert should show an expand icon and the expanded alert text should display when expanded.
+
+Alerts hide once users start scrolling down the page. Should only display at the very top of the page.
+
+If mobile alert text is present, it overrides the primary alert text. This applies to both alert functions, dismissible and expandable.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<AlertDismissible {...{
+    alertType: 'info',
+    shouldHideIcon: false,
+    isDismissible: true,
+    isDismissed: false,
+    primaryAlertText: (
+        <JSSRichText
+            field={{
+                value: '<p><b>Primary alert text</b> lorem ipsum <a href="#">Link Text</a> etc etc.</p>'
+            }}
+        />
+    ),
+    mobileAlertText: (
+        <JSSRichText
+            field={{
+                value: '<p><b>Mobile alert text</b> lorem ipsum <a href="#">Link Text</a> etc etc.</p>'
+            }}
+        />
+    )
+}} />
+```

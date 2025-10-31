@@ -1,0 +1,27 @@
+// Optional. If used, you must ensure the consumer project provides fonts at the specified paths.
+// Alternatively, set font families in the consumer project to control src paths and font-family name.
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-VariableFont_wght.ttf')
+        format('woff2-variations');
+    font-weight: 400 600 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Italic-VariableFont_wght.ttf')
+        format('woff2-variations');
+    font-weight: 400 600 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'KNU-Karen Normal Unique';
+    src: url('/fonts/KNU_0.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Zawgyi-One';
+    src: url('/fonts/zawgyione.woff') format('woff');
+}

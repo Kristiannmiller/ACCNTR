@@ -1,0 +1,24 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .audio-asset {
+        margin-block: var(--semantic-measures-spacing-040);
+
+        figcaption {
+            width: fit-content;
+        }
+
+        figcaption + audio,
+        audio + figcaption {
+            margin-block-start: var(--semantic-measures-spacing-016);
+        }
+
+        audio {
+            display: block;
+
+            &.audio-center {
+                margin-inline: auto;
+            }
+        }
+    }
+}

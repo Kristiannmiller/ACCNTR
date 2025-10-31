@@ -1,0 +1,101 @@
+@mixin animate-fade-in {
+    :global {
+        animation-name: fade-in, animate-in;
+    }
+}
+
+@mixin animate-fade-out {
+    :global {
+        animation-name: fade-out, animate-out;
+    }
+}
+
+@mixin animate-in {
+    :global {
+        animation-name: animate-in;
+    }
+}
+
+@mixin animate-out {
+    :global {
+        animation-name: animate-out;
+    }
+}
+
+@mixin fade-in {
+    :global {
+        animation-name: fade-in;
+    }
+}
+
+@mixin fade-out {
+    :global {
+        animation-name: fade-out;
+    }
+}
+
+@mixin zoom-in-90 {
+    :global {
+        animation-name: zoom-in-90;
+    }
+}
+
+@mixin zoom-out-95 {
+    :global {
+        animation-name: zoom-out-95;
+    }
+}
+
+@mixin slide-in-from-top {
+    :global {
+        animation-name: slide-in-from-top;
+    }
+}
+
+@mixin slide-out-to-top {
+    :global {
+        animation-name: slide-out-to-top;
+    }
+}
+
+@mixin slide-in-from-right {
+    :global {
+        animation-name: slide-in-from-right;
+    }
+}
+
+@mixin slide-out-to-right {
+    :global {
+        animation-name: slide-out-to-right;
+    }
+}
+
+@mixin slide-in-from-bottom {
+    :global {
+        animation-name: slide-in-from-bottom;
+    }
+}
+
+@mixin slide-out-to-bottom {
+    :global {
+        animation-name: slide-out-to-bottom;
+    }
+}
+
+@mixin slide-in-from-left {
+    :global {
+        animation-name: slide-in-from-left;
+    }
+}
+
+@mixin slide-out-to-left {
+    :global {
+        animation-name: slide-out-to-left;
+    }
+}
+
+@mixin spin {
+    :global {
+        animation-name: spin;
+    }
+}

@@ -1,0 +1,94 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .side-photo-content-card-carousel-base {
+        padding: var(--semantic-measures-spacing-024)
+            var(--semantic-measures-spacing-000);
+
+        .center {
+            text-align: center;
+        }
+
+        .top-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-016);
+
+            p.headline {
+                @include typography-bold;
+            }
+        }
+
+        .side-photo-content-card-carousel {
+            // !important is needed to override the default swiper padding.
+            padding-block: var(--semantic-measures-spacing-032) !important;
+
+            .carousel-controls {
+                bottom: var(--semantic-measures-spacing-016);
+            }
+        }
+
+        .bottom-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-024);
+
+            &.center {
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    @include media-desktop {
+        .side-photo-content-card-carousel-base {
+            padding: var(--semantic-measures-spacing-072)
+                var(--semantic-measures-spacing-000);
+        }
+    }
+
+    @include container-tablet-lg {
+        .side-photo-content-card-carousel-base {
+            .side-photo-content-card-carousel {
+                padding-block: var(--semantic-measures-spacing-048) !important;
+
+                .carousel-controls {
+                    position: relative;
+                    display: inline-flex;
+                    transform: none;
+                    bottom: calc(
+                        var(--semantic-measures-spacing-016) + 2.75rem
+                    );
+                }
+
+                &.layout-forty {
+                    .carousel-controls {
+                        left: calc(60% + var(--semantic-measures-spacing-060));
+                        bottom: var(--semantic-measures-spacing-080);
+                    }
+
+                    &.image-right {
+                        .carousel-controls {
+                            left: var(--semantic-measures-spacing-060);
+                            bottom: var(--semantic-measures-spacing-080);
+                        }
+                    }
+                }
+
+                &.layout-fifty {
+                    .carousel-controls {
+                        left: calc(50% + var(--semantic-measures-spacing-060));
+                        bottom: var(--semantic-measures-spacing-080);
+                    }
+
+                    &.image-right {
+                        .carousel-controls {
+                            left: var(--semantic-measures-spacing-060);
+                            bottom: var(--semantic-measures-spacing-080);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

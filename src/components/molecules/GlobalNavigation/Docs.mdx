@@ -1,0 +1,55 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as GlobalNavigationStories from './GlobalNavigation.stories';
+
+<Meta title="Design System/molecules/GlobalNavigation/Docs" of={ GlobalNavigationStories} />
+
+# GlobalNavigation
+
+Story Link: [#28](https://github.com/ahc-digital/component-library/issues/28)
+
+The GlobalNavigation molecule is a set of links that sit below the utility navigation. 
+It consists of a set of a logo, primary links that are used to navigate the site, and a search bar. 
+The global navigation may optionally open a drop down that reveals a further set of links. 
+Content Authors can additionally choose from a limited set of color options for the primary links.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+The primary navigation is pinned to the top of the screen on scroll but shrinks. Utility nav disappears on scroll down and reappears on scroll up.
+
+Clicking search expands the nav down, showing the search input. Focus should automatically be applied to the search input field.
+
+Primary Navigation Sections show the sub menu, expanding down, when clicked.
+
+Content authors are able to choose between a white background and transparent background.
+
+Authors are able to specify a navigation link that sits outside the collapsed menu on mobile.
+
+Authors are able to specify an optional icon that appears only on mobile.
+
+Authors are able to specify optional text for navigation links that is only used on mobile.
+
+Search will appear on mobile at the top of the expanded menu automatically.
+
+Colored bars under the sections (i.e. Children's Hospital) will be handled via a class on the link field.
+
+Section text for the section the visitor is currently in should bolded when the user is that section. (Follow up with Design)
+
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<GlobalNavigation>Hello World</GlobalNavigation>
+```

@@ -1,0 +1,67 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as LeftNavigationStories from './LeftNavigation.stories';
+
+<Meta title="Design System/organisms/LeftNavigation/Docs" of={ LeftNavigationStories} />
+
+# LeftNavigation
+
+Story Link: [#105]('https://github.com/ahc-digital/component-library/issues/105')
+
+Description: The Left Navigation is a navigation component that sits in a column of many pages. It consists of a set of links arranged in a hierarchical manner. The left navigation builds automatically based off the site tree without manual content author intervention. The links use the "Navigation Title" from each page for their text and content authors are able to specify the room page for the homepage using the "Is Site Root" checkbox under the navigation fields.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+"Back to Parent" link is always the first link in the list.
+
+Sections with child pages can be expanded and collapsed. Only one section can be expanded at a time.
+
+If more than 10 links are present, a "Show More" link should appear at the bottom of the list and display all links past the 10th once clicked. If the list is expanded, a "Show Less" link should be shown to collapse the list.
+
+On mobile the entire list should be collapsed by default.
+
+Content authors can control the text that appears for each page via the "Navigation Title" field on the page item.
+
+Content authors can control the root of the left navigation using via the "Is Site Root" field on the page item.
+
+Content authors can exclude an item from the left navigation via a field on the page item.
+
+Pages of type "Link Page" should render out the link field on the page item instead of generating a link directly to page.
+
+<Stories />
+
+## Example Usage(s)
+```tsx
+<DropdownMenu
+    type={'multiple'}
+    defaultValue={['item-1']}>
+    <DropdownMenuItem value='item-1'>
+        <DropdownMenuContent>
+            <LeftNavigationContent />
+        </DropdownMenuContent>
+    </DropdownMenuItem>
+</DropdownMenu>
+```
+
+## Sitecore Implementation Example:
+```tsx
+<DropdownMenu
+    type={'multiple'}
+    defaultValue={['item-1']}>
+    <DropdownMenuItem value='item-1'>
+        <DropdownMenuContent>
+            <LeftNavigationContent />
+        </DropdownMenuContent>
+    </DropdownMenuItem>
+</DropdownMenu>
+```
+
+## Props
+<Controls />

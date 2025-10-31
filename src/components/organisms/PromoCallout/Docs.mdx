@@ -1,0 +1,94 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as PromoCalloutStories from './PromoCallout.stories';
+
+<Meta title="Design System/organisms/PromoCallout/Docs" of={PromoCalloutStories} />
+
+# PromoCallout
+
+Story Link: [#106]('https://github.com/ahc-digital/migration-planning-tracking/issues/76')
+
+Description: The promo callout is a callout component that is styled like the slide of a promo carousel but exists on its own outside of the carousel.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Content authors are able to specify text alignment (mobile only).
+
+Content authors are able to specify background color.
+
+Content authors are able to specify image placement.
+
+<Stories />
+
+## Props
+<Controls />
+
+- backgroundColor
+  - Allows you to choose background color. Default is Wellness Blue.
+
+- className
+  - Allows you to add a classname
+
+- firstCTALink [Optional]
+  - First CTA button link
+
+- secondCTALink [Optional]
+  - Second CTA button link
+
+- headline [Required]
+  - Text for the headline
+
+- headlineTag
+  - Allows you to choose p, h1 or h2 tag for the headline. Default is p.
+
+- image [Optional]
+  - Image source
+
+- imageSide
+  - Allows you to choose which side image is on. Default is left.
+
+- layout
+  - Allows you to choose how large the image is or remove it altogether. Default is %30.
+
+- supportingCopy [Optional]
+  - Supporting copy source
+
+- textAlignment
+  - Allows you to change text alignment. Default is left.
+
+
+## Example Usage(s)
+```tsx
+        <PromoCallout
+            backgroundColor="wellnessBlue"
+            layout="thirty"
+            textAlignment="left"
+            headline='Get the care you need'
+            headlineTag="p"
+            image={<JSSImage
+                field={{
+                    src: 'https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80',
+                    alt: 'A random image from Unsplash'
+                }}
+            />}
+            supportingCopy='We offer a wide range of services to help you get the care you need.'
+            imageSide="left"
+            firstCTALink={
+                <JSSLink
+                    field={{ ...mockSitecoreLink.value, text: 'Learn More' }}
+                />
+            }
+            firstCTALink={
+                <JSSLink
+                    field={{ ...mockSitecoreLink.value, text: 'Learn More' }}
+                />
+            }
+        />
+```

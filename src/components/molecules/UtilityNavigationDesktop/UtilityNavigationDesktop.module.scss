@@ -1,0 +1,112 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .container {
+        display: none;
+    }
+
+    @include media-desktop {
+        .container {
+            display: block;
+            background: var(--semantic-color-surface-default-utility-utility);
+            position: relative;
+            z-index: 20;
+            height: var(
+                --utility-nav-height,
+                var(--semantic-measures-sizing-048)
+            );
+            transition: height 200ms ease-in-out;
+        }
+
+        .utility-navigation-base {
+            display: flex;
+            justify-content: flex-end;
+
+            .nav-item {
+                svg {
+                    color: var(
+                        --semantic-color-surface-default-brand-secondary
+                    );
+                    margin-right: var(--semantic-measures-spacing-004);
+                }
+
+                > *:first-child {
+                    @include typography-navigation-utilitynav-lin;
+                    padding: var(--semantic-measures-spacing-016);
+                    background: var(
+                        --semantic-color-surface-default-utility-utility
+                    );
+                    border: none;
+                    color: inherit;
+                    display: flex;
+                    align-items: center;
+
+                    &[aria-expanded='true'],
+                    &:hover {
+                        background: var(
+                            --semantic-color-surface-default-brand-hover-utility
+                        );
+                    }
+                }
+            }
+
+            // Menu
+            [data-testid='navigation-menu-content'] {
+                top: calc((var(--semantic-measures-spacing-016) * 2) + 1.5rem);
+                min-width: 7.5rem;
+                background: var(--semantic-color-surface-default-primary);
+
+                a {
+                    @include typography-navigation-utilitynav-lin;
+                    min-width: 0.144rem;
+                    padding: var(--semantic-measures-spacing-016);
+
+                    &:hover {
+                        background: var(
+                            --semantic-color-surface-default-brand-hover-utility
+                        );
+                    }
+                }
+            }
+
+            .trigger {
+                &[data-state='open'] {
+                    .content-border {
+                        height: 0.5rem;
+                        background: var(--hover-bar-color);
+                        position: absolute;
+                        bottom: -0.5rem;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .cta-button {
+                @include typography-navigation-utilitynav-cta;
+                // Subtract 2px from padding to account for the border.
+                // Button should be 48px tall.
+                padding: calc(
+                    var(--semantic-measures-spacing-016) -
+                        var(--semantic-measures-spacing-002)
+                );
+                border-radius: 0;
+            }
+        }
+    }
+
+    @include theme-consumer-childrens {
+        .content-border {
+            --hover-bar-color: var(
+                --semantic-color-border-default-brand-secondary
+            );
+        }
+    }
+
+    @include theme-corporate {
+        .content-border {
+            --hover-bar-color: var(
+                --semantic-color-border-default-brand-secondary-alt
+            );
+        }
+    }
+}

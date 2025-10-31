@@ -1,0 +1,30 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as RichTextStories from './RichText.stories';
+
+<Meta title="Design System/atoms/RichText/Docs" of={ RichTextStories} />
+
+# RichText
+
+Story Link: [#83]('https://github.com/ahc-digital/component-library/issues/83')
+
+Description: Rich text is an atomic component that will be used across a variety of other components.
+
+---
+# Acceptance Criteria
+Use @extend to extend the styles applied in Text to their corresponding elements nested under the class rich-text.
+
+<Stories />
+
+### Sitecore Implementation Example:
+
+```tsx
+const mockSitecoreRichText = {
+    value: '<p><a href="https://www.aurorahealthcare.org" target="_blank">Lorem ipsum dolor</a> sit amet, consectetur adipiscing elit. Nunc quis turpis </p>'
+};
+<RichText>
+    <JSSImage field={mockSitecoreRichText} />
+</RichText>;
+```
+
+## Props
+<Controls />

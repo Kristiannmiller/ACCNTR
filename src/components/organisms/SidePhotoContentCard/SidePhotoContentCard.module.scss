@@ -1,0 +1,84 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .card {
+        display: grid;
+        grid-template-columns: 1fr;
+        box-shadow: $elevation-1;
+        grid-template-areas: 'image' 'content';
+        background: var(--semantic-color-surface-default-primary);
+
+        @include container-tablet-lg {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 'image content';
+
+            &.image-right {
+                grid-template-areas: 'content image';
+            }
+
+            &.layout-forty {
+                grid-template-columns: 3fr 2fr;
+            }
+
+            &.image-right.layout-forty {
+                grid-template-columns: 2fr 3fr;
+            }
+        }
+    }
+
+    .image {
+        grid-area: image;
+        display: flex;
+    }
+
+    .content {
+        grid-area: content;
+        padding: var(--semantic-measures-spacing-024)
+            var(--semantic-measures-spacing-016);
+
+        &.with-controls {
+            padding-bottom: calc(
+                var(--semantic-measures-spacing-024) + 5.75rem
+            );
+        }
+
+        @include container-tablet-lg {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--semantic-measures-spacing-048)
+                var(--semantic-measures-spacing-060);
+        }
+
+        p.headline {
+            @include typography-bold;
+        }
+
+        .support-copy {
+            margin-block-start: var(--semantic-measures-spacing-016);
+        }
+
+        .cta-wrapper {
+            margin-block-start: var(--semantic-measures-spacing-024);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: var(--semantic-measures-spacing-016);
+
+            @include container-tablet-lg {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                gap: var(--semantic-measures-spacing-024);
+            }
+        }
+
+        .cta {
+            width: auto;
+            @include container-tablet-lg {
+                width: fit-content;
+            }
+        }
+    }
+}

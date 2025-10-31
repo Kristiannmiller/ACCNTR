@@ -1,0 +1,43 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as AudioAssetStories from './AudioAsset.stories';
+
+<Meta title="Design System/organisms/C18 - Audio Asset/Docs" of={AudioAssetStories} />
+
+# AudioAsset
+
+Story Link: [#405](https://github.com/ahc-digital/migration-planning-tracking/issues/405)
+
+Description: The AudioAsset component is used for playing audio files.
+
+Note: there is not a Figma design for this component.
+
+---
+# Acceptance Criteria
+
+Rendering Name: C18 - Audio Asset
+Template Name: C18 - Audio Asset
+Fields:
+
+Audio - Media [Required]
+Caption - Rich Text [Optional]
+Should use content author rich text profile
+Base Rendering Parameters: _TranslationClasses
+Rendering Parameters:
+
+Player Alignment
+Left (Default)
+Center
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<AudioAsset
+  audioSrc="https://www.aurorabaycare.com/services/womens-health/obstetrics/easset_upload_file56047_458711_e.mp3"
+  playerAlignment="center"
+  caption={<JSSRichText field={{ value: '<p>Caption</p>'}}>} />
+```

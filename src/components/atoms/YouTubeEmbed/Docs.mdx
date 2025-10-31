@@ -1,0 +1,26 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as YouTubeEmbedStories from './YouTubeEmbed.stories';
+
+<Meta title="Design System/atoms/YouTubeEmbed/Docs" of={ YouTubeEmbedStories} />
+
+# YouTubeEmbed
+
+Description: The YouTubeEmbed component is used for embedding YouTube videos in an iframe element. It accepts a YouTube videoId.
+
+---
+# Acceptance Criteria
+- Accepts a YouTube `videoId`
+  - type: `ReactNode`
+- Renders iFrame of corresponding YouTube video
+- Domain must be `https://www.youtube-nocookie.com/embed/`
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<YouTubeEmbed videoId={videoId}/>
+```

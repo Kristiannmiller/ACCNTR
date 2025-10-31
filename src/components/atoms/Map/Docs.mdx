@@ -1,0 +1,36 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as MapStories from './Map.stories';
+
+<Meta title="Design System/atoms/Map/Docs" of={ MapStories} />
+
+# Map
+
+Story Link: [#227]('https://github.com/ahc-digital/migration-planning-tracking/issues/227')
+
+Description: The Map component is used for any component that needs to display a google map
+
+---
+# Acceptance Criteria
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+
+<Stories />
+
+## Props
+- address 
+The address for the map to display
+
+- googleMapsAPIKey
+The google maps API key used to load the map
+
+- title
+The attribute for the iframe
+
+## Example Usage(s)
+```tsx
+<Map
+  address="1875 Dempster St, Park Ridge, IL 60068"
+  googleMapsAPIKey=""
+  title="Advocate Health Center"
+/>
+```

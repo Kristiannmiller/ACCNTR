@@ -1,0 +1,84 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .news-listing-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--semantic-measures-sizing-024);
+
+        &.is-featured {
+            background: var(--semantic-color-surface-default-brand-tint-5);
+            padding: var(--semantic-measures-spacing-024);
+            margin-inline: calc(var(--semantic-measures-spacing-016) * -1);
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-sizing-008);
+
+            .headline,
+            .support-copy {
+                text-overflow: ellipsis;
+            }
+
+            .headline {
+                @include line-clamp(1);
+                max-width: 75ch;
+            }
+
+            .headline-wrapper {
+                text-decoration: none;
+
+                > a {
+                    margin-right: var(--semantic-measures-spacing-008);
+                }
+            }
+
+            .support-copy {
+                @include typography-small-p---paragraph-consu;
+                @include line-clamp(3);
+                max-width: 160ch;
+            }
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .empty-image-placeholder {
+            display: none;
+        }
+
+        @include container-tablet-lg {
+            flex-direction: row;
+
+            &.is-featured {
+                margin-inline: var(--semantic-measures-spacing-000);
+            }
+
+            img,
+            .empty-image-placeholder {
+                width: 13.75rem;
+                height: auto;
+                object-fit: contain;
+                flex-shrink: 0;
+            }
+
+            .empty-image-placeholder {
+                display: block;
+            }
+
+            .content-container {
+                .support-copy {
+                    @include line-clamp(2);
+                }
+            }
+        }
+    }
+
+    .news-listing-container {
+        background: none;
+    }
+}

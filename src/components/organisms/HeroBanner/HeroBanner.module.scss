@@ -1,0 +1,148 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    @include theme-consumer-childrens {
+        .hero-banner-desktop {
+            display: none;
+
+            > *:first-child {
+                // !important is needed to override the default padding coming from the image aspect-ratio
+                padding: var(--semantic-measures-spacing-000) !important;
+            }
+        }
+
+        .hero-banner-mobile {
+            display: block;
+            margin-top: var(--semantic-measures-spacing-000);
+
+            .bg-img {
+                padding: var(--semantic-measures-spacing-000);
+            }
+
+            .content {
+                padding-block: var(--semantic-measures-spacing-016);
+            }
+        }
+
+        .bg-img {
+            &.hidden {
+                display: none;
+            }
+
+            img {
+                object-position: right top;
+            }
+        }
+
+        .hero-gradient-overlay {
+            @include gradient-overlay(270);
+        }
+
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: var(--semantic-measures-spacing-000);
+        }
+
+        .content-container {
+            flex: 1;
+            background-color: transparent;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            background-color: var(
+                --semantic-color-surface-inverse-brand-secondary
+            );
+            gap: var(--semantic-measures-spacing-016);
+
+            &.with-controls {
+                padding-bottom: calc(
+                    var(--semantic-measures-spacing-072) + 1.75rem
+                );
+            }
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-008);
+            text-align: center;
+
+            &.left-align {
+                text-align: left;
+            }
+
+            .heading {
+                color: var(--semantic-color-content-inverse-primary);
+            }
+
+            .rich-text {
+                color: var(--semantic-color-content-inverse-primary);
+                line-height: var(--semantic-measures-spacing-024);
+            }
+        }
+
+        .cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-016);
+            text-align: center;
+        }
+
+        @include media-tablet-lg {
+            .hero-banner-mobile {
+                display: none;
+            }
+
+            .hero-banner-desktop {
+                display: block;
+                position: relative;
+                height: 31.25rem;
+            }
+
+            .bg-img {
+                display: initial;
+                height: 31.25rem;
+            }
+
+            .content {
+                background-color: transparent;
+                gap: var(--semantic-measures-spacing-032);
+            }
+
+            .text-content,
+            .cta-wrapper {
+                max-width: 36.625rem;
+            }
+
+            .text-content {
+                text-shadow: 0 0.125rem 0.1875rem rgba(0, 0, 0, 0.4);
+                gap: var(--semantic-measures-spacing-016);
+                text-align: left;
+                width: 90%;
+            }
+
+            .cta-wrapper {
+                flex-direction: row;
+                gap: var(--semantic-measures-spacing-024);
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .hero-banner-desktop,
+        .hero-banner-mobile {
+            display: none;
+        }
+    }
+}

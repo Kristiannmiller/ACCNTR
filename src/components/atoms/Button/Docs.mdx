@@ -1,0 +1,38 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta
+    title='Design System/atoms/Button/Docs'
+    of={ButtonStories}
+/>
+
+# Button
+
+Story Link: [#16](https://github.com/ahc-digital/migration-planning-tracking/issues/16)
+
+Description: The button atom component will be used across a variety of molecules and organisms.
+
+#### Important Notes:
+- Corporate: Variants and Sizes are ignored. As a design decision, there is not a hover state for "solid-1-inverse".
+- Consumer: There is no "light2" theme for desktop.
+
+---
+
+# Acceptance Criteria
+
+- Code is copied and modified from Button - shadcn/ui (manual installation)
+- Can be used as a button or a link.
+- The button is rendered as shown in Figma based on the provided size and variant props; and the various states for the button (Default, Hover, Disabled, etc.)
+  - `medium` is the default size.
+  - `solid-1` is the default variant.
+- When `asChild` is true, use a Radix slot to merge props and styles with the child element.
+- Two themes `Consumer` and `Corporate` are toggled based on a parent data attribute data-theme="Consumer" or data-theme="Corporate"
+- Under the `Corporate` theme, in accordance with the Figma designs, the variant prop is ignored.
+- All states and styles must be viewable in Storybook.
+  - For example, add a control for disabled.
+
+<Stories />
+
+## Props
+
+<Controls />

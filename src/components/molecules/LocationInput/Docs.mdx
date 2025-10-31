@@ -1,0 +1,44 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as LocationInputStories from './LocationInput.stories';
+
+<Meta title="Design System/molecules/LocationInput/Docs" of={LocationInputStories} />
+
+# LocationInput
+
+Description: The `LocationInput` component is a reusable input field designed for capturing location information. It includes error handling, placeholder text, and a button for fetching the user's location.
+
+<Stories />
+
+## Props
+<Controls />
+
+## Usage
+
+```tsx
+import { ChangeEvent } from 'react';
+import { LocationInput } from '@/components';
+
+const MyComponent = () => {
+  const [location, setLocation] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setLocation(e.target.value);
+    setError(null); // Clear the error when the input changes
+  };
+
+  const handleUseLocationClick = () => {
+    // Logic to fetch and set the user's location
+  };
+
+  return (
+    <LocationInput
+      placeholder="Enter your location"
+      value={location}
+      error={error}
+      onChange={handleInputChange}
+      onUseLocationClick={handleUseLocationClick}
+      setError={() => setError(null)}
+    />
+  );
+};

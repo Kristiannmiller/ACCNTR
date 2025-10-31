@@ -1,0 +1,216 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .table-base {
+        position: relative;
+        min-width: 100%;
+        width: max-content;
+        overflow: auto;
+        caption-side: bottom;
+        border-spacing: var(--semantic-measures-spacing-000);
+        border-collapse: collapse;
+        @include typography-small-p---paragraph-consu;
+        padding: var(--semantic-measures-spacing-000);
+        table-layout: fixed;
+
+        &.striped {
+            th {
+                background: var(--semantic-color-surface-default-secondary);
+            }
+
+            tr {
+                &:nth-child(even) {
+                    background: var(--semantic-color-surface-default-secondary);
+
+                    &:hover {
+                        background: var(
+                            --semantic-color-surface-default-brand-tint-5
+                        );
+                    }
+                }
+            }
+        }
+
+        &.sticky {
+            th,
+            td {
+                &:first-child {
+                    position: sticky;
+                    left: 0;
+                    z-index: 1;
+                    background: var(--semantic-color-surface-default-secondary);
+
+                    &:has(.striped) {
+                        background: var(
+                            --semantic-color-surface-default-secondary
+                        );
+                    }
+                }
+            }
+
+            tr {
+                &:nth-of-type(odd) {
+                    td {
+                        &:first-child {
+                            background: var(
+                                --semantic-color-surface-default-primary
+                            );
+
+                            &:has(.striped) {
+                                background: var(
+                                    --semantic-color-surface-default-primary
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.sticky.sticky-shadow {
+            th,
+            td {
+                &:first-child {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        inset-block: 0;
+                        inset-inline-start: 100%;
+                        width: var(--semantic-measures-sizing-016);
+                        height: calc(
+                            100% + var(--semantic-measures-stroke-small)
+                        );
+                        background: linear-gradient(
+                            to right,
+                            rgba(0, 0, 0, 0.1),
+                            transparent
+                        );
+                    }
+                }
+            }
+        }
+
+        .table-cell-base {
+            &.left {
+                text-align: left;
+            }
+
+            &.right {
+                text-align: right;
+            }
+
+            &.center {
+                text-align: center;
+            }
+        }
+
+        thead {
+            @include typography-small-paragraph-bold-cons;
+
+            th {
+                border-top: var(--semantic-measures-spacing-001) solid
+                    var(--semantic-color-border-default-tertiary);
+            }
+        }
+
+        tfoot {
+            @include typography-bold;
+            background: var(--semantic-color-surface-default-secondary);
+        }
+
+        tr {
+            transition: color 0.2s;
+            background: var(--semantic-color-surface-default-primary);
+
+            &:hover {
+                background: var(
+                    --semantic-color-surface-default-brand-tint-5,
+                    rgba(243, 248, 251, 1)
+                );
+            }
+
+            &[data-state='selected'] {
+                background: var(--semantic-color-surface-default-secondary);
+            }
+        }
+
+        td,
+        th {
+            vertical-align: middle;
+            padding: var(--semantic-measures-spacing-016);
+            border-bottom: var(--semantic-measures-spacing-001) solid
+                var(--semantic-color-border-default-tertiary);
+
+            &.left {
+                text-align: left;
+            }
+
+            &.right {
+                text-align: right;
+            }
+
+            &.center {
+                text-align: center;
+            }
+        }
+    }
+
+    .table-custom {
+        th {
+            background-color: var(
+                --semantic-color-content-inverse-brand-primary
+            );
+            color: var(--semantic-color-content-inverse-primary);
+        }
+
+        td {
+            border: var(--semantic-measures-spacing-001) solid
+                var(--semantic-color-border-default-tertiary);
+        }
+
+        thead {
+            @include typography-small-h4--consumer;
+        }
+
+        &.striped {
+            th {
+                background-color: var(
+                    --semantic-color-content-inverse-brand-primary
+                );
+                color: var(--semantic-color-content-inverse-primary);
+                border-right: var(--semantic-measures-spacing-001) solid
+                    var(--semantic-color-border-default-tertiary);
+            }
+        }
+
+        &.sticky {
+            th {
+                &:first-child {
+                    background: var(
+                        --semantic-color-content-inverse-brand-primary
+                    );
+                }
+            }
+
+            td {
+                border-left: none;
+            }
+
+            th,
+            td {
+                &:first-child {
+                    box-shadow: inset var(--semantic-measures-spacing-001) 0
+                            var(--semantic-measures-spacing-000)
+                            var(--semantic-color-border-default-tertiary),
+                        inset -0.0667rem 0 var(--semantic-measures-spacing-000) var(--semantic-color-border-default-tertiary);
+                    border-left: none;
+                    border-right: none;
+                }
+            }
+        }
+    }
+}

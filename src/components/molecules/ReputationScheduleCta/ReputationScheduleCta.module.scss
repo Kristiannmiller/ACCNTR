@@ -1,0 +1,11 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .reputation-schedule-cta-search-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--semantic-measures-spacing-032);
+    }
+}

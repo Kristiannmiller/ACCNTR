@@ -1,0 +1,35 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .icon-cta-simplified-card {
+        text-align: center;
+
+        .icon-cta-simplified-card-icon {
+            margin-bottom: var(--semantic-measures-spacing-016);
+
+            svg {
+                width: auto;
+                height: auto;
+                max-height: var(--semantic-measures-spacing-064);
+            }
+        }
+
+        .icon-cta-simplified-card-headline {
+            margin-bottom: var(--semantic-measures-spacing-016);
+        }
+
+        p.icon-cta-simplified-card-headline {
+            @include typography-bold;
+        }
+
+        .icon-cta-simplified-card-support-copy {
+            margin-bottom: var(--semantic-measures-spacing-032);
+        }
+
+        .icon-cta-simplified-card-anchor-wrapper {
+            margin-block-start: var(--semantic-measures-spacing-032);
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

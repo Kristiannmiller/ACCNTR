@@ -1,0 +1,205 @@
+@use 'toolbox' as *;
+
+@layer core {
+    .column-grid {
+        --grid-gap: var(--semantic-measures-spacing-008);
+        --grid-column-count: 4;
+
+        @include container-tablet {
+            --grid-gap: var(--semantic-measures-spacing-016);
+            --grid-column-count: 12;
+        }
+
+        @include container-desktop {
+            --grid-gap: var(--semantic-measures-spacing-024);
+        }
+        display: flex;
+        align-items: stretch;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        column-gap: var(--grid-gap);
+        row-gap: var(--semantic-measures-spacing-016);
+
+        &.row-gap-even {
+            row-gap: var(--grid-gap);
+        }
+
+        &.row-gap-none {
+            row-gap: 0;
+        }
+
+        &.center-orphans {
+            justify-content: center;
+        }
+
+        @mixin reverse {
+            flex-wrap: wrap-reverse;
+            flex-direction: row-reverse;
+        }
+
+        &.reverse-tablet {
+            @include container-tablet {
+                @include reverse;
+            }
+        }
+
+        &.reverse-tablet-lg {
+            @include container-tablet-lg {
+                @include reverse;
+            }
+        }
+
+        &.reverse-desktop {
+            @include container-desktop {
+                @include reverse;
+            }
+        }
+
+        &.reverse-tablet:not(.center-orphans),
+        &.reverse-tablet-lg:not(.center-orphans),
+        &.reverse-desktop:not(.center-orphans) {
+            justify-content: flex-end;
+        }
+
+        // Override the default column counts for the grid
+        // when these classes are applied to the parent element.
+        @for $i from 1 through 4 {
+            &.cols-#{$i} {
+                --grid-column-count: #{$i};
+            }
+        }
+
+        @include container-tablet {
+            @for $i from 1 through 4 {
+                &.cols-#{$i} {
+                    --grid-column-count: #{$i};
+                }
+
+                &.cols-tablet-#{$i} {
+                    --grid-column-count: #{$i};
+                }
+            }
+        }
+
+        @include container-tablet-lg {
+            @for $i from 1 through 6 {
+                &.cols-tablet-lg-#{$i} {
+                    --grid-column-count: #{$i};
+                }
+            }
+        }
+
+        @include container-desktop {
+            @for $i from 1 through 6 {
+                &.cols-desktop-#{$i} {
+                    --grid-column-count: #{$i};
+                }
+            }
+        }
+
+        // Sets the width of the columns based on the number of columns they span.
+        // All direct children of a grid should be columns.
+        > * {
+            box-sizing: border-box;
+
+            --column-width: calc(
+                (
+                        (100% * var(--grid-column-span)) - var(--grid-gap) *
+                            (var(--grid-column-count) - var(--grid-column-span))
+                    ) / var(--grid-column-count)
+            );
+            inline-size: var(--column-width);
+        }
+
+        // Direct children of grids should span 1 if not explicitly set.
+        > :not([class*='col-']) {
+            --grid-column-span: 1;
+        }
+
+        @for $i from 1 through 4 {
+            > .col-#{$i}-4 {
+                --grid-column-span: #{$i};
+                @include container-tablet {
+                    --grid-column-span: #{$i * 3};
+                }
+            }
+        }
+
+        @include container-tablet {
+            @for $i from 1 through 12 {
+                > .col-tablet-#{$i}-12 {
+                    --grid-column-span: #{$i};
+                }
+            }
+        }
+
+        @include container-tablet-lg {
+            @for $i from 1 through 12 {
+                > .col-tablet-lg-#{$i}-12 {
+                    --grid-column-span: #{$i};
+                }
+            }
+        }
+
+        // Desktop classes must be generated in a separate loop
+        // so they are defined after the tablet styles and properly override them.
+        @include container-desktop {
+            @for $i from 1 through 12 {
+                > .col-desktop-#{$i}-12 {
+                    --grid-column-span: #{$i};
+                }
+            }
+        }
+
+        [class*='col-offset'] {
+            // This is the same calc as the one for --column-width, but for offsets.
+            // It calculates how many columns to push the content rightward.
+            --offset: calc(
+                (
+                    (
+                            (100% * var(--grid-column-offset)) - var(--grid-gap) *
+                                (
+                                    var(--grid-column-count) -
+                                        var(--grid-column-offset)
+                                )
+                        ) / var(--grid-column-count) + var(--grid-gap)
+                )
+            );
+            margin-inline-start: var(--offset);
+        }
+
+        @for $i from 1 through 4 {
+            > .col-offset-#{$i}-4 {
+                --grid-column-offset: #{$i};
+
+                @include container-tablet {
+                    --grid-column-offset: #{$i * 3};
+                }
+            }
+        }
+
+        @include container-tablet {
+            @for $i from 0 through 12 {
+                > .col-offset-tablet-#{$i}-12 {
+                    --grid-column-offset: #{$i};
+                }
+            }
+        }
+
+        @include container-tablet-lg {
+            @for $i from 0 through 12 {
+                > .col-offset-tablet-lg-#{$i}-12 {
+                    --grid-column-offset: #{$i};
+                }
+            }
+        }
+
+        @include container-desktop {
+            @for $i from 0 through 12 {
+                > .col-offset-desktop-#{$i}-12 {
+                    --grid-column-offset: #{$i};
+                }
+            }
+        }
+    }
+}

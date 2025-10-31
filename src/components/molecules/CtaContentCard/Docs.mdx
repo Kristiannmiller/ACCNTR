@@ -1,0 +1,49 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as CtaContentCardStories from './CtaContentCard.stories';
+
+<Meta title="Design System/molecules/CtaContentCard/Docs" of={ CtaContentCardStories} />
+
+# CtaContentCard
+
+Story Link: [#172]('https://github.com/ahc-digital/migration-planning-tracking/issues/172')
+
+Description: The CtaContentCards *molecule* component is used to display an image above a block of text (including a headline and supporting copy) and up to two CTA's, plus a third link.
+
+---
+# Acceptance Criteria
+The image on each card fills the space provided and has no padding. Images have a max height of 250px. Image should be anchored at the top center.
+
+Each card can have up to three CTAs. The CTAs are always stacked. Each of the first two CTA may optionally be a button or link style, as well as left or center aligned. The third CTA will always be a link if present.
+
+The background of individual cards is always white.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+const ctaContentCardMoleculeProps = {
+    headline: <JSSText field={{ value: 'When you can’t pencil in an appointment' }} />,
+    bodyCopy: (
+        <JSSRichText
+            field={{
+                value: 'Dr. David Callaway joins unique network examining leadership examples of recent presidents'
+            }}
+        />
+    ),
+    firstCta: <JssLink field={mockSitecoreLink} />,
+    secondCta: <JssLink field={mockSitecoreLink} />,
+    thirdCta: <JssLink field={mockSitecoreLink} />,
+    image: (
+        <JSSImage field={{ src: mockImages[0].src, alt: mockImages[0].alt }} />
+    ),
+    headlineTag: 'h3',
+    firstCtaStyle: 'button',
+    secondCtaStyle: 'button',
+    ctaAlignment: 'left'
+};
+<CtaContentCard {...ctaContentCardMoleculeProps} />
+```

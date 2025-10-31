@@ -1,0 +1,99 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title='Foundation/Developers Guide/Atomic Design Module/Styling' />
+
+# Styling
+The styling choices of this component library are to use SCSS and CSS Modules. The SCSS is used to create the atomic
+design structure and the CSS Modules are used to create the components.
+
+Additionally, we use CVA (Class Variance Authority) to manage the construction of class names based on props that are
+passed to the components. This allows for a more flexible and maintainable way to style components.
+
+## Architecture
+The styling of the application is being housed in the `/public/css` folder. This folder contains the global styles
+and the themes that are used in the application. It also contains the `toolbox.scss` file which is the entry point
+for the SCSS files. This includes mixins, functions, and variables that are used throughout the application.
+
+Each component under `src/components` has a corresponding SCSS file that contains the styles for that component. The
+styles are organized by the atomic design structure and are imported into the component file.
+
+For the component's SCSS, it is important to include the `@use 'toolbox' as *;` at the top of the file. This will
+allow the component to use the mixins, functions, and variables that are defined in the `toolbox.scss` file.
+
+## General CSS Guidelines
+- Include the `@use 'toolbox' as *;` at the top of the SCSS file
+- The @layer is first followed by the component styles
+- Breakpoint mixins are not to be nested within the root class. They should be at the same level as the root class.
+- Follow `mobile-first` design principles
+- Use themes to manage cross-theme styles for corporate/consumer/children's styles
+- Stylelint rules are enforced to ensure consistency
+
+#### Example Usage:
+```scss
+@use 'toolbox' as *;
+
+@layer molecules {
+    // Cross-theme styles
+    .component {
+    }
+
+    @include container-desktop {
+        .component {
+        }
+    }
+
+    // Consumer/children's styles
+    @include theme-consumer-childrens {
+        .component {
+        }
+
+        @include container-desktop {
+            .component {
+            }
+        }
+    }
+
+    // Corporate styles
+    @include theme-corporate {
+        .component {
+        }
+
+        @include container-desktop {
+            .component {
+            }
+        }
+    }
+}
+```
+
+## Theming
+The theming of the application is being housed in the `/public/css/themes` folder. This folder contains the themes
+that are used in the application. Each theme has a corresponding SCSS file that contains the styles for that theme.
+The styles are organized by the atomic design structure and are imported into the `toolbox.scss` file.
+
+These themes are generated via the Figma Plugin. They are copy/pasted into the theme file and **shouldn't be modified directly**
+because they may be regenerated.
+
+CSS files are scoped by the theme name. This allows for the styles to be sectioned off by theme and not interfere with
+other themes.
+
+If a new theme is needed, it should be coordinated with the design team to generate the new theme. Once the theme
+is generated, a new file should be created in the `/themes` folder and added to the `toolbox.scss` file, update
+`.storybook/ThemeSelector` and `static.ts`.
+
+## FAQs
+<details>
+    <summary><strong>How do I add a new theme?</strong></summary>
+    <p>To add a new theme, connect with the designers. Use the Figma Plugin to generate the new theme. Create a new file in the `/themes` and add to the respective files in the toolbox.</p>
+</details>
+<br />
+<details>
+    <summary><strong>How do I add a new mixin?</strong></summary>
+    <p>Before adding a new mixin, please look in `/public/css/partials/toolbox` to see if another mixin exits.</p>
+    <p>This project aims to use mixins sparingly.</p>
+</details>
+<br />
+<details>
+    <summary><strong>Why are there partials of atoms in the css folder?</strong></summary>
+    <p>These are global CSS styles that are meant to exist outside of the components. Specifically, they will be applied to the Sitecore or any other repo that the style sheet is imported to.</p>
+</details>

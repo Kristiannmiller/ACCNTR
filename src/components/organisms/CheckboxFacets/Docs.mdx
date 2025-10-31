@@ -1,0 +1,47 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as CheckboxFacetsStories from './CheckboxFacets.stories';
+
+<Meta title="Design System/organisms/CheckboxFacets/Docs" of={ CheckboxFacetsStories} />
+
+# CheckboxFacets
+
+Story Link: [460](https://github.com/ahc-digital/migration-planning-tracking/issues/460)
+
+Description: The CheckboxFacets component is used for the ElasticSearch UI to allow users to select one or more options from a list of options.
+
+---
+# Acceptance Criteria
+
+- Accepts a list of values and creates a checkbox for each
+- Expand/Collapse functionality is applied on mobile
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<CheckboxFacets {...{
+    checkboxFacetItems: [
+        {
+            label: 'Test',
+            count: 3
+        },
+        {
+            label: 'Research news',
+            count: 2
+        },
+        {
+            label: 'News article',
+            count: 42
+        },
+        {
+            label: 'Event',
+            count: 19
+        }
+    ],
+    heading: 'Filter by type'
+}}>
+```

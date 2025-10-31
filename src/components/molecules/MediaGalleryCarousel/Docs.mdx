@@ -1,0 +1,55 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as MediaGalleryCarouselStories from './MediaGalleryCarousel.stories';
+
+<Meta title="Design System/molecules/MediaGalleryCarousel/Docs" of={ MediaGalleryCarouselStories} />
+
+# MediaGalleryCarousel
+
+Story Link: [#209]('https://github.com/ahc-digital/migration-planning-tracking/issues/209')
+
+Description: The MediaGalleryCarousel component is used in the MediaGallery component to display a mix of image and video media items together using a carousel setup.
+
+---
+<Stories />
+
+## Props
+<Controls />
+
+## Example Usage(s)
+```tsx
+<MediaGalleryCarousel
+  {...{
+    slides: [
+        {
+            image: (
+                <JSSImage
+                    field={{
+                        src: '/images/hero-banners/advocatehealth-merger-kids.webp'
+                    }}
+                />
+            ),
+            headline: <JSSText field={{
+                value: 'Title of image. Lorem ipsum dolor sit amet.'
+            }} />,
+            supportCopy: <JSSRichText field={{
+                value: '<p>Image description and <a href="#">link</a> goes here.</p>'
+            }} />
+        },
+        {
+            image: (
+                <JSSImage
+                    field={{
+                        src: 'https://www.advocatechildrenshospital.com/_widgets/banners/easset_upload_file71272_456927_e.webp'
+                    }}
+                />
+            )
+        },
+        {
+            videoId: 'kjmrWe8rsAY'
+        }
+    ],
+    shouldHideNavigation: false,
+    shouldHideThumbnails: false
+}}
+/>
+```

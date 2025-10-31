@@ -1,0 +1,24 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .column-cta {
+        &.column-cta-center {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p.headline {
+            @include typography-bold;
+        }
+
+        .body-copy {
+            padding-block-start: var(--semantic-measures-spacing-016);
+        }
+
+        .anchor-wrapper {
+            margin-block-start: var(--semantic-measures-spacing-032);
+            display: flex;
+        }
+    }
+}

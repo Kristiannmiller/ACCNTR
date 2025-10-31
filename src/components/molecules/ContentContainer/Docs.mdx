@@ -1,0 +1,38 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ContentContainerStories from './ContentContainer.stories';
+
+<Meta title="Design System/molecules/ContentContainer/Docs" of={ ContentContainerStories} />
+
+# ContentContainer
+
+Story Link: [#706](https://github.com/ahc-digital/sitecore-solution/issues/706)
+
+Description: The ContentContainer component is designed to wrap components that need to display a standard headline, support copy (top and bottom) and/or cta. 
+It handles the logic for spacing and aligning the content.
+It also implements the Container atom, so all the props from Container are available, like `backgroundColor` and `variant` for setting the max-width.
+
+---
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<ContentContainer
+  contentAlignment="left"
+  headline={<JSSText field={{ value: 'Content Container Component' }} />}
+  supportCopy={<JSSRichText field={{ value: 'lorem ipsum' }} />}
+  supportCopyBottom={<JSSRichText field={{ value: 'lorem ipsum' }} />}
+  cta={<JSSLink field={{ value: { href: 'https://www.google.com', text: 'Learn More' } }} />}
+  ctaAlignment="left"
+  spacing="72-48">
+  <ColumnGrid columns="1" columnsTablet="3">
+    <Card>Card 1</Card>
+    <Card>Card 2</Card>
+    <Card>Card 3</Card>
+  </ColumnGrid>
+</ContentContainer>
+```

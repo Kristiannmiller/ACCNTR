@@ -1,0 +1,36 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as AnchorStories from './Anchor.stories';
+
+<Meta
+    title='Design System/atoms/Anchor/Docs'
+    of={AnchorStories}
+/>
+
+# Anchor
+
+Story Link: [#27](https://github.com/ahc-digital/migration-planning-tracking/issues/27)
+
+Description: The anchor atom component is for page links and will be used across a variety of molecules and organisms.
+
+---
+
+# Acceptance Criteria
+
+-   Anchor components should use the same CVA variants as [[Button]].
+-   Anchor components should use the same CVA variants as [[Text]].
+-   All sizes and variants that apply to buttons also apply to anchors.
+-   The default variant is undefined.
+-   When the variant is undefined, the Anchor renders as a link.
+-   medium is the default size.
+-   When the variant is undefined, the size prop does not apply.
+-   When asChild is true, use a Radix slot to merge props and styles with the child element.
+-   Two themes Consumer and Corporate are toggled based on a parent data attribute data-theme="Consumer" or data-theme="Corporate"
+-   Under the Corporate theme, to render the link as a button, the variant must be populated. However, it doesn't matter which variant is selected since there is only one Corporate button style.
+-   All states and styles must be viewable in Storybook.
+-   For example, add a control for disabled.
+
+<Stories />
+
+## Props
+
+<Controls />

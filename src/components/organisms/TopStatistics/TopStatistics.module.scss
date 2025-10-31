@@ -1,0 +1,55 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .grid {
+        --column-width: 40ch;
+        --column-count: 1;
+        --column-gap: var(--semantic-measures-spacing-080);
+        display: grid;
+        grid-template-columns: repeat(
+            var(--column-count),
+            minmax(0, var(--column-width))
+        );
+        column-gap: var(--column-gap);
+        row-gap: var(--semantic-measures-spacing-024);
+        padding-inline: var(--semantic-measures-spacing-008);
+        margin-inline: auto;
+        max-inline-size: calc(
+            var(--column-width) * var(--column-count) +
+                (var(--column-gap) * (var(--column-count) - 1))
+        );
+
+        &.grid-4 {
+            --column-gap: var(--semantic-measures-spacing-040);
+        }
+    }
+
+    @include container-tablet-lg {
+        .grid {
+            // Keep .grid-3 at 1 column since it's likely to have an orphaned item.
+            &.grid-2,
+            &.grid-4 {
+                --column-count: 2;
+            }
+        }
+    }
+
+    @include container-desktop {
+        .grid {
+            padding-inline: var(--semantic-measures-spacing-000);
+            row-gap: var(--semantic-measures-spacing-048);
+
+            &.grid-2 {
+                --column-count: 2;
+            }
+
+            &.grid-3 {
+                --column-count: 3;
+            }
+
+            &.grid-4 {
+                --column-count: 4;
+            }
+        }
+    }
+}

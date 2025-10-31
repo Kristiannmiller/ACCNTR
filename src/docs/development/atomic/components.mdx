@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title='Foundation/Developers Guide/Atomic Design Module/Components' />
+
+# Components Overview
+
+## Introduction
+This document provides an overview of the components used in our React Component Library.
+The components are organized following the Atomic Design methodology, which helps in creating a scalable and
+maintainable design system.
+
+## Atomic Design Methodology
+The components are categorized into three main types:
+
+- **Atoms**: The most basic building blocks, such as buttons, inputs, and labels.
+- **Molecules**: Combinations of atoms that work together as a unit, like a form group with a label and input.
+- **Organisms**: Complex components that can be added directly to a page, such as headers, footers, and forms.
+
+## Key Folders
+- **components/atoms**: Contains the atomic components.
+- **components/molecules**: Contains the molecular components.
+- **components/organisms**: Contains the organism components.
+
+### Additional Folders
+- **components/pages**: Contains the page components. These are *not* exported from the library and
+are used for documentation purposes only. This provides a way to see how the components are used together.
+- **components/svgs**: Contains the SVG components.
+- **components/templates**: Contains the template components. These are common layouts that can be used to build pages.
+
+## Example Component
+Here is an example of how to use a component from the library:
+
+```tsx
+import { Button } from '@ahc-digital/component-library';
+
+const Example = () => {
+  return(
+      <Button onClick={() => alert('Button clicked!')}>
+        Click Me
+    </Button>
+  );
+};
+```
+
+## FAQs
+<details>
+    <summary><strong>How do I add a new component?</strong></summary>
+    <p>Use the Plop templates to generate a new component. Run <code>npm run generate</code> and follow the prompts.</p>
+</details>
+<br />
+<details>
+    <summary><strong>What best practices do the components follow?</strong></summary>
+    <ul>
+        <li>Imports should be organized in the following order: React, third-party libraries, local imports. Each are separated by comments.</li>
+        <li>Component props should not be destructured inline. Instead, destructure them in the function signature.</li>
+        <li>Components should be exported as named exports. Avoid default exports for naming consistency.</li>
+        <li>Prefer explicit return statements instead of implicit returns.</li>
+    </ul>
+</details>
+
+
+

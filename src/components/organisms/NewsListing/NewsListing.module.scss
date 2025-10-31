@@ -1,0 +1,13 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .news-listing {
+        margin-block: var(--semantic-measures-spacing-024);
+
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-040);
+        }
+    }
+}

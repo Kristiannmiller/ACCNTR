@@ -1,0 +1,57 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .bg-transparent {
+        background-color: transparent;
+    }
+
+    .bg-white {
+        background-color: var(--base-color-neutral-white);
+    }
+
+    .bg-white-smoke {
+        background-color: var(--base-color-secondary-white-smoke);
+    }
+
+    .bg-wellness-blue {
+        background-color: var(--base-color-primary-wellness-blue);
+    }
+
+    .bg-denim-blue {
+        background-color: var(--base-color-secondary-denim-blue);
+    }
+
+    .bg-ach-orange {
+        background-color: var(--base-color-childrens-orange);
+    }
+
+    .bg-ccha-purple {
+        background-color: var(--base-color-childrens-alliance);
+    }
+
+    .bg-utility-info {
+        background-color: var(--base-color-utility-info);
+    }
+
+    .bg-utility-warning {
+        background-color: var(--base-color-utility-warning);
+    }
+
+    .bg-utility-negative {
+        background-color: var(--base-color-utility-error);
+    }
+
+    .bg-utility-positive {
+        background-color: var(--base-color-utility-success);
+    }
+
+    .bg-utility-utility {
+        background-color: var(--base-color-utility-utility);
+    }
+
+    @include theme-corporate {
+        .bg-denim-blue {
+            background-color: var(--base-color-corporate-corporate-denim);
+        }
+    }
+}

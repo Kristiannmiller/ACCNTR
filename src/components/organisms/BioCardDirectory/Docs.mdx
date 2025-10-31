@@ -1,0 +1,82 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as BioCardDirectoryStories from './BioCardDirectory.stories';
+
+<Meta title="Design System/organisms/BioCardDirectory/Docs" of={ BioCardDirectoryStories} />
+
+# BioCardDirectory
+
+Story Link: [#105](https://github.com/ahc-digital/migration-planning-tracking/issues/105)
+
+Description: The bio cards displays a list of biography data pulled from biography page items. The cards come in two variants: directory and grid. The directory displays detailed information including Name, Title, Specialty, Phone, Fax, Email, Locations and Additional Information.
+
+---
+
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+
+-   Template name and structure matches specification in "Sitecore Details" section
+-   Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Each bio card is displayed in a single column with the listed information.
+
+If a particularly field is not filled out for a bio card, nothing should be displayed on that list entry. (No label or field value)
+
+<Stories />
+
+## Props
+
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<BioCardDirectory
+  additionalInformationLabel={<Text field={{value: 'Additional Information'}} />}
+  bios={[
+    {
+      additional: <RichText field={{value: 'Dr. Bidwell grew up in Baraboo, WI and graduated from the University of Wisconsin Medical School in <span>1999</span>. He joined the faculty after graduating from the Aurora Family Medicine Residency Program in 2002. '}} />,
+      email: <Text field={{value: 'SusanNordstromLopez@aah.org'}} />,
+      fax: <Text field={{value: '555-555-1111'}} />,
+      image: <Image field={{value: {alt: 'Susan Nordstrom Lopez', src: '/images/bios/nordstrom.jpg'}}} />,
+      locations: <RichText field={{value: '<p>Aurora Family Practice Center 1947 W Cambridge Ave Ste 250 Milwaukee, WI 53215</p>'}} />,
+      name: <Link field={{value: {anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Susan Nordstrom Lopez', title: 'custom-title', url: '/test-link'}}} />,
+      phone: <Text field={{value: '555-555-1111'}} />,
+      specialty: <Text field={{value: 'Lorem Ipsum'}} />,
+      title: <Text field={{value: 'President'}} />
+    },
+    {
+      additional: <RichText field={{value: 'Dr. Bidwell grew up in Baraboo, WI and graduated from the University of Wisconsin Medical School in <span>1999</span>. He joined the faculty after graduating from the Aurora Family Medicine Residency Program in 2002. '}} />,
+      email: <Text field={{value: 'CliftonClarke@aah.org'}} />,
+      fax: <Text field={{value: '555-555-2222'}} />,
+      image: <Image field={{value: {alt: 'Clifton Clarke', src: '/images/bios/clifton.jpg'}}} />,
+      locations: <RichText field={{value: '<p>Aurora Family Practice Center 1947 W Cambridge Ave Ste 250 Milwaukee, WI 53215</p>'}} />,
+      name: <Link field={{value: {anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Clifton Clarke', title: 'custom-title', url: '/test-link'}}} />,
+      phone: <Text field={{value: '555-555-2222'}} />,
+      specialty: <Text field={{value: 'Lorem Ipsum'}} />,
+      title: <Text field={{value: 'Chief Medical Officer'}} />
+    },
+    {
+      additional: <RichText field={{value: 'Dr. Bidwell grew up in Baraboo, WI and graduated from the University of Wisconsin Medical School in <span>1999</span>. He joined the faculty after graduating from the Aurora Family Medicine Residency Program in 2002. '}} />,
+      email: <Text field={{value: 'RachelFlores@aah.org'}} />,
+      fax: <Text field={{value: '555-555-3333'}} />,
+      image: <Image field={{value: {alt: 'Rachel Flores', src: '/images/bios/rachelflores.jpg'}}} />,
+      locations: <RichText field={{value: '<p>Aurora Family Practice Center 1947 W Cambridge Ave Ste 250 Milwaukee, WI 53215</p>'}} />,
+      name: <Link field={{value: {anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Rachel Flores', title: 'custom-title', url: '/test-link'}}} />,
+      phone: <Text field={{value: '555-555-3333'}} />,
+      specialty: <Text field={{value: 'Lorem Ipsum'}} />,
+      title: <Text field={{value: 'Vice President, Business Development'}} />
+    }
+  ]}
+  emailLabel={<Text field={{value: 'Email'}} />}
+  faxLabel={<Text field={{value: 'Fax'}} />}
+  locationsLabel={<Text field={{value: 'Locations'}} />}
+  phoneLabel={<Text field={{value: 'Phone'}} />}
+  specialtyLabel={<Text field={{value: 'Specialty'}} />}
+  titleLabel={<Text field={{value: 'Title'}} />}
+/>
+```

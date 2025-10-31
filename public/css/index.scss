@@ -1,0 +1,21 @@
+@use 'partials/layers';
+@use 'partials/normalize';
+@use 'partials/themes/consumer-theme';
+@use 'partials/themes/corporate-theme';
+@use 'partials/themes/childrens-theme';
+@use 'partials/atoms/buttons';
+@use 'partials/atoms/rich-text';
+@use 'partials/atoms/forms';
+@use 'partials/utils/animation-keyframes';
+@use 'partials/fontawesome/fontawesome-picked';
+@use 'partials/utils/swiper-overrides';
+
+body {
+    font-family: var(--font-family-default, 'Montserrat'), sans-serif;
+    color: var(--semantic-color-content-default-primary, rgba(60, 60, 60, 1));
+
+    [id],
+    [name] {
+        scroll-margin-top: var(--header-height, 7rem);
+    }
+}

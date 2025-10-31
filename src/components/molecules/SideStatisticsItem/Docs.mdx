@@ -1,0 +1,51 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SideStatisticsItemStories from './SideStatisticsItem.stories';
+
+<Meta title="Design System/molecules/SideStatisticsItem/Docs" of={ SideStatisticsItemStories} />
+
+# SideStatisticsItem
+
+Story Link: [#206]('https://github.com/ahc-digital/migration-planning-tracking/issues/206')
+
+The `SideStatisticsItem` is a child element of the `SideStatistics` organism. See organism story for more.
+
+**Note:** The styling of this component is dependent on the parent `SideStatistics` organism. It will not look exactly as it should when viewed in isolation.
+
+---
+# Acceptance Criteria
+
+Side Statistics Item Rendering
+
+Rendering Name: C51 - Side Statistics Item
+
+Template Name: C51 - Side Statistics Item
+
+**Fields**
+  - Statistic - Number [Required]
+  - Prefix - Single Line Text [Optional]
+  - Suffix - Single Line Text [Optional]
+  - Support copy - Rich Text [Required]
+
+Should use Content Author rich text profile
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<SideStatisticsItem {...{
+    statistic: <JSSText field={{ value: '360' }} />,
+    prefix: <JSSText field={{ value: '$' }} />,
+    suffix: <JSSText field={{ value: 'M' }} />,
+    supportCopy: (
+        <JSSRichText
+            field={{
+                value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>'
+            }}
+        />
+    )
+}}/>
+```

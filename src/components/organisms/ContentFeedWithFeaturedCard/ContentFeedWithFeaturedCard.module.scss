@@ -1,0 +1,60 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .content-feed-with-featured-card-container {
+        --outer-spacing: var(--semantic-measures-spacing-040);
+
+        &[data-background-color='true'] {
+            padding-block: var(--outer-spacing);
+        }
+
+        &[data-background-color='false'] {
+            margin-block: var(--outer-spacing);
+        }
+    }
+
+    p.headline {
+        @include typography-bold;
+    }
+
+    .support-copy {
+        margin-top: var(--semantic-measures-spacing-016);
+    }
+
+    .headline + .content-feed-grid,
+    .support-copy + .content-feed-grid,
+    .content-feed-grid + .cta {
+        margin-top: var(--semantic-measures-spacing-040);
+    }
+
+    .support-copy-bottom + .cta {
+        margin-top: var(--semantic-measures-spacing-024);
+    }
+
+    .cta {
+        display: block;
+        width: fit-content;
+    }
+
+    @include container-desktop {
+        .text-center {
+            text-align: center;
+        }
+
+        .headline + .content-feed-grid,
+        .support-copy + .content-feed-grid,
+        .content-feed-grid + .cta {
+            margin-top: var(--semantic-measures-spacing-048);
+        }
+
+        .cta-center {
+            margin-inline: auto;
+        }
+    }
+
+    @include media-desktop {
+        .content-feed-with-featured-card-container {
+            --outer-spacing: var(--semantic-measures-spacing-072);
+        }
+    }
+}

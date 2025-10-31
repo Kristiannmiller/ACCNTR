@@ -1,0 +1,26 @@
+import { StoryObj } from '@storybook/react';
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+// Components
+import { {{pascalCase componentName}} } from '@/components';
+
+// Utils
+import { classNameRegex, getTextFieldValue, getImageFieldValue, getLinkFieldValue } from '@/utils';
+
+type Story = StoryObj<typeof {{pascalCase componentName}}>;
+
+const test{{pascalCase componentName}}Default: Story['play'] = async ({
+    canvasElement,
+    args
+}) => {
+    const { getByTestId, getAllByTestId } = within(canvasElement);
+    const content = getByTestId('{{kebabCase componentName}}');
+    const classNames = content.getAttribute('class')!;
+
+    await expect(classNames).toMatch(classNameRegex(classNames));
+};
+
+export const test{{pascalCase componentName}}: Record<'default', Story['play']> = {
+  default: test{{pascalCase componentName}}Default,
+};

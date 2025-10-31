@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+// Note:
+// SASS does not currently recognize @container as a valid directive.
+// So, $screen-* variable values must be hardcoded.
+// Make sure to update these values if the $screen-* variables change in _variables.scss.
+
+// default/ min-width
+@mixin container-tablet {
+    @container (min-width: 37.5rem) {
+        @content;
+    }
+}
+
+@mixin container-tablet-lg {
+    @container (min-width: 53.125em) {
+        @content;
+    }
+}
+
+@mixin container-desktop {
+    @container (min-width: 75rem) {
+        @content;
+    }
+}
+
+@mixin container-desktop-lg {
+    @container (min-width: 96rem) {
+        @content;
+    }
+}
+
+// max-width
+@mixin container-mobile-max {
+    @container (max-width: 37.4375rem) {
+        @content;
+    }
+}
+
+@mixin container-tablet-max {
+    @container (max-width: 53.0625rem) {
+        @content;
+    }
+}
+
+@mixin container-tablet-lg-max {
+    @container (max-width: 74.9375rem) {
+        @content;
+    }
+}
+
+@mixin container-desktop-max {
+    @container (max-width: 95.9375rem) {
+        @content;
+    }
+}
+
+// only min-width and max-width
+@mixin container-tablet-only {
+    @container (min-width: 37.5rem) and (max-width: 53.0625rem) {
+        @content;
+    }
+}
+
+@mixin container-tablet-lg-only {
+    @container (min-width: 53.125em) and (max-width: 74.9375rem) {
+        @content;
+    }
+}
+
+@mixin container-desktop-only {
+    @container (min-width: 75rem) and (max-width: 95.9375rem) {
+        @content;
+    }
+}

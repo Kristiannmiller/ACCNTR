@@ -1,0 +1,116 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ContentFeedWithFeaturedCardStories from './ContentFeedWithFeaturedCard.stories';
+
+<Meta title="Design System/organisms/ContentFeedWithFeaturedCard/Docs" of={ContentFeedWithFeaturedCardStories} />
+
+# ContentFeedWithFeaturedCard
+
+Story Link: [#321](https://github.com/ahc-digital/migration-planning-tracking/issues/321)
+
+Description: The ContentFeedWithFeaturedCard component displays three cards, with the first card being larger and more prominent than the other two. Each card displays an image, date, and title from the blog post. The featured card also displays an excerpt. The component automatically pulls in the three latest articles from within the current site.
+
+---
+# Acceptance Criteria
+
+Rendering Name: C23 - Content feed with featured card
+
+Template Name: C23 - Content feed with featured card
+
+Fields:
+
+Heading - Single Line Text
+Support Copy - Rich Text
+CTA - General Link
+Article Type
+- Blog [Default]
+- News Article
+
+Base Rendering Parameters: _TranslationOptions, _AnchorLinkTarget
+
+Rendering Parameters:
+
+Headline tag - Droplist
+- H2
+- H3
+- Paragraph Bold [Default]
+Content Alignment - Droplist [Desktop only, mobile is always aligned left]
+- Left
+- Center [Default]
+Cta Alignment - Droplist
+- Left
+- Center [Default]
+Background Color
+- White Smoke [Default]
+- White
+
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+The component should automatically pull in the 3 latest articles from within the current site and create cards for them. The first article (the most recent) gets the larger, featured card treatment. All cards will show the image, date, and title from the blog post and the featured card will also show an excerpt.
+
+If there are no results available to display, the entire component should be hidden.
+
+The entire card is clickable and links to the article used to build it.
+
+For non-featured cards, images are always positioned left with content to the right. For the featured card, the image is on top and the content is below.
+
+Content authors can specify the content alignment for the headline and support copy of of the wrapper container (not each card). This alignment only applies on desktop, on mobile the content should always be left aligned.
+
+The CTA below the list is just a general link. The intent is for this to link to a page with a blog listing component on it to view all articles, but there is no special logic built into the CTA itself.
+
+The cards have no hover state on the cards.
+
+The images should be anchored to the top center on the cards.
+
+<Stories />
+
+## Props
+<Controls />
+
+## Example Usage(s)
+```tsx
+const card: ContentFeedCardProps = {
+    date: 'September 22, 2024',
+    image: <JSSImage field={{ value: mockImages[1] }} />,
+    link: (
+        <JSSLink
+            field={{
+                value: {
+                    ...mockSitecoreLink.value,
+                    text: 'News Headline Goes here and can wrap'
+                }
+            }}
+        />
+    ),
+    excerpt: <JSSRichText field={mockSitecoreRichTextSmall} />
+};
+
+const mockContentFeedWithFeaturedCard: ContentFeedWithFeaturedCardProps =
+    {
+        backgroundColor: 'whiteSmoke',
+        contentAlignment: 'center',
+        cards: [card, card, card],
+        cta: <JSSLink field={mockSitecoreLink} />,
+        ctaAlignment: 'center',
+        featuredCard: {
+            ...card,
+            excerpt: <JSSRichText field={mockSitecoreRichTextSmall} />
+        },
+        headline: (
+            <JSSText field={{ value: 'Content Feed with Featured Card' }} />
+        ),
+        headlineTag: 'p',
+        supportCopy: <JSSRichText field={mockSitecoreRichTextSmall} />,
+    };
+
+<ContentFeedWithFeaturedCard {...mockContentFeedWithFeaturedCard} />
+```

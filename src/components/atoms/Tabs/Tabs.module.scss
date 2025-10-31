@@ -1,0 +1,95 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .has-shadow {
+        box-shadow: $elevation-4;
+        padding-inline: var(--semantic-measures-spacing-040);
+        padding-top: var(--semantic-measures-spacing-016);
+        padding-bottom: var(--semantic-measures-spacing-048);
+    }
+
+    .tabs-base {
+        .tab-trigger {
+            background: none;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-bottom: var(--semantic-measures-spacing-004) solid
+                var(--semantic-color-border-default-tertiary);
+            padding-inline: var(--semantic-measures-spacing-000);
+            padding-block: var(--semantic-measures-spacing-016);
+            color: var(--semantic-color-content-default-primary);
+
+            &:hover {
+                color: var(--semantic-color-border-default-brand-secondary);
+            }
+        }
+
+        .tab-trigger:where([data-state='active']) {
+            border-bottom: var(--semantic-measures-spacing-004) solid
+                var(--semantic-color-border-default-brand-secondary);
+            color: var(--semantic-color-border-default-brand-secondary);
+        }
+
+        .tab-content {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .tab-list {
+        position: relative;
+        display: flex;
+    }
+
+    .small-text {
+        .tab-trigger {
+            @include small-p;
+        }
+
+        .tab-content {
+            top: var(--semantic-measures-spacing-040);
+        }
+    }
+
+    .large-text {
+        .tab-trigger {
+            @include small-h4;
+        }
+
+        .tab-content {
+            top: var(--semantic-measures-spacing-048);
+        }
+    }
+
+    @include theme-consumer-childrens {
+        .tabs-base {
+            &.large-text,
+            &.small-text {
+                .tab-trigger {
+                    font-weight: initial;
+
+                    &:where([data-state='active']) {
+                        @include typography-bold;
+                    }
+                }
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .tabs-base {
+            &.large-text,
+            &.small-text {
+                .tab-trigger {
+                    font-weight: initial;
+
+                    &:where([data-state='active']) {
+                        @include typography-bold;
+                    }
+                }
+            }
+        }
+    }
+}

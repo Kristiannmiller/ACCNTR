@@ -1,0 +1,82 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .bio-card-directory {
+        display: flex;
+        flex-direction: column;
+        gap: var(--semantic-measures-spacing-048);
+
+        .bio-card {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: var(--semantic-measures-spacing-024);
+
+            a {
+                @include anchor;
+            }
+        }
+    }
+
+    .bio-card-image {
+        width: 50%;
+        max-height: 19.25rem;
+
+        img {
+            max-height: 19.25rem;
+        }
+    }
+
+    .bio-card-details {
+        .name {
+            display: block;
+            width: fit-content;
+            @include typography-bold;
+            color: var(--semantic-color-content-default-primary);
+            margin-bottom: var(--semantic-measures-spacing-016);
+        }
+
+        dl {
+            margin: var(--semantic-measures-spacing-000);
+        }
+
+        dt {
+            @include typography-bold;
+            color: var(--semantic-color-content-default-primary);
+            display: inline-block;
+            margin-right: var(--semantic-measures-spacing-008);
+        }
+
+        dd {
+            display: inline;
+            margin: var(--semantic-measures-spacing-000);
+        }
+
+        dd::after {
+            display: block;
+            content: '';
+            margin-top: var(--semantic-measures-spacing-016);
+        }
+
+        dd:last-child::after {
+            display: none;
+        }
+
+        .text-value {
+            color: var(--semantic-color-content-default-primary);
+        }
+    }
+
+    @include media-tablet-lg {
+        .bio-card-directory {
+            .bio-card {
+                flex-direction: row;
+            }
+        }
+
+        .bio-card-image {
+            flex: 0 0 13.75rem;
+            max-width: 13.75rem;
+        }
+    }
+}

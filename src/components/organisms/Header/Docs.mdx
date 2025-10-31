@@ -1,0 +1,34 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as HeaderStories from './Header.stories';
+
+<Meta title="Design System/organisms/Header/Docs" of={ HeaderStories} />
+
+# Header
+
+Story Link (GlobalNavigation): [#28](https://github.com/ahc-digital/component-library/issues/28)
+
+Story Link (UtilityNavigation): [#20]('https://github.com/ahc-digital/migration-planning-tracking/issues/20')
+
+The Header organism is an arrangement of the GlobalNavigation and UtilityNavigation molecules. 
+It is used to provide a consistent header across all pages of the site.
+This component acts as a manager for the two; and controls things like the 'stickiness' of the header, and the visibility of the UtilityNavigation.
+
+### Order of precedence for mobile "Featured Utility Link"
+1. **Featured Utility Link**: If the `featuredUtilityCtaNumber` is set, it will be displayed in the main nav on mobile.
+2. **Call Link**: If the `featuredUtilityCtaNumber` is not present, and the `callLink` is set, it will be displayed in the main nav on mobile. 
+3. **Search Button**: If neither of the above are set, the search button will be displayed in the main nav on mobile.
+4. **None**. If none of the above are set, only the mobile menu button will be displayed in the main nav on mobile.
+
+---
+# Acceptance Criteria
+See AC for GlobalNavigation and UtilityNavigation.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+
+See the "Show code" button at the bottom of each example above.

@@ -1,0 +1,42 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .bordered-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--semantic-measures-spacing-032);
+        padding: var(--semantic-measures-spacing-040)
+            var(--semantic-measures-spacing-024)
+            var(--semantic-measures-spacing-048);
+        justify-content: space-between;
+
+        svg {
+            height: var(--semantic-measures-sizing-096);
+            width: var(--semantic-measures-sizing-096);
+        }
+
+        .text-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-016);
+            width: 100%;
+            text-align: center;
+
+            p.headline {
+                @include typography-bold;
+            }
+        }
+
+        .cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-016);
+            text-align: center;
+            align-items: center;
+            inline-size: 100%;
+            box-sizing: border-box;
+        }
+    }
+}

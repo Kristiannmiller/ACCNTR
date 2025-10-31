@@ -1,0 +1,15 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    @include media-tablet-lg-max {
+        .multi-column-grid {
+            row-gap: var(--semantic-measures-spacing-024);
+        }
+    }
+
+    @include media-desktop {
+        .multi-column-grid > div {
+            margin-block-start: initial;
+        }
+    }
+}

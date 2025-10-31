@@ -1,0 +1,31 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .headline {
+        margin-bottom: var(--semantic-measures-spacing-024);
+    }
+
+    p.headline {
+        @include typography-bold;
+    }
+
+    .bio-card-grid {
+        --grid-gap: var(--semantic-measures-spacing-020);
+        row-gap: var(--semantic-measures-spacing-048);
+    }
+
+    .bio-card-grid-item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--semantic-measures-spacing-020);
+        text-align: left;
+
+        h3.bio-name {
+            @include anchor;
+        }
+
+        > p {
+            color: var(--semantic-color-content-default-secondary);
+        }
+    }
+}

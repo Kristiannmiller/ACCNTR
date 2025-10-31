@@ -1,0 +1,35 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ContentFeedForHealthNewsCardStories from './ContentFeedForHealthNewsCard.stories';
+
+<Meta title="Design System/molecules/ContentFeedForHealthNewsCard/Docs" of={ ContentFeedForHealthNewsCardStories} />
+
+# ContentFeedForHealthNewsCard
+
+Story Link: [#360](https://github.com/ahc-digital/migration-planning-tracking/issues/360)
+
+Description: The ContentFeedForHealthNewsCard *molecule* component is used to display an image above a block of text (including a headline and supporting copy).
+
+---
+# Acceptance Criteria
+Card contains: a title, support copy (max length of 122 characters, after this it's truncated with "..."), and an image. All content in the card is automatically left aligned. The entire card is clickable.
+
+Images may be hidden for all cards on mobile.
+
+Support copy may be hidden for all cards on all viewport sizes.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<ContentFeedForHealthNewsCard
+  excerpt="While egg prices soar, consider eating or baking with these foods instead.
+"
+  headline="Cutting back on buying expensive eggs? Try these alternatives."
+  imageSrc="https://ahchealthenewscdn.azureedge.net/wp-content/uploads/2023/01/AdobeStock_77428784-260x150.jpeg"
+  url="https://www.ahchealthenews.com/2023/01/20/egg-alternatives/"
+/>
+```

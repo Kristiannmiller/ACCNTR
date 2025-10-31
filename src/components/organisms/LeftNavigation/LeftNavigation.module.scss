@@ -1,0 +1,65 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .left-navigation-desktop {
+        display: none;
+
+        @include media-desktop {
+            display: block;
+        }
+    }
+
+    .left-navigation-mobile {
+        display: block;
+
+        @include media-desktop {
+            display: none;
+        }
+    }
+
+    .left-navigation-title {
+        @include typography-bold;
+    }
+
+    .left-navigation-button {
+        display: flex;
+        gap: var(--semantic-measures-spacing-020);
+        width: 100%;
+        cursor: pointer;
+        transition: color 0.3s;
+        border: none;
+        background: none;
+        align-items: center;
+        height: 2rem;
+        padding-top: calc(var(--semantic-measures-spacing-008) * 2);
+        padding-left: 0;
+        text-decoration: underline;
+        @include typography-bold;
+        margin-inline-start: var(--semantic-measures-spacing-016);
+        margin: 0;
+    }
+
+    @include theme-corporate {
+        .left-navigation-button {
+            font-size: 1.25rem;
+            color: var(--semantic-color-content-default-brand-primary);
+        }
+
+        [data-isActive='true'] {
+            color: var(--semantic-color-content-default-brand-primary);
+            @include typography-bold;
+        }
+    }
+
+    @include theme-consumer-childrens {
+        .left-navigation-button {
+            font-size: var(--semantic-measures-spacing-016);
+            color: var(--semantic-color-border-default-brand-secondary);
+        }
+
+        [data-isActive='true'] {
+            color: var(--semantic-color-border-default-brand-secondary);
+            @include typography-bold;
+        }
+    }
+}

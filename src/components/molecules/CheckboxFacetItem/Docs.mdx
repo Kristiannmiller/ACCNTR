@@ -1,0 +1,29 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as CheckboxFacetItemStories from './CheckboxFacetItem.stories';
+
+<Meta title="Design System/molecules/CheckboxFacetItem/Docs" of={ CheckboxFacetItemStories} />
+
+# CheckboxFacetItem
+
+Story Link: [460](https://github.com/ahc-digital/migration-planning-tracking/issues/460)
+
+Description: The CheckboxFacetItem component is used for rendering a single checkbox facet item in the ElasticSearch UI.
+It displays a label and a count of the number of items that match the facet.
+
+---
+# Acceptance Criteria
+- Accepts a label and count
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<CheckboxFacetItem {...{
+    label: 'Webpage',
+    count: 567
+}} />
+```

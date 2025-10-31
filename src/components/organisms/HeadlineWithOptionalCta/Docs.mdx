@@ -1,0 +1,27 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as HeadlineWithOptionalCtaStories from './HeadlineWithOptionalCta.stories';
+
+<Meta title="Design System/organisms/HeadlineWithOptionalCta/Docs" of={HeadlineWithOptionalCtaStories} />
+
+# HeadlineWithOptionalCta
+
+Story Link: [#75]('https://github.com/ahc-digital/migration-planning-tracking/issues/75')
+
+Description: The headline CTA is a simple component consisting of headline text plus a CTA button to be used primarily on Service pages.
+The headline will vary per page but the button will often be the same across a section of the site. As a result, this rendering will consist of two separate renderings, the headline which exposes a placeholder for the button, and the button itself.
+
+---
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+
+- Template name and structure matches specification in "Sitecore Details" section
+- Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc.) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+<Stories />
+
+## Props
+<Controls />

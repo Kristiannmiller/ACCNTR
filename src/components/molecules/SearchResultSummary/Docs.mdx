@@ -1,0 +1,30 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SearchResultSummaryStories from './SearchResultSummary.stories';
+
+<Meta title="Design System/molecules/SearchResultSummary/Docs" of={ SearchResultSummaryStories} />
+
+# SearchResult
+
+Story Link: [#329](https://github.com/ahc-digital/migration-planning-tracking/issues/329)
+
+Description: Create a molecule to render the search results Showing results 10 of 50. See design for example. This needs to work with Elastic Search.
+
+---
+# Acceptance Criteria
+N/A
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<SearchResult
+    resultText = 'Results'
+    numberOfResult = '0-0'
+    totalNumberOfResult = 'of 000 for'
+    searchText = 'Lorem Ipsum'
+/>
+```

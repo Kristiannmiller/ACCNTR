@@ -1,0 +1,116 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .promo-callout {
+        display: flex;
+        flex-direction: column;
+        padding-block: var(--semantic-measures-spacing-040);
+        gap: var(--semantic-measures-spacing-024);
+
+        &.with-controls {
+            padding-bottom: calc(
+                var(--semantic-measures-spacing-072) + 2.75rem
+            );
+        }
+
+        &.content-center {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+
+            .anchor-wrapper {
+                justify-content: center;
+            }
+        }
+
+        .image-wrapper {
+            width: 100%;
+
+            &.hundred {
+                display: none;
+            }
+        }
+
+        .text-wrapper {
+            flex: 1;
+        }
+
+        .headline {
+            @include typography-bold;
+        }
+
+        .supporting-copy {
+            margin-block-start: var(--semantic-measures-spacing-016);
+        }
+
+        .anchor-wrapper {
+            margin-block-start: var(--semantic-measures-spacing-032);
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-016);
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    @include container-tablet-lg {
+        .promo-callout {
+            flex-direction: row;
+            gap: var(--semantic-measures-spacing-072);
+            padding: var(--semantic-measures-spacing-072);
+
+            &.content-left-desktop {
+                text-align: left;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+                .anchor-wrapper {
+                    justify-content: flex-start;
+                }
+            }
+
+            .image-wrapper {
+                &.thirty {
+                    width: 30%;
+                }
+
+                &.forty {
+                    width: 40%;
+                }
+
+                &.fifty {
+                    width: 50%;
+                }
+
+                &.image-side-right {
+                    order: 2;
+                }
+            }
+
+            h2.headline {
+                margin-bottom: var(--semantic-measures-spacing-032);
+            }
+
+            .anchor-wrapper {
+                margin-block-start: var(--semantic-measures-spacing-040);
+                flex-direction: row;
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .promo-callout {
+            p.headline {
+                font-weight: initial;
+            }
+
+            h2.headline {
+                font-weight: initial;
+            }
+
+            h3.headline {
+                font-weight: initial;
+            }
+        }
+    }
+}

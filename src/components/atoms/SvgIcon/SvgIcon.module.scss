@@ -1,0 +1,67 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .svg-icon-base {
+        display: inline-block;
+        fill: currentColor;
+        height: var(--semantic-measures-spacing-016);
+        width: var(--semantic-measures-spacing-016);
+        color: inherit;
+
+        &.denim-blue {
+            color: var(--base-color-secondary-denim-blue);
+        }
+
+        &.wellness-blue {
+            color: var(--base-color-primary-wellness-blue);
+        }
+
+        &.white {
+            color: var(--base-color-neutral-white);
+        }
+
+        &.childrens-orange {
+            color: var(--base-color-childrens-orange);
+        }
+
+        &.childrens-green {
+            color: var(--base-color-childrens-green);
+        }
+
+        &.childrens-blue {
+            color: var(--base-color-childrens-blue);
+        }
+
+        &.childrens-purple {
+            color: var(--base-color-childrens-purple);
+        }
+
+        &.childrens-yellow {
+            color: var(--base-color-childrens-yellow);
+        }
+
+        &.white-smoke {
+            color: var(--base-color-secondary-white-smoke);
+        }
+
+        &.utility-info {
+            color: var(--base-color-utility-info);
+        }
+
+        &.utility-warning {
+            color: var(--base-color-utility-warning);
+        }
+
+        &.utility-negative {
+            color: var(--base-color-utility-error);
+        }
+
+        &.utility-positive {
+            color: var(--base-color-utility-success);
+        }
+
+        &.utility-utility {
+            color: var(--base-color-utility-utility);
+        }
+    }
+}

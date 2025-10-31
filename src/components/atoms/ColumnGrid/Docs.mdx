@@ -1,0 +1,177 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ColumnGridStories from './ColumnGrid.stories';
+
+<Meta title="Design System/atoms/ColumnGrid/Docs" of={ ColumnGridStories} />
+
+# ColumnGrid
+
+Story Link: [#59](https://github.com/ahc-digital/component-library/issues/59)
+
+The ColumnGrid component is a layout component that allows you to create a grid of columns.
+
+- By default, the ColumnGrid will render a **4-column grid on mobile** and a **12-column grid on tablet and desktop**.
+- Optionally, you can set the number of columns to 1-4 on Mobile/Tablet or 1-6 on Desktop for each breakpoint
+using the `columns`, `columnsTablet`, and `columnsDesktop` props.
+
+## Column
+
+The `Column` component is an optional child component of the `ColumnGrid` that allows you to set the number of columns to span within the grid.
+
+- **Column is optional**. Direct children of the ColumnGrid will span 1 column by default.
+    - This allows you to use the ColumnGrid as a simple grid container without needing to wrap each child in a Column.
+- The `span` prop will apply to all breakpoints unless `spanTablet` or `spanDesktop` is set.
+
+---
+
+### Key properties of the CSS solution
+
+The CSS solution for the grid is a Flexbox layout with three key [properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties):
+
+#### 1. `--grid-column-count`
+This property is set on the parent `ColumnGrid` element and
+defines the number of columns in the grid.
+
+
+#### 2. `--grid-gap`
+This property is set on the parent `ColumnGrid` element
+and defines the [gap](https://developer.mozilla.org/en-US/docs/Web/CSS/gap) between columns.
+Optionally, it can set the gap between rows if the `rowGap` prop is set to `even`.
+
+
+#### 3. `--grid-column-span`
+This property is set on the `Column` element and
+defines the number of columns to span within the grid.
+
+#### Calculating the column width
+These properties are used to calculate the width of each column.
+The calculation emulates behavior of the [fr unit](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#the_fr_unit)
+of CSS Grid by taking into consideration the gap between columns.
+
+Here is the calc:
+```scss
+--column-width: calc(
+    (
+            (100% * var(--grid-column-span)) - var(--grid-gap) *
+                (var(--grid-column-count) - var(--grid-column-span))
+        ) / var(--grid-column-count)
+);
+inline-size: var(--column-width);
+```
+#### Example / Explanation
+Say we have a 4-column grid with a gap of 16px between columns, and a column that spans 2.
+
+Converted to values, the calculation looks like this:
+
+```scss
+--column-width: calc(
+    ((100% * 2) - (16px * (4 - 2))) / 4
+);
+```
+or
+
+```
+200% - 32px / 4
+```
+
+The `32px` is the sum of the gaps _not including_ the gap that the column spans over.
+
+In other words, if the column only spanned 1, there would be 3 gaps between columns, and so `16px * (4 - 1) = 48px` would be subtracted from the width.
+Or, if the column spanned 4, there would be no gaps between columns, and so `16px * (4 - 4) = 0px` would be subtracted from the width -
+effectively making the column `400% - (16px * (4 - 4)) / 4 = 100%`.
+
+
+#### Why not use CSS Grid?
+The one key reason Flexbox is used over CSS Grid
+is to support the ability to center leftover items in the grid, which is not possible with CSS Grid.
+This is controlled by the `centerOrphans` prop.
+
+#### How to modify the grid
+If for whatever reason, the designs change and, for example, the gap between columns needs to be increased,
+you simply need to update the `--grid-gap` property in the `.column-grid` class of the `ColumnGrid.module.scss` file.
+
+---
+
+
+## Props
+<Controls />
+
+<Stories />
+
+## Example Usage(s)
+
+### Default 4-column grid
+This example leverages the default values and behaviors of the ColumnGrid component.
+
+```tsx
+<ColumnGrid>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</ColumnGrid>
+```
+
+### 2-column grid
+
+This example creates a simple 2-column grid.
+
+Columns 3 and 4 will wrap to the next row.
+
+```tsx
+<ColumnGrid columns='2'>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</ColumnGrid>
+```
+
+### Responsive grid
+This example changes the number of columns based on the breakpoint.
+
+```tsx
+<ColumnGrid columns='2' columnsTablet='3' columnsDesktop='4'>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</ColumnGrid>
+```
+
+### Spanning columns
+This example uses the Column component to set the number of columns to span.
+
+Columns 1 and 2 will span 2/4ths of the grid.
+Column 3 will wrap to the next row and span 3/4ths of the grid.
+Column 4 will span 1/4th of the grid.
+
+```tsx
+<ColumnGrid>
+    <Column span='2'>
+        <div>1</div>
+    </Column>
+    <Column span='2'>
+        <div>2</div>
+    </Column>
+    <Column span='3'>
+        <div>3</div>
+    </Column>
+    <Column span='1'>
+        <div>4</div>
+    </Column>
+</ColumnGrid>
+```
+
+### Sitecore
+This example allows the number of columns to be set in the Sitecore Experience Editor.
+Each rendering passed to the Placeholder will be wrapped in a Column component spanning one column.
+Because `columns` is required, a fallback should be passed in case the value is not set in Sitecore.
+
+```tsx
+<ColumnGrid
+    columns={props.params.Columns ?? '1'}
+    columnsTablet={props.params.Columns}
+    columnsDesktop={props.params.Columns}>
+    <Placeholder name="card-container-*" rendering={props.rendering}>
+</ColumnGrid>
+```

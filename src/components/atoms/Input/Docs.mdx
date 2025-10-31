@@ -1,0 +1,31 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as InputStories from './Input.stories';
+
+<Meta title="Design System/atoms/Input/Docs" of={ InputStories} />
+
+# Input
+
+Description: The Input atomic component will be used across a variety of molecules and organisms.
+
+---
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Input
+  ariaRequired="true"
+  errorMessage={<RichText field={{value: 'Explainer text'}} />}
+  errorMessageId="input-error-message"
+  inputId="input-box-id"
+  label={<Text field={{value: 'Form Label'}} />}
+  placeholder="Directional Text"
+  hasError
+  setHasError={() => {}}
+  type="text"
+/>
+```

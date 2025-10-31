@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title='Foundation/Developers Guide/Deployment and External Usage' />
+
+# Deployment and External Usage
+The Component Library is designed to be deployed as a standalone application or integrated into other projects.
+It is meant to be published to npm and consumed by other React projects as a dependency in a tech-agnostic way.
+External usage of the Component Library is encouraged and should be documented in the README file of the project.
+
+## Key Components
+There are a few key components that are essential to the Component Library and should be used in any project that consumes the library.
+
+### ThemeProvider
+The `ThemeProvider` is a component that wraps the application and provides the theme to all styled components the library.
+It must wrap the `<body>` tag at the root of the application and a data-theme argument must be passed. The example
+below demonstrates how to use the `ThemeProvider` in an application.
+
+```tsx
+import { DEFAULT_THEME, ThemeProvider } from '@ahc-digital/component-library';
+
+const App = () => {
+  const siteTheme = DEFAULT_THEME;
+
+  return (
+    <ThemeProvider theme={siteTheme}>
+      <body>
+        <Main />
+      </body>
+    </ThemeProvider>
+  );
+}
+```
+
+### Importing Components
+The components in this library are exported as named exports along with relevant type definitions. When importing a component,
+it is important to import the component and the type definition to preserve type-safety in the application.
+
+*Note: The majority of the components that are exported from this library are in the `organisms` folder.*
+
+```tsx
+import { Button } from '@ahc-digital/component-library';
+
+const MyComponent = () => {
+  return (
+    <Button
+      variant='primary'
+      onClick={() => console.log('Button clicked')}
+    >
+      Click Me
+    </Button>
+  );
+}
+```
+
+## FAQs
+<details>
+    <summary><strong>How do I deploy the Component Library?</strong></summary>
+    <p>The component library runs the `npm run build` command to ensure that the linters have passed and typescript compiles.
+        This project uses Vite to build the library and the output is in the `dist` folder. The `dist` folder is then published to npm.</p>
+</details>
+<br />
+<details>
+    <summary><strong>How do I consume the Component Library in another project?</strong></summary>
+    <p>To consume the Component Library in another project, install the library using `npm install @ahc-digital/component-library` and import the components as needed.</p>
+</details>
+<br />
+<details>
+    <summary><strong>How is this project built?</strong></summary>
+    <p>The Component Library is built using Vite and React. It is published to npm and consumed by other projects as a dependency.</p>
+</details>
+
+## Next
+**Review [What makes up a component?](/docs/foundation-developers-guide-atomic-design-module-components--docs).**

@@ -1,0 +1,156 @@
+@use 'media-query-mixins' as *;
+@use 'theme-mixins' as *;
+@use 'typography-export' as *;
+
+/**
+ * Custom Typography Mixins
+ * Typography mixins exported from Figma are defined below this section.
+ */
+@mixin typography-base {
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+@mixin typography-light {
+    font-weight: 400;
+}
+
+@mixin typography-bold {
+    font-weight: 700;
+}
+
+@mixin typography-semibold {
+    font-weight: 600;
+}
+
+@mixin typography-italic {
+    font-style: italic;
+}
+
+@mixin text-inverse {
+    color: var(--semantic-color-content-inverse-primary);
+}
+
+@function px-to-rem($pixels) {
+    $base-font-size: 16; // Change this to your base font size
+    @return calc($pixels / $base-font-size * 1rem);
+}
+
+@mixin xl-h1 {
+    @include in-theme-consumer-childrens {
+        @include typography-xl-h1---consumer;
+    }
+    @include in-theme-corporate {
+        @include typography-xl-h1---corporate;
+    }
+}
+
+@mixin xl-h1-mobile {
+    @include in-theme-consumer-childrens {
+        @include typography-xl-h1---consumer---mobile;
+    }
+    @include in-theme-corporate {
+        @include typography-xl-h1---corporate---mobil;
+    }
+}
+
+@mixin large-h2 {
+    @include in-theme-consumer-childrens {
+        @include typography-large-h2--consumer;
+    }
+    @include in-theme-corporate {
+        @include typography-large-h2---corporate;
+    }
+}
+
+@mixin large-h2-mobile {
+    @include in-theme-consumer-childrens {
+        @include typography-large-h2---consumer---mob;
+    }
+    @include in-theme-corporate {
+        @include typography-large-h2---corporate---mo;
+    }
+}
+
+@mixin medium-h3 {
+    @include in-theme-consumer-childrens {
+        @include typography-medium-h3--consumer;
+    }
+    @include in-theme-corporate {
+        @include typography-medium-h3---corporate;
+    }
+}
+
+@mixin medium-h3-mobile {
+    @include in-theme-consumer-childrens {
+        @include typography-medium-h3---consumer---mo;
+    }
+    @include in-theme-corporate {
+        @include typography-medium-h3---corporate---m;
+    }
+}
+
+@mixin small-h4 {
+    @include in-theme-consumer-childrens {
+        @include typography-small-h4--consumer;
+    }
+    @include in-theme-corporate {
+        @include typography-small-h4---corporate;
+    }
+}
+
+@mixin small-h4-mobile {
+    @include in-theme-consumer-childrens {
+        @include typography-small-h4---consumer---mob;
+    }
+    @include in-theme-corporate {
+        @include typography-small-h4---corporate---mo;
+    }
+}
+
+@mixin small-p {
+    @include in-theme-consumer-childrens {
+        @include typography-small-p---paragraph-consu;
+    }
+    @include in-theme-corporate {
+        @include typography-small-p---paragraph-corpo;
+    }
+}
+
+@mixin small-p-italic {
+    @include in-theme-consumer-childrens {
+        @include typography-small-paragraph-italic-con;
+    }
+    @include in-theme-corporate {
+        @include typography-small-paragraph-italic-co;
+    }
+}
+
+@mixin small-p-bold {
+    @include in-theme-consumer-childrens {
+        @include typography-small-paragraph-bold-cons;
+    }
+    @include in-theme-corporate {
+        @include typography-small-paragraph-bold-corp;
+    }
+}
+
+@mixin small-link {
+    @include in-theme-consumer-childrens {
+        @include typography-small-link;
+    }
+    @include in-theme-corporate {
+        @include typography-small-corp-link;
+    }
+}
+
+@mixin small-link-mobile {
+    @include in-theme-consumer-childrens {
+        @include typography-small-link-mobile;
+    }
+    @include in-theme-corporate {
+        @include typography-small-corp-link-mobile;
+    }
+}

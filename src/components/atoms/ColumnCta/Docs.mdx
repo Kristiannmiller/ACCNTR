@@ -1,0 +1,55 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ColumnCtaStories from './ColumnCta.stories';
+
+<Meta title="Design System/atoms/ColumnCta/Docs" of={ ColumnCtaStories} />
+
+# ColumnCta
+
+Story Link: [#133]('https://github.com/ahc-digital/migration-planning-tracking/issues/133')
+
+Description: 
+
+The ColumnCta component is used for creating columns to be used in the MultiColumnCta. It contains a title, a rich text block and a cta link all optionally. 
+
+---
+# Acceptance Criteria
+Each column consists of:
+ - Headline (h2/h3/P-bold)
+       - Center of left align (default left)
+ - Rich text field
+ - Link list
+      - Center of left align (default left)
+ - Optional CTA button
+
+<Stories />
+
+## Props
+<Controls />
+
+- headline [Required]
+  - Text for the headline
+
+- headlineTag
+  - Allows you to choose p, h1 or h2 tag for the headline. Default is p.
+
+- bodyCopy [Required]
+  - body copy source
+
+- textAlignment
+  - Allows you to change text alignment. Default is left.
+
+- extraCTA [Optional]
+  - CTA button link
+
+
+## Example Usage(s)
+```tsx
+ <ColumnCta
+    headline='Contact in Illinois'
+    headlineTag='p'
+    <Anchor {...args}>
+        <JssLink field={mockSitecoreLink} />
+    </Anchor>
+    bodyCopy='<p>Call Advocate at 800-3-ADVOCATE to schedule an appointment.</p><p>Paragraph text appears here and can wrap. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </p><p><b>One to two line subheader is here</b></p><p><a href="#" >A one-line link goes here</a></p><p><a href="#" >A one-line link goes here</a></p>'
+/>
+```

@@ -1,0 +1,117 @@
+@use 'theme-mixins' as *;
+@use 'typography-export' as *;
+
+@mixin anchor {
+    text-decoration: underline;
+
+    &:hover,
+    &:active {
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        border-radius: var(--semantic-measures-radius-small);
+        outline-width: var(--semantic-measures-stroke-medium);
+        outline-style: solid;
+    }
+
+    @include in-theme-consumer-childrens {
+        @include typography-small-link;
+        color: var(--semantic-color-content-default-brand-secondary);
+
+        &:hover,
+        &:active {
+            color: var(--semantic-color-content-default-brand-primary);
+        }
+
+        &:focus-visible {
+            color: var(--semantic-color-content-default-brand-primary);
+            border-radius: var(--semantic-measures-radius-small);
+            outline-color: var(--semantic-color-content-default-brand-primary);
+        }
+
+        &:visited {
+            // TODO: design has not defined a 'semantic' color for this yet.
+            color: var(--base-color-utility-visited, rgba(129, 79, 160, 1));
+        }
+
+        &[aria-disabled='true'] {
+            cursor: default;
+            color: var(--semantic-color-content-default-utility-disabled);
+        }
+    }
+
+    @include in-theme-corporate {
+        @include typography-small-corp-link;
+        color: var(--semantic-color-content-default-brand-primary);
+
+        &:hover,
+        &:active {
+            color: var(--semantic-color-content-default-brand-secondary-alt);
+        }
+
+        &:focus-visible {
+            color: var(--semantic-color-content-default-brand-primary);
+            border-radius: var(--semantic-measures-radius-small);
+            outline-color: var(--semantic-color-content-default-brand-primary);
+        }
+
+        &:visited {
+            // TODO: design has not defined a 'semantic' color for this yet.
+            color: var(--base-color-utility-visited, rgba(129, 79, 160, 1));
+        }
+
+        &[aria-disabled='true'] {
+            cursor: default;
+            color: var(--semantic-color-content-default-utility-disabled);
+        }
+    }
+}
+
+@mixin anchor-alt {
+    color: var(--semantic-color-content-primary);
+
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: var(--semantic-color-content-primary);
+    }
+
+    &:focus-visible {
+        text-decoration: underline;
+        color: var(--semantic-color-content-primary);
+        outline-color: var(--semantic-color-content-primary);
+    }
+
+    &:visited {
+        color: var(--semantic-color-content-secondary);
+    }
+
+    &[aria-disabled='true'] {
+        color: var(--semantic-color-content-secondary);
+    }
+}
+
+@mixin anchor-inverse {
+    color: var(--semantic-color-content-inverse-primary);
+
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: var(--semantic-color-content-inverse-primary);
+    }
+
+    &:focus-visible {
+        text-decoration: underline;
+        color: var(--semantic-color-content-inverse-primary);
+        outline-color: var(--semantic-color-content-inverse-primary);
+    }
+
+    &:visited {
+        color: var(--semantic-color-content-inverse-secondary);
+    }
+
+    &[aria-disabled='true'] {
+        color: var(--semantic-color-content-inverse-secondary);
+    }
+}

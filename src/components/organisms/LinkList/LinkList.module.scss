@@ -1,0 +1,15 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .column-grid {
+        &-left {
+            --grid-gap: var(--semantic-measures-spacing-024);
+            text-align: left;
+        }
+
+        &-center {
+            --grid-gap: var(--semantic-measures-spacing-024);
+            text-align: center;
+        }
+    }
+}

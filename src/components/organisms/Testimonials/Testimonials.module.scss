@@ -1,0 +1,18 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .testimonials {
+        .testimonials-grid {
+            margin-top: var(--semantic-measures-spacing-048);
+            row-gap: var(--semantic-measures-spacing-048);
+        }
+
+        .expand-button {
+            margin-top: var(--semantic-measures-spacing-048);
+        }
+
+        .expand-button-center {
+            margin-inline: auto;
+        }
+    }
+}

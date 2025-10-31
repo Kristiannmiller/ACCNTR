@@ -1,0 +1,29 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SelectStories from './Select.stories';
+
+<Meta title="Design System/atoms/Select/Docs" of={SelectStories} />
+
+# Select
+
+Description: The Select component is used for selecting an item from a list of options.
+
+---
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Select>
+    <SelectTrigger style={{ minWidth: '200px' }}>
+        <SelectValue placeholder='Theme' />
+    </SelectTrigger>
+    <SelectContent>
+        <SelectItem value='light'>Light</SelectItem>
+        <SelectItem value='dark'>Dark</SelectItem>
+        <SelectItem value='system'>System</SelectItem>
+    </SelectContent>
+</Select>
+```

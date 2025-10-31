@@ -1,0 +1,39 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as MultiColumnContainerStories from './MultiColumnContainer.stories';
+
+<Meta title="Design System/organisms/MultiColumnContainer/Docs" of={ MultiColumnContainerStories} />
+
+# MultiColumnContainer
+
+Story Link: [#174]('https://github.com/ahc-digital/migration-planning-tracking/issues/174')
+
+Description: The multi-column container is a container component that allows content authors to create multi column layouts out of components that don't have their own column options (e.g. placing a rich text next to a form in a two column arrangement). The container by itself has zero content and is used exclusively to add placeholders in a column arrangement.
+
+---
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+The container should fill the space available to it, with each container getting an equal amount of space minus the gutters.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<MultiColumnContainer>
+    <RichTextRendering><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id ligula arcu. Quisque lobortis rhoncus elit, vitae commodo eros fringilla sit amet. Nam mattis porttitor lobortis. Cras orci sem, sagittis sit amet vulputate vel, elementum id turpis. Duis laoreet lorem non ultricies laoreet. Phasellus egestas dolor sed erat laoreet mollis. Mauris turpis ligula, accumsan sed mattis ac, vestibulum sit amet felis. Cras vitae neque turpis. Vestibulum sagittis mollis elit, vel vestibulum nisi. Vivamus iaculis mi elit, quis lacinia odio pharetra eu.</p></RichTextRendering>
+    <RichTextRendering><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id ligula arcu. Quisque lobortis rhoncus elit, vitae commodo eros fringilla sit amet. Nam mattis porttitor lobortis. Cras orci sem, sagittis sit amet vulputate vel, elementum id turpis. Duis laoreet lorem non ultricies laoreet. Phasellus egestas dolor sed erat laoreet mollis. Mauris turpis ligula, accumsan sed mattis ac, vestibulum sit amet felis. Cras vitae neque turpis. Vestibulum sagittis mollis elit, vel vestibulum nisi. Vivamus iaculis mi elit, quis lacinia odio pharetra eu.</p></RichTextRendering>
+    <RichTextRendering><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id ligula arcu. Quisque lobortis rhoncus elit, vitae commodo eros fringilla sit amet. Nam mattis porttitor lobortis. Cras orci sem, sagittis sit amet vulputate vel, elementum id turpis. Duis laoreet lorem non ultricies laoreet. Phasellus egestas dolor sed erat laoreet mollis. Mauris turpis ligula, accumsan sed mattis ac, vestibulum sit amet felis. Cras vitae neque turpis. Vestibulum sagittis mollis elit, vel vestibulum nisi. Vivamus iaculis mi elit, quis lacinia odio pharetra eu.</p></RichTextRendering>
+    <RichTextRendering><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id ligula arcu. Quisque lobortis rhoncus elit, vitae commodo eros fringilla sit amet. Nam mattis porttitor lobortis. Cras orci sem, sagittis sit amet vulputate vel, elementum id turpis. Duis laoreet lorem non ultricies laoreet. Phasellus egestas dolor sed erat laoreet mollis. Mauris turpis ligula, accumsan sed mattis ac, vestibulum sit amet felis. Cras vitae neque turpis. Vestibulum sagittis mollis elit, vel vestibulum nisi. Vivamus iaculis mi elit, quis lacinia odio pharetra eu.</p></RichTextRendering>
+</MultiColumnContainer>
+```

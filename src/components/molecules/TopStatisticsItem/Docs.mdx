@@ -1,0 +1,42 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as TopStatisticsItemStories from './TopStatisticsItem.stories';
+
+<Meta title="Design System/molecules/TopStatisticsItem/Docs" of={TopStatisticsItemStories} />
+
+# TopStatisticsItem
+
+Story Link: [#205]('https://github.com/ahc-digital/migration-planning-tracking/issues/205')
+
+The TopStatisticsItem is a child element of the TopStatistics organism.
+
+---
+# Acceptance Criteria
+**Top Statistics Item Rendering**
+
+**Rendering Name:** C50 - Top Statistics Item
+
+**Template Name:** C50 - Top Statistics Item
+
+**Fields**
+- Top Statistic - Single Line Text [Required]
+- Support Copy - Rich Text Text [Required]
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<TopStatisticsItem {...{
+    topStatistic: <JSSText field={{ value: '$360M' }} />,
+    supportCopy: (
+        <JSSRichText
+            field={{
+                value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>'
+            }}
+        />
+    )
+}} />
+```

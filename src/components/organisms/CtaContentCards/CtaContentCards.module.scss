@@ -1,0 +1,73 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    @include theme-consumer-childrens {
+        p.headline {
+            @include typography-bold;
+        }
+    }
+
+    .headline {
+        margin-bottom: var(--semantic-measures-spacing-016);
+    }
+
+    .top-copy {
+        margin-bottom: var(--semantic-measures-spacing-048);
+    }
+
+    .bottom-copy {
+        padding-top: var(--semantic-measures-spacing-048);
+    }
+
+    .content-copy-container {
+        padding-block: var(--semantic-measures-spacing-072);
+
+        &-left {
+            text-align: left;
+        }
+
+        &-center {
+            text-align: center;
+
+            .cta-button {
+                margin: var(--semantic-measures-spacing-016) auto
+                    var(--semantic-measures-spacing-000) auto;
+            }
+        }
+    }
+
+    .cta-button {
+        width: fit-content;
+        max-width: 100%;
+        margin-top: var(--semantic-measures-spacing-016);
+    }
+
+    .content-cards-grid {
+        row-gap: var(--semantic-measures-spacing-072);
+    }
+
+    @include media-tablet-lg-max {
+        .content-copy-container {
+            padding: var(--semantic-measures-spacing-048)
+                var(--semantic-measures-spacing-000);
+        }
+
+        .top-copy {
+            margin-bottom: var(--semantic-measures-spacing-032);
+        }
+
+        .bottom-copy {
+            padding-top: var(--semantic-measures-spacing-032);
+        }
+
+        .content-cards-grid {
+            row-gap: var(--semantic-measures-spacing-040);
+        }
+    }
+
+    @include media-mobile-max {
+        .cta-button {
+            width: initial;
+        }
+    }
+}

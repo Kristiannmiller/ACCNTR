@@ -1,0 +1,80 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .search-pagination-base {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-block: var(--semantic-measures-spacing-072);
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            height: var(--semantic-measures-sizing-048);
+            width: var(--semantic-measures-sizing-048);
+            color: var(--semantic-color-content-default-primary);
+            border-radius: var(--semantic-measures-stroke-medium);
+            @include typography-forms-field-text;
+
+            > svg {
+                margin-top: var(--semantic-measures-sizing-008);
+            }
+
+            &:disabled {
+                cursor: initial;
+                color: var(--semantic-color-content-default-utility-disabled);
+
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+
+            &:hover {
+                background-color: var(
+                    --semantic-color-surface-default-brand-tint-10
+                );
+            }
+
+            &.active {
+                background-color: var(
+                    --semantic-color-content-default-brand-secondary
+                );
+                color: var(--semantic-color-surface-default-primary);
+                @include typography-small-button-text;
+            }
+        }
+
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: var(--semantic-measures-sizing-020);
+            width: var(--semantic-measures-sizing-020);
+        }
+
+        @include media-desktop {
+            margin-block: var(--semantic-measures-spacing-080);
+        }
+    }
+
+    @include theme-corporate {
+        .search-pagination-base {
+            button {
+                &:hover {
+                    background-color: var(
+                        --semantic-color-surface-default-brand-secondary
+                    );
+                    color: var(--semantic-color-surface-default-primary);
+                }
+
+                &.active {
+                    background-color: var(
+                        --semantic-color-surface-default-brand-primary
+                    );
+                }
+            }
+        }
+    }
+}

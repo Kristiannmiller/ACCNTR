@@ -1,0 +1,79 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: var(--semantic-measures-spacing-016);
+
+        svg {
+            align-self: center;
+            height: var(--semantic-measures-sizing-048);
+            width: var(--semantic-measures-sizing-048);
+        }
+    }
+
+    .sub-heading {
+        text-align: center;
+        margin-top: var(--semantic-measures-spacing-016);
+    }
+
+    .cta-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: var(--semantic-measures-spacing-016);
+        width: 100%;
+        box-sizing: border-box;
+        place-items: center;
+        margin-top: var(--semantic-measures-spacing-024);
+    }
+
+    .cta-button {
+        box-sizing: border-box;
+        text-align: center;
+        width: 100%;
+    }
+
+    @include container-tablet-lg {
+        .heading {
+            flex-direction: row;
+        }
+
+        .sub-heading {
+            margin-top: var(--semantic-measures-spacing-024);
+        }
+
+        .cta-wrapper {
+            margin-top: var(--semantic-measures-spacing-048);
+
+            &.cta-wrapper-single {
+                .cta-button {
+                    width: fit-content;
+                }
+            }
+
+            &.cta-wrapper-multi {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: var(--semantic-measures-spacing-024);
+            }
+        }
+    }
+
+    @include container-desktop-lg {
+        .cta-wrapper {
+            &.cta-wrapper-multi {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                row-gap: var(--semantic-measures-spacing-024);
+
+                .cta-button {
+                    flex-basis: 33%;
+                }
+            }
+        }
+    }
+}

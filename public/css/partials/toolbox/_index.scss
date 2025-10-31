@@ -1,0 +1,18 @@
+// TODO: Find if there's a way to remove the layers declaration from here.
+// Related issue: https://github.com/storybookjs/storybook/issues/23990
+// tl;dr: The order of the .modules.scss files in the <head> is not guaranteed to come after the index.css in Storybook.
+// So, we need to declare the layers here so that the priority order is always defined up front, no matter which stylesheet is loaded first.
+// If this isn't here, the @atoms layer, for example could be declared before @core and would have a lower priority.
+@use '../../partials/layers';
+
+@forward 'animation-mixins';
+@forward 'media-query-mixins';
+@forward 'container-query-mixins';
+@forward 'typography-export';
+@forward 'typography-mixins';
+@forward 'anchor-mixins';
+@forward 'theme-mixins';
+@forward 'variables';
+@forward 'gradient-mixins';
+@forward 'line-clamp-mixin';
+@forward 'focus-mixin';

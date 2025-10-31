@@ -1,0 +1,72 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title='Foundation/Developers Guide/Atomic Design Module/Testing' />
+
+# Tests Overview
+
+## Introduction
+This document provides an overview of the testing strategy and practices used in our React Component Library.
+It outlines the structure, key components, and tools used for testing.
+
+## Testing Strategy
+We follow a comprehensive testing strategy for unit tests. Each component should have a corresponding test file that
+ensures its functionality. It is important to test the components in isolation to ensure they work as expected.
+Testing a component's positive and negative cases based on the args is also important. This provides a full coverage
+of the capabilities of the component.
+
+## Key Folders
+- **tests/**: Contains all the test files for the components. Each component has a corresponding test file to ensure its functionality.
+
+## Tools and Libraries
+- **Jest**: A delightful JavaScript Testing Framework with a focus on simplicity.
+- **React Testing Library**: A simple and complete testing library for React that encourages good testing practices.
+- **Storybook**: An open-source tool for developing UI components in isolation. We use Storybook for visual testing.
+
+## Example Test
+Here is an example of a test for the `Testimonials` component:
+
+```typescript
+import { StoryObj } from '@storybook/react';
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+// Components
+import { Testimonials } from '@/components';
+
+// Utils
+import { classNameRegex, getTextFieldValue } from '@/utils';
+
+type Story = StoryObj<typeof Testimonials>;
+
+const testTestimonialsDefault: Story['play'] = async ({
+    canvasElement,
+    args
+}) => {
+    const { getByTestId, getAllByTestId } = within(canvasElement);
+    ...
+};
+
+export const testTestimonials = {
+    default: testTestimonialsDefault
+};
+```
+
+## FAQs
+<details>
+    <summary><strong>How do I run the tests?</strong></summary>
+    <p>To run the tests, Storybook must be running. In each individual story, run the test runner and watch for execution.</p>
+</details>
+<br />
+<details>
+    <summary><strong>What tools and libraries are used for testing?</strong></summary>
+    <ul>
+        <li>Jest: A delightful JavaScript Testing Framework with a focus on simplicity.</li>
+        <li>React Testing Library: A simple and complete testing library for React that encourages good testing practices.</li>
+        <li>Storybook: An open-source tool for developing UI components in isolation. We use Storybook for visual testing.</li>
+    </ul>
+</details>
+<br />
+<details>
+    <summary><strong>Where are the test files located?</strong></summary>
+    <p>All test files are located in the <code>tests/</code> directory. Each component has a corresponding test file to ensure its functionality.</p>
+</details>

@@ -1,0 +1,16 @@
+import { cva } from "class-variance-authority";
+
+// Utils
+import { createCvaOptions } from '@/utils';
+
+// Styles
+import styles from "./{{pascalCase componentName}}.module.scss";
+
+export const {{camelCase componentName}}CVA = cva(styles["{{kebabCase componentName}}-base"], {
+  variants: {
+    variant: createCvaOptions<"primary" | "secondary">({
+      primary: styles["{{kebabCase componentName}}-primary"],
+      secondary: styles["{{kebabCase componentName}}-secondary"],
+    }),
+  },
+});

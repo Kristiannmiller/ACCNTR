@@ -1,0 +1,25 @@
+import { ComponentProps } from "react";
+{{#if hasCVA}}
+import { VariantProps, cx } from "class-variance-authority";
+
+// Types
+import { Expand } from "@/types";
+
+// Styles
+import { {{ camelCase componentName }}CVA } from "./styles";
+{{else}}
+import { cx } from "class-variance-authority";
+
+// Styles
+import styles from "./{{pascalCase componentName}}.module.scss";
+{{/if}}
+
+export type {{ pascalCase componentName }}Props = ComponentProps<"div">{{#if hasCVA}} &
+Expand<VariantProps<typeof {{ camelCase componentName }}CVA>>{{/if}};
+
+export const {{ pascalCase componentName }} = (props: {{ pascalCase componentName }}Props) => {
+    const { className, ...rest } = props;
+    return (
+    <div {{#if hasCVA}}className={cx({{camelCase componentName}}CVA({}), className)}{{else}}className={cx(styles["{{kebabCase componentName}}-base"], className)}{{/if}} data-testid="{{dashCase componentName}}" {...rest}>Hello World</div>
+    );
+};

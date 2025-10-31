@@ -1,0 +1,43 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as CardStories from './Card.stories';
+
+<Meta title="Design System/atoms/Card/Docs" of={CardStories} />
+
+# Card
+
+Story Link: [#35]('https://github.com/ahc-digital/component-library/issues/35')
+
+Description: The card atomic component is a wrapper component that will be used across many molecules and organisms.
+
+---
+# Acceptance Criteria
+
+The card element accepts children.
+Defines
+- Box shadow (elevation) (default: 'elevation2')
+- Top Color Bar
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Card elevation="elevation3" topColorBar="wellnessBlue">
+    <Text fontStyle='mdHeading'>Card title</Text>
+    <RichText>
+        <p>
+            lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+    </RichText>
+    <Anchor
+        variant='solid1'
+        size='medium'
+        href='#'>
+        Link
+    </Anchor>
+</>
+```

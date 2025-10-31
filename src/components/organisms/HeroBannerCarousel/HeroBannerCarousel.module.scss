@@ -1,0 +1,13 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .hero-banner-carousel {
+        .carousel-controls {
+            bottom: var(--semantic-measures-spacing-024);
+
+            @include media-tablet-lg {
+                bottom: revert-layer;
+            }
+        }
+    }
+}

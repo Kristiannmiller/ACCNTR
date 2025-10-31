@@ -1,0 +1,49 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .header {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 20;
+    }
+
+    .header,
+    .sentinel {
+        --utility-nav-height: var(--semantic-measures-sizing-048);
+    }
+
+    @include media-desktop {
+        .sentinel {
+            position: relative;
+            inset-block-start: var(--utility-nav-height);
+
+            &.stuck {
+                inset-block-start: 0;
+            }
+        }
+
+        .header {
+            inset-block-start: calc(-1 * var(--utility-nav-height));
+            transition: inset-block-start 200ms ease;
+
+            &.fixed {
+                position: fixed;
+                inset-inline: 0;
+            }
+
+            &.slide-down {
+                inset-block-start: 0;
+            }
+        }
+    }
+}
+
+// Put fallback focus-visible styles in the molecules layer
+// so they can be overridden by other focus-visible styles if needed.
+@layer molecules {
+    .header :focus-visible {
+        outline-offset: calc(-1 * var(--semantic-measures-stroke-small));
+        outline: var(--semantic-measures-stroke-small) solid
+            var(--semantic-color-border-default-primary);
+    }
+}

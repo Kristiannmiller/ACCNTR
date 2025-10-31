@@ -1,0 +1,76 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .testimonial-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: var(--semantic-measures-spacing-040);
+
+        .quote-circle {
+            border-radius: 50%;
+            position: absolute;
+            top: -2.5rem;
+            z-index: 1;
+            width: var(--semantic-measures-spacing-080);
+            height: var(--semantic-measures-spacing-080);
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(
+                    -50%,
+                    calc(-50% + var(--semantic-measures-spacing-016))
+                );
+                font-size: var(--semantic-measures-spacing-056);
+                line-height: 2.25rem;
+            }
+        }
+
+        .testimonial-card-content {
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: var(--semantic-measures-spacing-072)
+                var(--semantic-measures-spacing-032)
+                var(--semantic-measures-spacing-032);
+        }
+
+        .about-testimonial-author {
+            margin-top: var(--semantic-measures-spacing-096);
+
+            .testimonial-author-title {
+                margin-top: var(--semantic-measures-spacing-008);
+            }
+        }
+    }
+
+    @include theme-consumer-childrens {
+        .testimonial-card-content {
+            .testimonial-text * {
+                @include typography-small-paragraph-italic-con;
+            }
+
+            .testimonial-author {
+                @include typography-small-paragraph-bold-cons;
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .testimonial-card-content {
+            .testimonial-text * {
+                @include typography-small-paragraph-italic-co;
+            }
+
+            .testimonial-author {
+                @include typography-small-paragraph-bold-corp;
+            }
+        }
+    }
+}

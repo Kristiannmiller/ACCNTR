@@ -1,0 +1,33 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SearchPaginationStories from './SearchPagination.stories';
+
+<Meta title="Design System/molecules/SearchPagination/Docs" of={ SearchPaginationStories} />
+
+# SearchPagination
+
+Story Link: [#428](https://github.com/ahc-digital/migration-planning-tracking/issues/329)
+
+Description: The SearchPagination component is used for pagination of search results. It will work directly with Elastic Search and will be used in the SearchResults component.
+
+---
+# Acceptance Criteria
+N/A
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<SearchPagination {...{
+    currentPage: 1,
+    totalPages: 10,
+    onPageChange: (page) => console.log('Page changed to:', page),
+    nextPageActionText: 'Go to next page',
+    lastPageActionText: 'Go to last page',
+    firstPageActionText: 'Go to first page',
+    previousPageActionText: 'Go to previous page'
+}} />
+```

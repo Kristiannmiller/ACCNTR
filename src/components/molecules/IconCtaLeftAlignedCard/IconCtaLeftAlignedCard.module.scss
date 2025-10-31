@@ -1,0 +1,22 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .left-aligned-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--semantic-measures-spacing-016);
+
+        svg {
+            height: var(--semantic-measures-sizing-096);
+            width: var(--semantic-measures-sizing-096);
+        }
+
+        p.headline {
+            @include typography-bold;
+        }
+
+        .card-cta {
+            padding-top: var(--semantic-measures-spacing-008);
+        }
+    }
+}

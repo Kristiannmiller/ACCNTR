@@ -1,0 +1,27 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ThemeProviderStories from './ThemeProvider.stories';
+
+<Meta title="Design System/atoms/ThemeProvider/Docs" of={ ThemeProviderStories} />
+
+# ThemeProvider
+
+Description: The ThemeProvider is a Slot that does 2 things:
+- Sets the ThemeContext (React context) for use in the JavaScript.
+- Applies the data-theme attribute to the children HTML elements for use in the CSS.
+
+**Important**: The ThemeProvider must wrap the `<body>` tag at the root of the application.
+This ensures all styles are applied correctly - specifically modals, which are appended to the bottom of the body.
+
+<Stories />
+
+## Props
+<Controls />
+
+## Example Usage(s)
+```tsx
+<ThemeProvider theme="Consumer">
+  <body>
+    <Main />
+  </body>
+</ThemeProvider>
+```

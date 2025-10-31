@@ -1,0 +1,51 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as HeroFeaturedBannerStories from './HeroFeaturedBanner.stories';
+
+<Meta title="Design System/organisms/HeroFeaturedBanner/Docs" of={ HeroFeaturedBannerStories} />
+
+# HeroFeaturedBanner
+
+Story Link: [#132](https://github.com/ahc-digital/migration-planning-tracking/issues/132)
+
+Description: The hero featured banner is form of hero banner that is primarily used on the corporate site and campaign landing pages.
+
+---
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+
+-  Template name and structure matches specification in "Sitecore Details" section
+-  Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Background image is anchored in the top right and has a max width of 1920px.
+
+Content authors are able to specify gradient level in intervals of 20% starting from 0 (default) to 80%.
+
+<Stories />
+
+## Props
+
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<HeroFeaturedBanner
+  backgroundGradientLevel="80"
+  backgroundImage={{
+    alt: 'hero couple sun desktop',
+    src: '/images/hero-banners/hero-couple-sun.webp'
+  }}
+  firstCTAIcon="arrowUpRightFromSquare"
+  firstCTALink={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'See where we\'re going', title: 'custom-title', url: '/test-link'}} />}
+  headline={<RichText field={{value: '<span>Advocate</span> Health'}} />}
+  mobileBackgroundImage="https://images.unsplash.com/photo-1510908072721-6fbd31199630?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  secondCTAIcon="arrowUpRightFromSquare"
+  secondCTALink={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'See what we’ve accomplished', title: 'custom-title', url: '/test-link'}} />}
+  taglineTop={<Text field={{value: 'Doing more. Better. Faster. Together.'}} />}
+/>
+```

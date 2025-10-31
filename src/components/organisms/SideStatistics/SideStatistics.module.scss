@@ -1,0 +1,25 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .stats-list {
+        padding-inline: var(--semantic-measures-spacing-024);
+        display: grid;
+        row-gap: var(--semantic-measures-spacing-024);
+        // Override default ul styles
+        margin-inline: var(--semantic-measures-spacing-000);
+        margin-bottom: var(--semantic-measures-spacing-000);
+        list-style: none;
+
+        &:first-child {
+            margin-top: var(--semantic-measures-spacing-000);
+        }
+    }
+
+    @include container-desktop {
+        .stats-list {
+            padding-inline: var(--semantic-measures-spacing-000);
+            grid-template-columns: auto minmax(0, 68ch) 1fr;
+            row-gap: var(--semantic-measures-spacing-080);
+        }
+    }
+}

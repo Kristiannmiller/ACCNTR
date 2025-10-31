@@ -1,0 +1,37 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as RichTextRenderingStories from './RichTextRendering.stories';
+
+<Meta title="Design System/organisms/RichTextRendering/Docs" of={ RichTextRenderingStories} />
+
+# RichTextRendering
+
+Story Link: [#130]('https://github.com/ahc-digital/component-library/issues/130')
+
+Description: 
+The Rich Text rendering is a basic rendering who's purpose is to allow content authors to put chunk of rich text on a page. The rendering has little fixed presentation and acts as a wrapper for a single rich text field. The rich text field uses a limited profile that restricts the options available to content authors.
+The RichTextRendering is only used in Sitecore as a component while the RictText atom is used whenever you have a component with RichText fields.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+The rich text field uses the custom content author rich text profile and content authors are restricted to the options defined within that profile. See the linked story for the options that profile provides.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+ <RichTextRendering>
+    <JSSRichText field={SitecoreRichText} />
+</RichTextRendering>
+```

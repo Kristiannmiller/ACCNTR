@@ -1,0 +1,119 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .r-rich-text {
+        h1 {
+            @include xl-h1-mobile;
+        }
+
+        h2 {
+            @include large-h2-mobile;
+        }
+
+        h3 {
+            @include medium-h3-mobile;
+        }
+
+        h4,
+        h5,
+        h6 {
+            @include small-h4-mobile;
+        }
+
+        li,
+        p,
+        span {
+            @include small-p;
+        }
+
+        b,
+        strong {
+            @include typography-bold;
+        }
+
+        i,
+        em {
+            @include typography-italic;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ul,
+        ol,
+        a.r-btn {
+            margin-bottom: 1.5rem;
+        }
+
+        a:not(.r-btn) {
+            @include anchor;
+        }
+
+        li {
+            margin-bottom: 0.25rem;
+        }
+
+        li a:not(.r-btn) {
+            padding: 0;
+        }
+
+        p:last-child,
+        ul:last-child,
+        ol:last-child,
+        li:last-child,
+        a.r-btn:last-child {
+            margin-bottom: 0;
+        }
+
+        &.r-rich-text-inverse {
+            @include text-inverse;
+        }
+
+        &.r-rich-text-anchors-inverse {
+            a:not(.r-btn) {
+                @include anchor-inverse;
+            }
+        }
+
+        &.r-rich-text-anchors-alt {
+            a:not(.r-btn) {
+                @include anchor-alt;
+            }
+        }
+
+        .lang-knu {
+            font-family: var(
+                --font-family-knu,
+                'KNU-Karen Normal Unique'
+            ) !important;
+        }
+
+        .lang-zawgyi {
+            font-family: var(--font-family-zawgyi, 'Zawgyi-One') !important;
+        }
+    }
+
+    @include media-desktop {
+        .r-rich-text {
+            h1 {
+                @include xl-h1;
+            }
+
+            h2 {
+                @include large-h2;
+            }
+
+            h3 {
+                @include medium-h3;
+            }
+
+            h4,
+            h5,
+            h6 {
+                @include small-h4;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ContainerStories from './Container.stories';
+
+<Meta title="Design System/atoms/Container/Docs" of={ ContainerStories} />
+
+# Container
+
+Story Link: [#59](https://github.com/ahc-digital/component-library/issues/59)
+
+The Container component has the following responsibilities:
+- Horizontally center the content.
+- Set the max-width of the content.
+- Set the padding of the content.
+- Set the container-type property for [Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries).
+
+Note: the max-width and padding are applied to the direct children of the `Container`. Because they are in the `core` layer,
+they can easily be overridden to accomadate different design requirements - so long as the overridden styles are not also in the `core` laer.
+They are simply a default that should apply to most use cases.
+
+---
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Container variant="full">This container will go full width.</Container>
+```
+
+```tsx
+<Container variant="contained">This container will have padding and set the max width of the content to 1440px.</Container>
+```
+
+```tsx
+<Container variant="containedLarge">This container will have padding and set the max width of the content to 1920px.</Container>
+```

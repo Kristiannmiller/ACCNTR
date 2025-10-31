@@ -1,0 +1,31 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as PictureStories from './Picture.stories';
+
+<Meta title="Design System/atoms/Picture/Docs" of={ PictureStories} />
+
+# Picture
+
+Description: The Picture component is used for displaying images. It is a wrapper around the HTML `<img>` element. It should
+be used in combination with a srcSet and sizes prop to provide responsive images.
+
+---
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+        <Picture
+            desktopLgSrc="https://picsum.photos/id/24/1920/1080"
+            image={{
+                alt: 'A random image',
+                src: 'https://picsum.photos/id/24/1920/1080',
+            }}
+            tabletLgSrc="https://picsum.photos/id/24/768/432"
+            tabletSrc="https://picsum.photos/id/${id1}/640/360"
+            mobileSrc="https://picsum.photos/id/${id1}/480/270"
+        />
+```

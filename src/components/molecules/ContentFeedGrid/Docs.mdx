@@ -1,0 +1,53 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ContentFeedGridStories from './ContentFeedGrid.stories';
+
+<Meta title="Design System/molecules/ContentFeedGrid/Docs" of={ ContentFeedGridStories} />
+
+# ContentFeedGrid
+
+Story Link: [#321](https://github.com/ahc-digital/migration-planning-tracking/issues/321)
+
+Description: The ContentFeedGrid component is used inside ContentFeedWithFeaturedCard component.
+
+---
+# Acceptance Criteria
+
+The entire card is clickable and links to the article used to build it.
+
+For non-featured cards, images are always positioned left with content to the right. For the featured card, the image is on top and the content is below.
+
+The cards have no hover state on the cards.
+
+The images should be anchored to the top center on the cards.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<ContentFeedGrid
+  cards={[
+    {
+      date: 'September 1, 2024',
+      excerpt: <RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'}} />,
+      image: <Image field={{value: {alt: 'A couple walking in the sun', src: '/images/hero-banners/hero-couple-sun.webp'}}} />,
+      link: <Link field={{value: {anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'News Headline 1 Goes here and can wrap', title: 'custom-title', url: '/test-link'}}} />
+    },
+    {
+      date: 'September 8, 2024',
+      excerpt: <RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'}} />,
+      image: <Image field={{value: {alt: 'A man with a walker and a nurse', src: '/images/ctas/workforce-connection.webp'}}} />,
+      link: <Link field={{value: {anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'News Headline 18 Goes here and can wrap', title: 'custom-title', url: '/test-link'}}} />
+    },
+    {
+      date: 'September 15, 2024',
+      excerpt: <RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'}} />,
+      image: <Image field={{value: {alt: 'A smiling doctor with a mask on consulting a patient', src: '/images/ctas/preventative_care_promo.jpg'}}} />,
+      link: <Link field={{value: {anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'News Headline 35 Goes here and can wrap', title: 'custom-title', url: '/test-link'}}} />
+    }
+  ]}
+ />
+```

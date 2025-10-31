@@ -1,0 +1,107 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SideMediaAssetStories from './SideMediaAsset.stories';
+
+<Meta title="Design System/organisms/SideMediaAsset/Docs" of={SideMediaAssetStories} />
+
+# SideMediaAsset
+
+Story Link: [#234](https://github.com/ahc-digital/migration-planning-tracking/issues/234)
+
+Description: The side media asset component allows content authors to add a media asset that floats to the left or right of a text content.
+
+---
+# Acceptance Criteria
+
+Rendering Name: C17 - Side Media Asset
+
+Template Name: C17 - Side Media Asset
+
+**Fields:**
+- Headline - Single Line Text [Optional]
+- Support Copy - Rich Text [Required]
+  - Should use Content Author rich text profile
+- Image - Image [Optional]
+- Video ID - Single Line Text [Optional]
+- Image Caption - Rich Text [Optional]
+  - Should use Content Author rich text profile
+- Image CTA Link - General Link [Optional]
+
+
+**Rendering Parameters:**
+- Headline tag - Drop down
+  - H2
+  - H3
+  - Paragraph bold - [Default]
+- Image Side - Drop down
+  - Left
+  - Right - [Default]
+- Image Border On - checkbox
+- Image Container Size - Drop down
+  - 20%
+  - 30%
+  - 40%
+  - 50% - [Default]
+
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+Supporting copy should wrap around the image if longer than the height of the image.
+
+If the supporting copy wraps around the image, there should be a 32px space under the caption (if supplied) or the image.
+
+On mobile, the media asset is stacked on top of text content.
+
+Headline is optional, but if there is an image on mobile, the image goes below the headline.
+
+Caption is optional but if supplied, should always be positioned below the media asset and is aligned to the left.
+
+Content authors are able to supply a WEBP/JPG/PNG or a YouTube ID as a media asset.
+
+Content authors are able to add a link to the image only (not video).
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<SideMediaAsset {...{
+    headline: (
+        <JSSText
+            field={{
+                value: 'At vero eos et accusamus et iusto odio dignissimos ducim'
+            }}
+        />
+    ),
+    headlineTag: 'p',
+    supportCopy: (
+        <JSSRichText
+            field={{
+                value: '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium <a href="#">voluptatum deleniti atque corrupti</a> quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellnetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis us, omnis voluptas assumenda est, omnis dolor repellnetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperioreAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo </p><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, <a href="#">id est laborum et dolorum fuga</a>. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellnetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. At vero eos et accusamus <a href="#">et iusto odio dignissimos</a> ducimus qui blanditiis us, omnis voluptas assumenda est, omnis dolor repellnetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperioreAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo </p><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellnetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis us, omnis voluptas assumenda est, omnis dolor repellnetur a sapiente delectus, <a href="#">ut aut reiciendis voluptatibus maiores</a> alias consequatur aut perferendis doloribus asperioreAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo </p>'
+            }}
+        />
+    ),
+    image: <JSSImage field={{ value: mockImages[1] }} />,
+    videoId: undefined,
+    imageCaption: (
+        <JSSRichText
+            field={{
+                value: '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores <a href="#">et quas molestias excepturi</a> sint occaecati cupiditate.</p>'
+            }}
+        />
+    ),
+    imageCtaLink: <JSSLink field={{ value: mockSitecoreLink }} />,
+    imageSide: 'right',
+    isImageBorderOn: false,
+    imageContainerSize: 'fifty'
+}} />
+```

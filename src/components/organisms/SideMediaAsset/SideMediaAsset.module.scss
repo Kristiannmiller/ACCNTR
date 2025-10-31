@@ -1,0 +1,28 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .side-media-asset-container {
+        .headline {
+            margin-bottom: var(--semantic-measures-spacing-016);
+        }
+
+        p.headline {
+            @include typography-bold;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            box-sizing: border-box;
+        }
+    }
+
+    @include container-tablet-lg {
+        .side-media-asset-container {
+            .headline {
+                margin-bottom: var(--semantic-measures-spacing-024);
+            }
+        }
+    }
+}

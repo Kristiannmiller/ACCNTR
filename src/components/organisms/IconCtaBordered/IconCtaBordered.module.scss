@@ -1,0 +1,8 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .icon-cta-bordered-grid {
+        --grid-gap: var(--semantic-measures-spacing-024);
+        row-gap: var(--semantic-measures-spacing-048);
+    }
+}

@@ -1,0 +1,37 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as HeroStatisticsItemStories from './HeroStatisticsItem.stories';
+
+<Meta title="Design System/molecules/HeroStatisticsItem/Docs" of={HeroStatisticsItemStories} />
+
+# HeroStatisticsItem
+
+Story Link: [#204]('https://github.com/ahc-digital/migration-planning-tracking/issues/204')
+
+Description: The HeroStatisticsItem is to be used as a child element to the HeroStatistics component. 
+It is used to display a single statistic with a label and value.
+
+---
+# Acceptance Criteria
+
+Top Text - Single Line Text [Optional]
+Bottom Text - Single Line Text [Optional]
+Statistics Number - Number [Required]
+Prefix - Single Line Text [Optional]
+Suffix - Single Line Text [Optional]
+Superscript Suffix - Single Line Text [Optional]
+
+<Stories />
+
+## Props
+<Controls />
+
+## Example Usage(s)
+```tsx
+<HeroStatisticsItem {...{
+    topText: <JSSText field={{ value: 'nearly' }} />,
+    statisticsNumber: <JSSText field={{ value: '155' }} />,
+    suffix: <JSSText field={{ value: 'K' }} />,
+    bottomText: <JSSText field={{ value: 'teammates' }} />,
+    superscriptSuffix: <JSSText field={{ value: '2' }} />
+}} />
+```

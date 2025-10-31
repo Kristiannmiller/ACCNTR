@@ -1,0 +1,110 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .alert {
+        display: grid;
+        padding-block: var(--semantic-measures-spacing-016);
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            'icon heading'
+            '. trigger'
+            '. body';
+    }
+
+    .alert-icon {
+        grid-area: icon;
+        height: var(--semantic-measures-spacing-024);
+        width: var(--semantic-measures-spacing-024);
+        margin-inline-end: var(--semantic-measures-spacing-008);
+    }
+
+    .alert-primary-text,
+    .alert-mobile-text {
+        grid-area: heading;
+    }
+
+    .alert-mobile-text + .alert-primary-text {
+        display: none;
+    }
+
+    .alert-trigger {
+        grid-area: trigger;
+        justify-self: end;
+        margin-block-start: var(--semantic-measures-spacing-008);
+
+        // Remove default button styles
+        cursor: pointer;
+        background-color: unset;
+        border: none;
+        padding: var(--semantic-measures-spacing-000);
+
+        .trigger-icon {
+            height: var(--semantic-measures-spacing-016);
+            width: var(--semantic-measures-spacing-016);
+        }
+
+        .trigger-open,
+        .trigger-close {
+            display: flex;
+            align-items: center;
+        }
+
+        &[aria-expanded='true'] .trigger-open {
+            display: none;
+        }
+
+        &[aria-expanded='false'] .trigger-close {
+            display: none;
+        }
+
+        .trigger-text {
+            margin-inline-end: var(--semantic-measures-spacing-008);
+        }
+    }
+
+    .alert-expanded-text {
+        grid-area: body;
+        margin-block-start: var(--semantic-measures-spacing-016);
+    }
+
+    @include container-desktop {
+        .alert {
+            grid-template-columns: auto 1fr auto;
+            grid-template-areas:
+                'icon heading trigger'
+                '. body .';
+        }
+
+        .alert-icon {
+            margin-inline-end: var(--semantic-measures-spacing-016);
+        }
+
+        .alert-mobile-text {
+            display: none;
+        }
+
+        .alert-mobile-text + .alert-primary-text {
+            display: block;
+        }
+
+        .alert-expanded-text {
+            margin-block-start: var(--semantic-measures-spacing-016);
+            margin-block-end: var(--semantic-measures-spacing-008);
+        }
+
+        .alert-trigger {
+            margin-inline-start: var(--semantic-measures-spacing-016);
+            margin-block-start: var(--semantic-measures-spacing-000);
+
+            .trigger-text {
+                // Don't set `display: none` or `visibility: hidden` so that
+                // the text is still available to screen readers.
+                // Passes "button must have discernible text" rule.
+                width: var(--semantic-measures-spacing-000);
+                height: var(--semantic-measures-spacing-000);
+                margin: var(--semantic-measures-spacing-000);
+                overflow: hidden;
+            }
+        }
+    }
+}

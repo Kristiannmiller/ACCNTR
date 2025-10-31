@@ -1,0 +1,38 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as MediaWithCaptionStories from './MediaWithCaption.stories';
+
+<Meta title="Design System/molecules/MediaWithCaption/Docs" of={ MediaWithCaptionStories} />
+
+# MediaWithCaption
+
+Description: The MediaWithCaption component is used for rendering a media element with a caption. It is semantically a figure element with a media element and a figcaption element.
+It can render a Youtube video or an image.
+
+You can also change the image side (left/right) of the media element as well as control the size.
+
+---
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+
+Image
+```tsx
+<MediaWithCaption {...{
+    image: <JSSImage field={mockImages[2]} />,
+    imageCaption: <JSSText field={mockSitecoreText} />,
+    imageContainerSize: 'thirty',
+    imageSide: 'right',
+    isImageBorderOn: true,
+}}>
+```
+
+Video
+```tsx
+<MediaWithCaption {...{
+    videoId: 'dQw4w9WgXcQ',
+}}>
+```

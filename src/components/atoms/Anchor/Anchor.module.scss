@@ -1,0 +1,62 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .anchor-base {
+        @include anchor;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &.inverse {
+            @include anchor-inverse;
+        }
+
+        &.alt {
+            @include anchor-alt;
+        }
+
+        &.underline-hover {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &.underline-none {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    p .anchor-base {
+        padding: 0;
+    }
+
+    @mixin inherit {
+        .inherit {
+            color: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+
+            &:hover,
+            &:active,
+            &:visited {
+                color: inherit;
+            }
+        }
+    }
+
+    @include theme-consumer-childrens {
+        @include inherit;
+    }
+
+    @include theme-corporate {
+        @include inherit;
+    }
+}

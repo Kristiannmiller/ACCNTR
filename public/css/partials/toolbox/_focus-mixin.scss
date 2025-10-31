@@ -1,0 +1,6 @@
+@mixin focus-visible {
+    border-radius: var(--semantic-measures-spacing-004);
+    outline-offset: calc(2 * var(--semantic-measures-stroke-small));
+    outline: var(--semantic-measures-stroke-medium) solid
+        var(--semantic-color-border-default-utility-focus-dark);
+}

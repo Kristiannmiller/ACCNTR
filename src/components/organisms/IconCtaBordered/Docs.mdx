@@ -1,0 +1,89 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as IconCtaBorderedStories from './IconCtaBordered.stories';
+
+<Meta title="Design System/organisms/IconCtaBordered/Docs" of={ IconCtaBorderedStories} />
+
+# IconCtaBordered
+
+Story Link: [#168](https://github.com/ahc-digital/migration-planning-tracking/issues/168)
+
+Description: The Icon CTA Bordered rendering is a variant of the Icon CTA rendering.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+-   Template name and structure matches specification in "Sitecore Details" section
+-   Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+All content is center aligned.
+
+Content authors are able to specify the border color style.
+
+Each card has a drop shadow.
+
+Both buttons should be the solid button style if "Button" style is selected.
+
+The CTAs are stacked within the card.
+
+<Stories />
+
+## Props
+
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<IconCtaBordered
+  bottomSupportCopy={<RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'}} />}
+  headline={<Text field={{value: 'Lorem ipsum dolor headline'}} />}
+  numberOfColumns="3"
+  supportCopy={<RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'}} />}
+  headlineTag="h2"
+>
+  <React.Fragment>
+    <IconCtaBorderedCard
+      firstCTA={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Start a scheduled visit', title: 'custom-title', url: '/test-link'}} />}
+      firstCTAStyle="button"
+      headline={<Text field={{value: 'Video visits with your provider'}} />}
+      icon="blog"
+      secondCTA={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Learn more about this visit', title: 'custom-title', url: '/test-link'}} />}
+      secondCTAStyle="link"
+      supportCopy={<RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>'}} />}
+      headlineTag="h2"
+      topColorBar="denimBlue"
+    />
+    <IconCtaBorderedCard
+      firstCTA={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Start a scheduled visit', title: 'custom-title', url: '/test-link'}} />}
+      firstCTAStyle="link"
+      headline={<Text field={{value: 'Video visits with your provider'}} />}
+      icon="certificate"
+      secondCTA={null}
+      secondCTAStyle="button"
+      supportCopy={<RichText field={{value: '<ul style=\'text-align: left;padding-inline-start: 20px;margin: 0;\'>\n <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</li>\n <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</li>\n <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</li>\n </ul>'}} />}
+      headlineTag="h3"
+      topColorBar="wellnessBlue"
+    />
+    <IconCtaBorderedCard
+      firstCTA={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Start a scheduled visit', title: 'custom-title', url: '/test-link'}} />}
+      firstCTAStyle="button"
+      headline={<Text field={{value: 'Video visits with your provider'}} />}
+      icon="envelope"
+      secondCTA={null}
+      secondCTAStyle="button"
+      supportCopy={<RichText field={{value: '<ul style=\'text-align: left;padding-inline-start: 20px;margin: 0;\'>\n <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</li>\n <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</li>\n <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</li>\n </ul>'}} />}
+      headlineTag="p"
+      topColorBar="none"
+    />
+  </React.Fragment>
+</IconCtaBordered>
+```

@@ -1,0 +1,74 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ReverseRowsStories from './ReverseRows.stories';
+
+<Meta title="Design System/organisms/ReverseRows/Docs" of={ ReverseRowsStories} />
+
+# ReverseRows
+
+Story Link: [#135]('https://github.com/ahc-digital/migration-planning-tracking/issues/135')
+
+Description: The Reverse Row Story is a series of content blocks with an alternating layout. Each block consists of an image or video with accompanying text.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+    Template name and structure matches specification in "Sitecore Details" section
+    Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Content authors are able to add an image or video. If both are filled out, the video should take precedence over the image.
+
+Content authors are able to specify placement of the image/video (left or right).
+
+Content authors are able to remove the padding between rows.
+
+On mobile, the image will always come before content (image stacked on top).
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+const reverseRowArgs: ReverseRowsProps = {
+    shouldRemovePaddingBetweenRows: false,
+    headlineTag: 'h2',
+    headline: (
+        <JSSText
+            field={{ value: 'The health features you count on for care' }}
+        />
+    ),
+    topSupportingCopy: (
+        <JSSRichText
+            field={{
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+            }}
+        />
+    ),
+    bottomSupportingCopy: (
+        <JSSRichText
+            field={{
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+            }}
+        />
+    ),
+    rows: (
+        <>
+            <ReverseRow {...reverseRowMoleculeArgsMock} />
+            <ReverseRow
+                {...reverseRowMoleculeArgsMock}
+                imageSide='right'
+            />
+        </>
+    ),
+    bottomCta: <JSSLink field={mockSitecoreLink} />
+};
+
+<ReverseRows {...reverseRowArgs} />
+```

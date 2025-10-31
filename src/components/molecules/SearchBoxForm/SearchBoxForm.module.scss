@@ -1,0 +1,74 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .suggestive-form {
+        display: flex;
+        gap: var(--semantic-measures-spacing-016);
+        flex-direction: column;
+
+        .input-wrapper {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            position: relative;
+
+            .dropdown-select-list {
+                max-height: 17.5rem;
+                overflow-y: auto;
+                overflow-x: visible;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                background-color: var(--semantic-color-content-inverse-primary);
+                position: absolute;
+                top: 100%;
+                box-shadow: $elevation-1;
+
+                li {
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    padding: var(--semantic-measures-spacing-016);
+                    @include typography-small-paragraph-bold-cons;
+                    color: var(
+                        --semantic-color-content-default-brand-secondary
+                    );
+
+                    &.suggestion-active {
+                        border-radius: var(--semantic-measures-spacing-004);
+                        outline-offset: calc(
+                            -2 * var(--semantic-measures-stroke-small)
+                        );
+                        outline: var(--semantic-measures-stroke-medium) solid
+                            var(
+                                --semantic-color-border-default-utility-focus-dark
+                            );
+                    }
+
+                    &:hover {
+                        background-color: var(
+                            --semantic-color-surface-default-secondary
+                        );
+                    }
+                }
+            }
+        }
+
+        input {
+            @include typography-small-p---paragraph-consu;
+        }
+    }
+
+    @include media-tablet-lg {
+        .suggestive-form {
+            flex-direction: row;
+            gap: var(--semantic-measures-spacing-024);
+
+            .search-button {
+                align-self: self-end;
+                height: var(--semantic-measures-spacing-056);
+            }
+        }
+    }
+}

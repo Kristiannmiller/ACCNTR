@@ -1,0 +1,52 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .elevation-1 {
+        box-shadow: $elevation-1;
+    }
+
+    .elevation-2 {
+        box-shadow: $elevation-2;
+    }
+
+    .elevation-3 {
+        box-shadow: $elevation-3;
+    }
+
+    .color-bar {
+        border-top-style: solid;
+        border-top-width: var(--semantic-measures-sizing-008);
+
+        &.denim-blue {
+            border-top-color: var(--base-color-secondary-denim-blue);
+        }
+
+        &.wellness-blue {
+            border-top-color: var(--base-color-primary-wellness-blue);
+        }
+
+        &.childrens-blue {
+            border-top-color: var(--base-color-childrens-blue);
+        }
+
+        &.childrens-green {
+            border-top-color: var(--base-color-childrens-green);
+        }
+
+        &.childrens-orange {
+            border-top-color: var(--base-color-childrens-orange);
+        }
+
+        &.childrens-purple {
+            border-top-color: var(--base-color-childrens-purple);
+        }
+
+        &.childrens-yellow {
+            border-top-color: var(--base-color-childrens-yellow);
+        }
+
+        &.childrens-alliance {
+            border-top-color: var(--base-color-childrens-alliance);
+        }
+    }
+}

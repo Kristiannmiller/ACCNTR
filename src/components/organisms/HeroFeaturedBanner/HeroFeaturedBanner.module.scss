@@ -1,0 +1,169 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    @include theme-corporate {
+        .hero-featured-banner {
+            height: 31.5rem;
+            position: relative;
+
+            > *:first-child {
+                padding: var(--semantic-measures-spacing-000);
+            }
+        }
+
+        .bg-img {
+            height: 31.5rem;
+        }
+
+        .hero-gradient-overlay {
+            @include gradient-overlay(180);
+        }
+
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: var(--semantic-measures-spacing-000);
+            background: transparent;
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-016);
+            padding: var(--semantic-measures-spacing-016)
+                var(--semantic-measures-spacing-016)
+                var(--semantic-measures-spacing-032);
+            text-align: center;
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            text-shadow: $elevation-2;
+
+            .headline {
+                color: var(--semantic-color-content-inverse-primary);
+                font-size: px-to-rem(36);
+                font-style: normal;
+                @include typography-light;
+                line-height: px-to-rem(40);
+
+                span {
+                    font-size: px-to-rem(36);
+                    font-style: normal;
+                    @include typography-semibold;
+                    line-height: px-to-rem(40);
+                }
+            }
+
+            .tagline-bottom,
+            .tagline-top {
+                color: var(--semantic-color-content-inverse-primary);
+                font-size: px-to-rem(16);
+                font-style: normal;
+                font-weight: 500;
+                line-height: px-to-rem(24);
+            }
+        }
+
+        .cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--semantic-measures-spacing-016);
+            text-align: center;
+
+            a {
+                @include typography-small-paragraph-bold-cons;
+                gap: var(--semantic-measures-spacing-008);
+                box-sizing: border-box;
+                width: 100%;
+            }
+
+            svg {
+                display: none;
+            }
+        }
+
+        @include media-tablet {
+            .cta-wrapper {
+                svg {
+                    display: initial;
+                }
+            }
+        }
+
+        @include media-tablet-lg {
+            .hero-featured-banner {
+                height: 56.25rem;
+            }
+
+            .bg-img {
+                height: 56.25rem;
+            }
+
+            .content {
+                padding-bottom: var(--semantic-measures-spacing-072);
+            }
+
+            .text-content {
+                .headline {
+                    font-size: px-to-rem(88);
+                    line-height: normal;
+
+                    span {
+                        font-size: px-to-rem(88);
+                        line-height: normal;
+                    }
+                }
+
+                .tagline-bottom,
+                .tagline-top {
+                    font-size: px-to-rem(40);
+                    line-height: px-to-rem(56);
+                }
+            }
+
+            .cta-wrapper {
+                a {
+                    @include typography-small-corp-button-text;
+                    gap: var(--semantic-measures-spacing-016);
+                    width: auto;
+                }
+            }
+        }
+
+        @include media-desktop {
+            .text-content {
+                .headline {
+                    font-size: px-to-rem(110);
+                    line-height: normal;
+
+                    span {
+                        font-size: px-to-rem(110);
+                        line-height: normal;
+                    }
+                }
+
+                .tagline-bottom,
+                .tagline-top {
+                    font-size: px-to-rem(44);
+                }
+            }
+
+            .cta-wrapper {
+                flex-direction: row;
+            }
+        }
+    }
+}

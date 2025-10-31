@@ -1,0 +1,61 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .breadcrumbs {
+        display: none;
+
+        &.show-on-mobile {
+            display: block;
+        }
+        @include media-tablet {
+            display: block;
+        }
+    }
+
+    .breadcrumb-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        gap: var(--semantic-measures-sizing-016);
+    }
+
+    .breadcrumb-item {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--semantic-measures-sizing-016);
+    }
+
+    .breadcrumb-link {
+        @include typography-navigation-breadcrumb-lin;
+        color: inherit;
+        padding: 0;
+
+        &:hover {
+            color: var(--semantic-color-content-default-brand-secondary);
+        }
+    }
+
+    .breadcrumb-page {
+        @include typography-navigation-breadcrumb-pag;
+    }
+
+    .breadcrumb-separator {
+        height: var(--semantic-measures-sizing-008);
+        width: var(--semantic-measures-sizing-004);
+        display: flex;
+        align-items: center;
+    }
+}
+
+.breadcrumb-separator {
+    svg {
+        height: 100%;
+        width: auto;
+        fill: var(--semantic-color-content-default-primary);
+        stroke: var(--semantic-color-content-default-primary);
+        stroke-width: var(--semantic-measures-stroke-small);
+    }
+}

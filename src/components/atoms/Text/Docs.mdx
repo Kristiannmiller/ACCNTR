@@ -1,0 +1,206 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as TextStories from './Text.stories';
+
+<Meta
+    title='Design System/atoms/Text/Docs'
+    of={TextStories}
+/>
+
+# Text
+
+Story Link: [#26](https://github.com/ahc-digital/migration-planning-tracking/issues/26)
+
+Description: The Text component will be used for textual content across the site.
+
+---
+
+# Acceptance Criteria
+
+- Text renders according to the Figma designs.
+- Every variant has a corresponding 'mobile' size/style.
+- Desktop styles are applied to tablet and up.
+
+<Stories />
+
+## Props
+
+<Controls />
+
+### Prop Notes
+
+- tag
+  - Applies default styles defined in _typography.css unless a fontStyle is applied.
+
+- fontStyle
+  - The default font style.
+  - Applied to all themes and breakpoints unless overridden.
+
+- fontStyleTablet
+  - Overrides fontStyle on medium and desktop breakpoints.
+
+- fontStyleCorp
+  - Overrides fontStyle for the Corporate theme.
+
+- fontStyleCorpTablet
+  - Overrides fontStyleTablet on medium and desktop breakpoints for the Corporate theme.
+
+- asChild
+  - Uses the Radix Slot primitive to apply props to the immediate child.
+  - Useful for CMS integrations.
+
+## Usage
+---
+The below examples describe what typography style renders at a given theme and breakpoint based on the provided props.
+
+### Example 1 -  span
+
+```tsx
+<Text>Hello World</Text>
+```
+
+**Renders**
+
+- CONSUMER
+  - sm: Small Paragraph
+  - md, lg: Small Paragraph
+
+- CORPORATE
+  - sm: Small Corp Paragraph
+  - md, lg: Small Corp Paragraph
+
+---
+### Example 2 - h2
+
+```tsx
+<Text tag="h2">Hello World</Text>
+```
+
+**Renders**
+
+- CONSUMER
+  - sm: Large Heading Mobile
+  - md, lg: Large Heading
+
+- CORPORATE
+  - sm: Large Corp Heading Mobile
+  - md, lg: Large Corp Heading
+
+---
+
+### Example 3 - fontStyle
+
+```tsx
+<Text
+    tag='h3'
+    fontStyle='xlHeading'>
+    Hello World
+</Text>
+```
+
+**Renders**
+
+- CONSUMER
+  - sm: XL Heading
+  - md, lg: XL Heading
+
+- CORPORATE
+  - sm: XL Corp Heading
+  - md, lg: XL Corp Heading
+
+---
+
+### Example 4 - breakpoint override
+
+```tsx
+
+<Text
+    tag='h3'
+    fontStyle='xlHeading'
+    fontStyleTablet='lgHeading'>
+    Hello World
+</Text>
+
+```
+
+**Renders**
+
+- CONSUMER
+  - sm: XL Heading
+  - md, lg: Large Heading
+- CORPORATE
+  - sm: XL Corp Heading
+  - md, lg: Large Corp Heading
+
+---
+
+### Example 5 - breakpoint and mobile theme override
+
+```tsx
+<Text
+    tag='h3'
+    fontStyle='xlHeading'
+    fontStyleTablet='lgHeading'
+    fontStyleCorp='smParagraph'>
+    Hello World
+</Text>
+```
+
+**Renders**
+
+- CONSUMER
+  - sm: XL Heading
+  - md, lg: Large Heading
+
+- CORPORATE
+  - sm: Small Corp Paragraph
+  - md, lg: Large Corp Heading
+
+
+---
+
+### Example 6 - breakpoint and theme override
+
+```tsx
+<Text
+    tag='h3'
+    fontStyle='xlHeading'
+    fontStyleTablet='lgHeading'
+    fontStyleCorp='smParagraph'
+    fontStyleCorpTablet='smHeading'>
+    Hello World
+</Text>
+```
+
+**Renders**
+
+- CONSUMER
+  - sm: XL Heading
+  - md, lg: Large Heading
+
+- CORPORATE
+  - sm: Small Corp Paragraph
+  - md, lg: Small Corp Heading
+
+---
+
+### Example 7 - with asChild
+
+```tsx
+<Text
+    tag='h3'
+    fontStyle='xlHeadingMobile'
+    fontStyleTablet='xlHeading'
+    asChild>
+    <JssText field={props.fields.Title} />
+</Text>
+```
+
+**Renders**
+
+- CONSUMER
+  - sm: XL Heading Mobile
+  - md, lg: XL Heading
+
+- CORPORATE
+  - sm: XL Corp Heading Mobile
+  - md, lg: XL Corp Heading

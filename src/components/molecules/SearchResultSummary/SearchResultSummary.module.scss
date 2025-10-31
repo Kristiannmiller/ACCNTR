@@ -1,0 +1,12 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .search-result {
+        display: flex;
+        flex-wrap: wrap;
+
+        span {
+            padding-right: var(--semantic-measures-spacing-008);
+        }
+    }
+}

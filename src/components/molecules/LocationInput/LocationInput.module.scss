@@ -1,0 +1,17 @@
+@layer atoms {
+    .location-input {
+        input {
+            padding-right: 20%;
+        }
+    }
+
+    .get-location-trigger {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+}

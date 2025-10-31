@@ -1,0 +1,34 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as UtilityNavigationMobileStories from './UtilityNavigationMobile.stories';
+
+<Meta title="Design System/molecules/UtilityNavigationMobile/Docs" of={ UtilityNavigationMobileStories} />
+
+# UtilityNavigationMobile
+
+Story Link: [#20]('https://github.com/ahc-digital/migration-planning-tracking/issues/20')
+
+Description: The utility navigation is a set of links that sit above the primary navigation. The utility navigation consists of a set of up to 7 utility links and two optional CTAs styled like a button. The utility links may optionally open a drop down that reveals a further set of links. Content Authors can additionally choose from a limited set of color options for the CTA links.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+- Template name and structure matches specification in "Sitecore Details" section
+- Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc.) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+The utility navigation's max width is 1440px.
+
+Up to two optional CTA links can be added.
+
+Utility links support the option for a dropdown.
+
+Utility should be absorbed into the primary nav on mobile. Appears below primary nav on mobile.
+
+<Stories />
+
+## Props
+<Controls />

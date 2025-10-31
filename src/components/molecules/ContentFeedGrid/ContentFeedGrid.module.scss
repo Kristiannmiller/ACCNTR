@@ -1,0 +1,82 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .grid {
+        display: grid;
+        gap: var(--semantic-measures-spacing-024);
+    }
+
+    .card,
+    .featured-card {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-position: top center;
+            object-fit: cover;
+        }
+
+        .card-link::after {
+            position: absolute;
+            content: '';
+            inset: 0;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-008);
+            padding: var(--semantic-measures-spacing-016);
+        }
+
+        .card-date {
+            color: var(--semantic-color-content-default-secondary);
+            font-size: 0.875rem;
+        }
+    }
+
+    .featured-card {
+        img {
+            aspect-ratio: 22 / 14;
+        }
+    }
+
+    .card {
+        img {
+            aspect-ratio: 22 / 11;
+        }
+    }
+
+    @include container-tablet-lg {
+        .grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: minmax(0, 14rem) minmax(22ch, 1fr);
+
+            img {
+                height: 100%;
+                aspect-ratio: 1 / 1;
+            }
+
+            .card-content {
+                padding: var(--semantic-measures-spacing-024);
+            }
+        }
+
+        .featured-card {
+            grid-row: span 2;
+
+            img {
+                aspect-ratio: 22 / 9;
+            }
+
+            .card-content {
+                padding: var(--semantic-measures-spacing-024);
+            }
+        }
+    }
+}

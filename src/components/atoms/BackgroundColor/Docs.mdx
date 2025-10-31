@@ -1,0 +1,30 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as BackgroundColorStories from './BackgroundColor.stories';
+
+<Meta title="Design System/atoms/BackgroundColor/Docs" of={ BackgroundColorStories} />
+
+# BackgroundColor
+
+Description: The BackgroundColor component is a Slot that sets the background color of the children.
+It also creates a ReactContext so child components can swap styles based on the background color.
+
+---
+# Acceptance Criteria
+Background Colors:
+- 'white'
+- 'whiteSmoke'
+- 'wellnessBlue'
+- 'denimBlue'
+- 'achOrange'
+- 'cchaPurple'
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<BackgroundColor backgroundColor="wellnessBlue">Hello World</BackgroundColor>
+```

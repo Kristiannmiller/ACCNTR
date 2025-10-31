@@ -1,0 +1,96 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as MediaGalleryStories from './MediaGallery.stories';
+
+<Meta title="Design System/organisms/MediaGallery/Docs" of={MediaGalleryStories} />
+
+# MediaGallery
+
+Story Link: [#209]('https://github.com/ahc-digital/migration-planning-tracking/issues/209')
+
+Description: The Media Gallery component is used to display a mix of image and video media items together using a carousel setup.
+
+---
+# Acceptance Criteria
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+When both the video and image fields are filled out, the video should take precedence over the image. When the video id is filled out, the thumbnail should get the play icon. When the slide with the video loads, it displays the Youtube player with the default pause button. There is no poster image with a play button overlay before the player loads.
+
+The thumbnail bar should be automatically generated based off the individual slides and will not explicitly content author configured.
+
+Left navigation should be disabled when the user is on the first item. Right navigation should be disabled when the user is on the last item. The carousel does not loop.
+
+If you change slides while a video is playing, the currently playing video will stop. The slide does not remember where in the video it is. The video will restart each time the slide is loaded.
+
+Clicking on a thumbnail loads the corresponding media item in the larger expanded view. If the user clicks on the currently selected item, nothing happens. When a slide containing a video loads, the video does not auto start playing. The user must manually start the video.
+
+The slides do not auto play.
+
+Active (currently selected) asset should be fully visible, whereas others should be dimmed out.
+
+Hide navigation should only hide the navigation arrows by the thumbnails only. Thumbnail navigation arrows should also be hidden by default for four or less media items.
+
+Thumbnail will come from the Youtube api and not be uploaded into Sitecore for items that have the video ID filled out. Image slides will use the same image field for both the large image and thumbnail.
+
+The thumbnails and top image display operate independently. Clicking an arrow on the thumbnails does not change the top displayed media item without explicitly clicking on a new thumbnail.
+
+
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<MediaGallery {
+    ...{
+    headline: <JSSText field={{ value: 'Media Gallery' }} />,
+    headlineTag: 'p',
+    supportCopy: <JSSRichText field={{ value: '<p>Support Copy</p>' }} />,
+    cta: <JSSLink field={{ value: { href: '#', text: 'CTA' } }} />,
+    contentAlignment: 'left',
+    backgroundColor: 'white',
+    shouldHideThumbnails: false,
+    shouldHideNavigation: false,
+    slides: [
+        {
+            image: (
+                <JSSImage
+                    field={{
+                        src: '/images/hero-banners/advocatehealth-merger-kids.webp'
+                    }}
+                />
+            ),
+            headline: <JSSText field={{
+                value: 'Title of image. Lorem ipsum dolor sit amet.'
+            }} />,
+            supportCopy: <JSSRichText field={{
+                value: '<p>Image description and <a href="#">link</a> goes here.</p>'
+            }} />
+        },
+        {
+            image: (
+                <JSSImage
+                    field={{
+                        src: 'https://www.advocatechildrenshospital.com/_widgets/banners/easset_upload_file71272_456927_e.webp'
+                    }}
+                />
+            )
+        },
+        {
+            videoId: 'kjmrWe8rsAY'
+        }
+    ]
+}
+
+}/>
+```

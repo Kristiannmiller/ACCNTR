@@ -1,0 +1,59 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ArticleStories from './Article.stories';
+
+<Meta title="Design System/organisms/Article/Docs" of={ArticleStories} />
+
+# Article
+
+Story Link: [#285](https://github.com/ahc-digital/migration-planning-tracking/issues/285)
+
+Description: The article rendering is used to render out the article details to a page.
+
+--- 
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Article {...{
+    headline: <JSSText field={mockSitecoreText} />,
+    subHeadline: <JSSText field={mockSitecoreLongerText} />,
+    publishDate: 'June 9, 2016',
+    mainContent: <JSSRichText field={mockSitecoreRichText} />,
+    image: <JSSImage field={mockImages[2]} />,
+    imageCaption: <JSSText field={mockSitecoreText} />,
+    shouldDisplaySocialMediaIcons: true,
+    socialMediaLinks: [
+        {
+            icon: 'facebook',
+            link: <JSSLink field={mockSitecoreLink} />
+        },
+        {
+            icon: 'twitter',
+            link: <JSSLink field={mockSitecoreLink} />
+        },
+        {
+            icon: 'linkedin',
+            link: <JSSLink field={mockSitecoreLink} />
+        },
+        {
+            icon: 'envelope',
+            link: <JSSLink field={mockSitecoreLink} />
+        }
+    ]
+}} />
+```

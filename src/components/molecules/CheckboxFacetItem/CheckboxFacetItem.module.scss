@@ -1,0 +1,11 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .checkbox-facet-item-base {
+        display: flex;
+        align-items: center;
+        gap: var(--semantic-measures-sizing-008);
+        cursor: pointer;
+        width: fit-content;
+    }
+}

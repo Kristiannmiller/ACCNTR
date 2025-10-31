@@ -1,0 +1,66 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .alert {
+        display: grid;
+        padding-block: var(--semantic-measures-spacing-016);
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            '. close'
+            'icon message';
+    }
+
+    .alert-dismiss-button {
+        grid-area: close;
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        margin-block-end: var(--semantic-measures-spacing-008);
+
+        // Remove default button styles
+        cursor: pointer;
+        background-color: unset;
+        border: none;
+        padding: var(--semantic-measures-spacing-000);
+    }
+
+    .alert-icon {
+        grid-area: icon;
+        height: var(--semantic-measures-spacing-024);
+        width: var(--semantic-measures-spacing-024);
+        margin-inline-end: var(--semantic-measures-spacing-008);
+    }
+
+    .alert-primary-text,
+    .alert-mobile-text {
+        grid-area: message;
+    }
+
+    .alert-mobile-text + .alert-primary-text {
+        display: none;
+    }
+
+    @include container-desktop {
+        .alert {
+            grid-template-columns: auto 1fr auto;
+            grid-template-areas: 'icon message close';
+        }
+
+        .alert-icon {
+            margin-inline-end: var(--semantic-measures-spacing-016);
+        }
+
+        .alert-mobile-text {
+            display: none;
+        }
+
+        .alert-mobile-text + .alert-primary-text {
+            display: block;
+        }
+
+        .alert-dismiss-button {
+            margin-inline-start: var(--semantic-measures-spacing-016);
+            margin-block-end: var(--semantic-measures-spacing-000);
+        }
+    }
+}

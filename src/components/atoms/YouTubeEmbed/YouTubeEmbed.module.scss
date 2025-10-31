@@ -1,0 +1,23 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .youtube-embed-base {
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .yt-player,
+        iframe {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 8 / 5;
+            border: none;
+            min-height: 22rem; // 352px
+            background: rgba(0, 0, 0, 1);
+        }
+    }
+}

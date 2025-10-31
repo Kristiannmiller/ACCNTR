@@ -1,0 +1,702 @@
+/* FIGMA EXPORT */
+
+/* Start Text Styles */
+/* name: XL/H1 - Consumer
+/* id: S:ab73ae7882af30b80f381adcd04844528ea25691,
+**
+*/
+@mixin typography-xl-h1---consumer {
+    font-style: normal;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 3rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: XL/H1 - Corporate
+/* id: S:bdf9ebad85f5cb5d2d7ac9ef71581889d2dd691c,
+**
+*/
+@mixin typography-xl-h1---corporate {
+    font-style: normal;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 4.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: XL/H1 - Consumer - Mobile
+/* id: S:200771319ede3db3540f0fea9fe2b21ca43b8369,
+**
+*/
+@mixin typography-xl-h1---consumer---mobile {
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: XL/H1 - Corporate - Mobile
+/* id: S:2a536e172229c9f2ea3f4b0ab24249b75757b61a,
+**
+*/
+@mixin typography-xl-h1---corporate---mobil {
+    font-style: normal;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 3.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Large/H2- Consumer
+/* id: S:e23f3b605d95faae54b7df7c1417c24bff76c8f0,
+**
+*/
+@mixin typography-large-h2--consumer {
+    font-style: normal;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Large/H2 - Corporate
+/* id: S:3aa5cd9f7cf6c622b46f389d92ebfa778a614567,
+**
+*/
+@mixin typography-large-h2---corporate {
+    font-style: normal;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 4rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Large/H2 - Consumer - Mobile
+/* id: S:ef2f492aa8bb618da537825038f8102bd44d5a72,
+**
+*/
+@mixin typography-large-h2---consumer---mob {
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Large/H2 - Corporate - Mobile
+/* id: S:a9575658e04d34e875a5a67b5de67f7bd9bab426,
+**
+*/
+@mixin typography-large-h2---corporate---mo {
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 3rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Medium/H3- Consumer
+/* id: S:028b897daba680c56ee08a0eb510fe8565a25157,
+**
+*/
+@mixin typography-medium-h3--consumer {
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Medium/H3 - Corporate
+/* id: S:f64164a64c0067e7dd92746627c42d3859175eee,
+**
+*/
+@mixin typography-medium-h3---corporate {
+    font-style: normal;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 3.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Medium/H3 - Consumer - Mobile
+/* id: S:e7b7dccfb7006b89a472fc093739fea1e5a3c76b,
+**
+*/
+@mixin typography-medium-h3---consumer---mo {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Medium/H3 - Corporate - Mobile
+/* id: S:4f00b97faf2a8069ec2f27da1f14f5e8baf4c9a8,
+**
+*/
+@mixin typography-medium-h3---corporate---m {
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/H4- Consumer
+/* id: S:b8309f2a1dd5323125df9ee0dd69637f0b520db3,
+**
+*/
+@mixin typography-small-h4--consumer {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/H4 - Corporate
+/* id: S:7800dc51a33b8581de8754abb99998a3fb24693e,
+**
+*/
+@mixin typography-small-h4---corporate {
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/H4 - Consumer - Mobile
+/* id: S:b6e6850d515946411c1a4a130c040c9a1d845c3e,
+**
+*/
+@mixin typography-small-h4---consumer---mob {
+    font-style: normal;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/H4 - Corporate - Mobile
+/* id: S:2a419750eb62fdd98f9837687087b0f542f47541,
+**
+*/
+@mixin typography-small-h4---corporate---mo {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/P - Paragraph Consumer
+/* id: S:c2bb22517085d7a342a102d3e4fd5f9911ef539e,
+**
+*/
+@mixin typography-small-p---paragraph-consu {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Paragraph Italic Consumer
+/* id: S:10a690ae43bb1623db488fa75eb3b5925a392c40,
+**
+*/
+@mixin typography-small-paragraph-italic-con {
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Paragraph Bold Consumer
+/* id: S:ab545ba470f61b426753559c0a241a307a3f5ae1,
+**
+*/
+@mixin typography-small-paragraph-bold-cons {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/P - Paragraph Corporate
+/* id: S:9095be73a50bbcfa265a54f5004d5f99c72f0418,
+**
+*/
+@mixin typography-small-p---paragraph-corpo {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Paragraph Italic Corporate
+/* id: S:89b4ff05d7ec1d2aae3f8a0927502b33829163a6,
+**
+*/
+@mixin typography-small-paragraph-italic-co {
+    font-style: italic;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Paragraph Bold Corporate
+/* id: S:e99ac4bc52b95a476df3fc0cc30156d718e75165,
+**
+*/
+@mixin typography-small-paragraph-bold-corp {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Link
+/* id: S:ee56914e19811a6290af85d6cd753a3c6544b8f7,
+**
+*/
+@mixin typography-small-link {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+/* name: Small/Corp Link
+/* id: S:72d8f8525b20666843dbf8fa4f76a5acd4435e9d,
+**
+*/
+@mixin typography-small-corp-link {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+/* name: Small/Link Mobile
+/* id: S:b37732931facf95c6dd1bc7380c43670e5b45fdd,
+**
+*/
+@mixin typography-small-link-mobile {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Corp Link Mobile
+/* id: S:88d9d525ea856ca47d4f00d514509b89c5911ef3,
+**
+*/
+@mixin typography-small-corp-link-mobile {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Button Text
+/* id: S:cb315d7aea686f76356aaf371affb4c29a8e8748,
+**
+*/
+@mixin typography-small-button-text {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Button Text Focus
+/* id: S:282e18ac4a9341e3e21791bb9be8bf0227eef601,
+**
+*/
+@mixin typography-small-button-text-focus {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+/* name: Small/Corp Button Text
+/* id: S:166d0850778d1375ffc0a88015ebc934d28de729,
+**
+*/
+@mixin typography-small-corp-button-text {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Corp Button Text Focus
+/* id: S:ab38e506ccb043f274a5fde95498df9f18edeea9,
+**
+*/
+@mixin typography-small-corp-button-text-fo {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+/* name: Small/Navigation Heading
+/* id: S:a48f233332ac478be1807c90a6587c88d70f678f,
+** Headings at the top of a navigation element such as Left Nav
+*/
+@mixin typography-small-navigation-heading {
+    font-style: normal;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Small/Legal Text
+/* id: S:9d612c492a8f59d275167e8266866bd6b856f211,
+**
+*/
+@mixin typography-small-legal-text {
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Forms/Explainer
+/* id: S:2b8d76cefb95b73efe96ab7d6551f9eac1a8b673,
+**
+*/
+@mixin typography-forms-explainer {
+    font-style: italic;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Forms/Field Text
+/* id: S:fc943708afa211c6f4763594fb2ff9a254aee906,
+** Placeholder text of a form field before any text has been entered.
+*/
+@mixin typography-forms-field-text {
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Forms/Field_Label
+/* id: S:66bd2a61336d60d6bb92de5b8a1f56e6e4cb6ce5,
+**
+*/
+@mixin typography-forms-field_label {
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Forms/Field Text Bold
+/* id: S:723966587e1d9e18947115606f99f4b79976d6cb,
+**
+*/
+@mixin typography-forms-field-text-bold {
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/Breadcrumb Link
+/* id: S:2de1fbba7b0094f6960163d6f202ee325485def6,
+**
+*/
+@mixin typography-navigation-breadcrumb-lin {
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/Breadcrumb Page
+/* id: S:5006988e48cf344d4367b1a25b2ae63342dd5d96,
+**
+*/
+@mixin typography-navigation-breadcrumb-pag {
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/GlobalNav L1
+/* id: S:c182c603c4a37869ec2975c3138069a1ab229757,
+**
+*/
+@mixin typography-navigation-globalnav-l1 {
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/Left-Side_Anchor_Active
+/* id: S:9d33cec0c54739b5bcd0e1f5103e18e93e2f48e2,
+**
+*/
+@mixin typography-navigation-left-side_anch {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/Left-Side_Anchor_Link
+/* id: S:fef8480726a3c54ccc88f5a5cb06fac4921222ae,
+**
+*/
+@mixin typography-navigation-left-side_anch {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+/* name: Navigation/LeftSide_Anchor_Default
+/* id: S:e7c381a7abb85ecc64075dba4362d09069c99227,
+**
+*/
+@mixin typography-navigation-leftside_ancho {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/Footer Legal Link (pending client approval))
+/* id: S:f94892b2e448da456a30d31afe686465bfbeb501,
+**
+*/
+@mixin typography-navigation-footer-legal-l {
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/Footer Link column
+/* id: S:41310468bb6dbc85632aba84669038aca0e87cbb,
+**
+*/
+@mixin typography-navigation-footer-link-co {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/Footer Link Underline
+/* id: S:6ce3d7db48a7e7383e6a049f4292c7803aa573bd,
+**
+*/
+@mixin typography-navigation-footer-link-un {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+/* name: Navigation/UtilityNav Link
+/* id: S:9d21284f9d0313d1c94067b63d2d94032ae8b967,
+**
+*/
+@mixin typography-navigation-utilitynav-lin {
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/UtilityNav CTA
+/* id: S:d85e828ca6b1a58cd51a401bdf2b676441b42d91,
+**
+*/
+@mixin typography-navigation-utilitynav-cta {
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Navigation/UtilityNav Focus
+/* id: S:3ec157ec400554602be2d60b4ed4ad4a3a4ff260,
+**
+*/
+@mixin typography-navigation-utilitynav-foc {
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+/* name: DS File Only/XS Label
+/* id: S:a851befdecbfa708ca2dd96540502655062d99f3,
+** For us in the Design System File Only
+*/
+@mixin typography-ds-file-only-xs-label {
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 0.9375rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* name: Utility/Mini_Label
+/* id: S:cbd8a83346a809b3d915755d1febfa532fc6457b,
+**
+*/
+@mixin typography-utility-mini_label {
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0rem;
+    text-decoration: none;
+    text-transform: none;
+}

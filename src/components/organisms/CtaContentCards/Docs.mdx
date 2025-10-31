@@ -1,0 +1,83 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as CtaContentCardsStories from './CtaContentCards.stories';
+
+<Meta title="Design System/organisms/CtaContentCards/Docs" of={ CtaContentCardsStories} />
+
+# CtaContentCards
+
+Story Link: [#172]('https://github.com/ahc-digital/migration-planning-tracking/issues/172')
+
+Description: The CtaContentCards *organism* component is used as a wrapper for CtaContentCards. It includes a heading, top and bottom supporting copy, and a CTA link, as well as the inner content cards.
+
+---
+# Acceptance Criteria
+
+
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+The title and supporting copy of the container can be left or center aligned.
+
+The CTA of the container can be left or center aligned on desktop. On mobile it is always full width.
+
+The image on each card fills the space provided and has no padding. Images have a max height of 250px. Image should be anchored at the top center.
+
+Each card can have up to three CTAs. The CTAs are always stacked. Each of the first two CTA may optionally be a button or link style, as well as left or center aligned. The third CTA will always be a link if present.
+
+Content authors are able to enable a dropshadow for each card. When dropshadow is enabled, extra padding should be applied to the content within the card (excluding image).
+
+The background of individual cards is always white.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+
+const ctaContentCardsOrganismProps = {
+    headline: <JSSText field={{ value: 'When you can’t pencil in an appointment' }} />,
+    headlineTag: 'h2',
+    contentAlignment: 'left',
+    numColumns: '2',
+    supportingCopy: (
+        <JSSRichText
+            field={{
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            }}
+        />
+    ),
+    bottomSupportingCopy: (
+        <JSSRichText
+            field={{
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            }}
+        />
+    ),
+    cta: <JssLink field={mockSitecoreLink} />,
+    hasDropShadows: true,
+    backgroundColor: 'whiteSmoke',
+    contentCards: (
+        <>
+            <CtaContentCard {...mockCtaContentCard.default} />
+            <CtaContentCard {...mockCtaContentCard.longContent} />
+            <CtaContentCard {...mockCtaContentCard.default} />
+            <CtaContentCard {...mockCtaContentCard.longContent} />
+            <CtaContentCard {...mockCtaContentCard.default} />
+        </>
+    )
+};
+<CtaContentCards { ...ctaContentCardsOrganismProps } />
+```

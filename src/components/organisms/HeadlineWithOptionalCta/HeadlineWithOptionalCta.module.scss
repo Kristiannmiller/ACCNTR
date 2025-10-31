@@ -1,0 +1,23 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .headline-with-optional-cta-base {
+        display: grid;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--semantic-measures-spacing-016);
+
+        a {
+            margin-top: 0;
+        }
+
+        @include media-tablet-lg {
+            grid-template-columns: 1fr auto;
+            gap: var(--semantic-measures-spacing-060);
+
+            a {
+                margin-top: var(--semantic-measures-spacing-008);
+            }
+        }
+    }
+}

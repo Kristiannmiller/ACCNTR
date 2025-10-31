@@ -1,0 +1,73 @@
+@use 'toolbox' as *;
+
+@layer core {
+    .container {
+        container-type: inline-size;
+
+        // container + container
+        & + & {
+            margin-block-start: var(--semantic-measures-spacing-040);
+        }
+
+        // container with color background + container with color remove margin top
+        // container + footer
+        [data-background-color='true'] + &[data-background-color='true'],
+        + footer.container {
+            margin-block-start: var(--semantic-measures-spacing-000);
+        }
+    }
+
+    .contained-small > *,
+    .contained > *,
+    .contained-large > * {
+        margin-inline: auto;
+    }
+
+    .padded > * {
+        padding-inline: var(--semantic-measures-spacing-016);
+        @include container-desktop {
+            padding-inline: var(--semantic-measures-spacing-048);
+        }
+    }
+
+    .contained-small > * {
+        max-inline-size: 74.75rem;
+    }
+
+    .contained > * {
+        max-inline-size: 90rem;
+    }
+
+    .contained-large > * {
+        max-inline-size: 120rem;
+    }
+
+    .vertical-spacing {
+        margin-block: var(--semantic-measures-spacing-016);
+    }
+
+    @include media-tablet-lg-max {
+        .container:has(
+                [data-column-grid] .padded[data-background-color='false']
+            )
+            > * {
+            padding-inline: var(--semantic-measures-spacing-000);
+        }
+    }
+
+    @include media-desktop {
+        [data-column-grid] .padded[data-background-color='false'] > * {
+            padding-inline: var(--semantic-measures-spacing-000);
+        }
+    }
+}
+
+// Overries for swiper. Must be outside of the core layer.
+.padded {
+    > :global(.swiper) {
+        padding-inline: var(--semantic-measures-spacing-016);
+        @include container-desktop {
+            padding-inline: var(--semantic-measures-spacing-048);
+        }
+    }
+}

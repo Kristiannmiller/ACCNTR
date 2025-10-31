@@ -1,0 +1,80 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as LocationCardStories from './LocationCard.stories';
+
+<Meta title="Design System/molecules/LocationCard/Docs" of={ LocationCardStories} />
+
+# LocationCard
+
+Story Link: [#228](https://github.com/ahc-digital/migration-planning-tracking/issues/228)
+
+Description: The Location Cards are a card based component that pulls in data from location objects.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+- Template name and structure matches specification in "Sitecore Details" section
+- Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The location details for the card should come automatically from the linked location object.
+
+An optional 50% dark overlay with the "360" watermark can be applied to each card via a rendering parameter. The watermark is 80% opacity by default and becomes 100% on hover.
+
+On desktop, there should be 3 cards per row. On tablet there are 2 cards per row. On mobile, all cards are stacked.
+
+The image on the card should be wrapped in in the tour link on the location option if available.
+
+<Stories />
+
+## Props
+<Controls />
+
+## Example Usage(s)
+```tsx
+    LocationData = {
+        locationName: 'Oak Lawn campus',
+        image: <JSSImage field={mockSitecoreLocationImage} />,
+        locationDetailPage: (
+            <JSSLink
+                field={{
+                    ...mockSitecoreLink.value,
+                    text: 'Learn about this location'
+                }}
+            />
+        ),
+        addressLine1: '1675 Dempster St.',
+        city: 'Park Ridge,',
+        state: 'IL',
+        zip: '60068',
+        defaultPhone: '708-555-5555',
+        emergencyPhone: '708-684-5300',
+        email: 'email@email.com',
+        locationType: 'hospital',
+        hoursOfOperation: 'address1',
+        servicesAvailable: 'address1',
+        locationTour: (
+            <JSSLink
+                field={{
+                    ...mockSitecoreLink.value,
+                    text: 'Learn about this location'
+                }}
+            />
+        )
+    }
+<LocationCard
+   location={LocationData}
+   firstCta={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Start a scheduled visit', title: 'custom-title', url: '/test-link'}} />}
+   secondCta={<Link field={{anchor: '', class: 'custom-class', href: '/learn-more', id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}', linktype: 'internal', querystring: '', target: '|Custom', text: 'Start a scheduled visit', title: 'custom-title', url: '/test-link'}} />}
+   shouldDisplayImageOverlay = true
+   animalIcon = {<JSSImage field={{value: {src: '/images/childrens-footer/piggie.png',alt: 'piggie'}}}/>}
+   firstCtaStyle = 'solid'
+   secondCtaStyle = 'solid'
+/>
+```
+

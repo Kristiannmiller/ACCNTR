@@ -1,0 +1,35 @@
+@mixin gradient-overlay($overlayAngle) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        #{$overlayAngle}deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    );
+    z-index: 1;
+    width: 100%;
+    padding: var(--semantic-measures-spacing-000);
+
+    &.gradient-level-80 {
+        opacity: 0.8;
+    }
+
+    &.gradient-level-60 {
+        opacity: 0.6;
+    }
+
+    &.gradient-level-40 {
+        opacity: 0.4;
+    }
+
+    &.gradient-level-20 {
+        opacity: 0.2;
+    }
+
+    &.gradient-level-0 {
+        opacity: 0;
+    }
+}

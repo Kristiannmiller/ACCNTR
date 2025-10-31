@@ -1,0 +1,7 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .location-grid {
+        grid-row-gap: var(--semantic-measures-sizing-048);
+    }
+}

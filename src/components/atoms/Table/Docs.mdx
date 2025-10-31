@@ -1,0 +1,75 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as TableStories from './Table.stories';
+
+<Meta title="Design System/atoms/Table/Docs" of={ TableStories} />
+
+# Table
+
+Story Link: [#210]('https://github.com/ahc-digital/migration-planning-tracking/issues/210')
+
+Description: The Table component is used by content authors to insert tabular data onto pages.
+
+---
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+ - Template name and structure matches specification in "Sitecore Details" section
+ - Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+For the standard table, rows should automatically alternate colors.
+
+For the custom table, the first row becomes wellness blue with white text. It also adds a hover over effect (with mouse or tap) that highlights rows.
+
+Content authors should be able to pin the first column.
+
+If both the icon and rich text fields are filled out for a table cell, the icon should take precedence.
+
+The most specific cell alignment option should win. For example if one TD is set as left and the row is set as center, that TD should be left while the rest of the row is centered. Rows and TDs should start with the 'default' alignment option, which uses the alignment specified at the table level.
+
+<Stories  />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Table
+    isStriped={args.isStriped}
+    isSticky={args.isSticky}
+    tableStyle={'standard'}
+    >
+        <TableHeader cellAlignment='right'>
+            <TableRow cellAlignment='center'>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Specialty</TableHead>
+                        <TableHead>Location</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow cellAlignment='left'>
+                <TableCell {...mockTableCell.default} />
+                <TableCell {...mockTableCell.default} />
+                <TableCell {...mockTableCell.default} />
+            </TableRow>
+            <TableRow cellAlignment='left'>
+                <TableCell {...mockTableCell.default} />
+                <TableCell {...mockTableCell.default} />
+                <TableCell {...mockTableCell.default} />
+            </TableRow>
+            <TableRow cellAlignment='left'>
+                <TableCell {...mockTableCell.default} />
+                <TableCell {...mockTableCell.default} />
+                <TableCell {...mockTableCell.default} />
+            </TableRow>
+         </TableBody>
+</Table>
+```

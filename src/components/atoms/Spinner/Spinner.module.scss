@@ -1,0 +1,12 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .spinner {
+        @include spin;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        max-width: var(--semantic-measures-spacing-056);
+        margin-inline: auto;
+    }
+}

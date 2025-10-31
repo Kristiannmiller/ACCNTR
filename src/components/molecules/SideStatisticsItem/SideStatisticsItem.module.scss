@@ -1,0 +1,69 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .list-item {
+        display: grid;
+        gap: var(--semantic-measures-spacing-008);
+    }
+
+    .statistics-block,
+    .prefix,
+    .statistic,
+    .suffix {
+        // Not defined in Figma typography.
+        text-align: left;
+        font-size: 2.375rem;
+        line-height: 2rem;
+        @include typography-bold;
+    }
+
+    .support-copy {
+        text-align: left;
+    }
+
+    @include container-desktop {
+        .list-item {
+            display: grid;
+            grid-column: 1 / 3;
+            gap: var(--semantic-measures-spacing-024);
+            grid-template-columns: subgrid;
+        }
+
+        .statistics-block {
+            text-align: right;
+        }
+
+        .support-copy {
+            margin-block-start: var(--semantic-measures-spacing-004);
+            // Not defined in Figma typography.
+            p {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+        }
+    }
+
+    @include theme-consumer-childrens {
+        .list-item-color-default {
+            .statistics-block,
+            .prefix,
+            .statistic,
+            .suffix {
+                color: var(--semantic-color-content-default-brand-secondary);
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .list-item-color-default {
+            .statistics-block,
+            .prefix,
+            .statistic,
+            .suffix {
+                color: var(
+                    --semantic-color-content-default-brand-secondary-alt
+                );
+            }
+        }
+    }
+}

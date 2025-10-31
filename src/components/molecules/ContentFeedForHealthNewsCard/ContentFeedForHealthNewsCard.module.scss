@@ -1,0 +1,48 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .content-feed-for-health-news-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 100%;
+            object-position: top center;
+            object-fit: cover;
+            aspect-ratio: 360 / 200;
+            margin-bottom: var(--semantic-measures-spacing-024);
+
+            &.hide-card-img {
+                display: none;
+            }
+        }
+
+        // Make the whole card clickable
+        .card-title-link::after {
+            content: '';
+            display: block;
+            position: absolute;
+            inset: 0;
+        }
+
+        .card-excerpt {
+            margin-top: var(--semantic-measures-spacing-016);
+            color: var(--semantic-color-content-default-primary);
+            @include line-clamp(4);
+            text-overflow: ellipsis;
+        }
+    }
+
+    @include media-tablet {
+        .content-feed-for-health-news-card {
+            img {
+                aspect-ratio: 342 / 200;
+
+                &.hide-card-img {
+                    display: block;
+                }
+            }
+        }
+    }
+}

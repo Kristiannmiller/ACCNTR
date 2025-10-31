@@ -1,0 +1,33 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .reverse-rows-base {
+        text-align: center;
+
+        .content-row {
+            margin-top: var(--semantic-measures-spacing-064);
+        }
+
+        .with-padding {
+            > div {
+                padding-bottom: var(--semantic-measures-spacing-048);
+            }
+        }
+
+        .heading {
+            padding-bottom: var(--semantic-measures-spacing-016);
+        }
+
+        .supporting-copy-top {
+            margin-bottom: var(--semantic-measures-spacing-024);
+        }
+
+        .supporting-copy-bottom {
+            padding-block: var(--semantic-measures-spacing-024);
+        }
+
+        p.heading {
+            @include typography-bold;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .navigation-menu-base {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navigation-menu-list {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+
+        .navigation-menu-trigger {
+            display: inline-flex;
+            width: max-content;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            position: relative;
+            padding: 0.75rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navigation-menu-content {
+            box-shadow: $elevation-1;
+            position: absolute;
+            top: calc((var(--semantic-measures-spacing-008) * 2) + 1.5rem);
+            padding: 0;
+            height: auto;
+            min-width: 7.5rem;
+            background: var(--semantic-color-surface-default-primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navigation-menu-item-link {
+            @include typography-navigation-utilitynav-lin;
+            min-width: 0.144rem;
+            padding: var(--semantic-measures-spacing-016);
+
+            &:hover {
+                background: var(
+                    --semantic-color-surface-default-brand-hover-utility
+                );
+            }
+        }
+    }
+}

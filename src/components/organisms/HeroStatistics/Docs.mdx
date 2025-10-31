@@ -1,0 +1,101 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as HeroStatisticsStories from './HeroStatistics.stories';
+
+<Meta title="Design System/organisms/HeroStatistics/Docs" of={HeroStatisticsStories} />
+
+# HeroStatistics
+
+Story Link: [#204]('https://github.com/ahc-digital/migration-planning-tracking/issues/204')
+
+The Hero Statistics is a grid of statistics items with optional supporting copy.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+Content authors are able to specify the number of columns in the grid. As more items are added, multiple rows should be supported.
+
+Content authors are able to enable or disable the dividing lines between columns.
+Content authors are able to change the background color of the container.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<HeroStatistics
+    {...{
+        backgroundColor: 'white',
+        contentAlignments: 'center',
+        ctaAlignment: 'center',
+        numberOfColumnsMobile: '1',
+        numberOfColumns: '3',
+        shouldShowColumnDividers: true,
+        headline: (
+            <JSSText field={{ value: 'Get the care you need' }} />
+        ),
+        headlineTag: 'p',
+        supportCopy: (
+            <JSSRichText
+                field={{
+                    value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'
+                }}
+            />
+        ),
+        supportCopyBottom: (
+            <JSSRichText
+                field={{
+                    value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'
+                }}
+            />
+        ),
+        cta: <JSSLink field={{ href: '#', text: 'Learn More' }} />,
+        children: (
+            <>
+                <HeroStatisticsItem
+                    {...{
+                        topText: (
+                            <JSSText field={{ value: 'nearly' }} />
+                        ),
+                        statisticsNumber: (
+                            <JSSText field={{ value: '155' }} />
+                        ),
+                        suffix: <JSSText field={{ value: 'K' }} />,
+                        bottomText: (
+                            <JSSText field={{ value: 'teammates' }} />
+                        )
+                    }}
+                />
+                <HeroStatisticsItem
+                    {...{
+                        statisticsNumber: (
+                            <JSSText field={{ value: '3' }} />
+                        ),
+                        superscriptSuffix: (
+                            <JSSText field={{ value: 'rd' }} />
+                        ),
+                        bottomText: (
+                            <JSSText
+                                field={{ value: 'largest nonprofit' }}
+                            />
+                        )
+                    }}
+                />
+            </>
+        )
+    }}
+/>
+```

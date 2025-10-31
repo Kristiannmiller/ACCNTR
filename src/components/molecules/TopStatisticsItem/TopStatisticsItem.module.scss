@@ -1,0 +1,35 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .statistics-item {
+        text-align: center;
+        display: grid;
+        gap: var(--semantic-measures-spacing-016);
+        grid-template-rows: subgrid;
+        grid-row: span 2;
+    }
+
+    .statistic {
+        align-self: end;
+    }
+
+    @include theme-consumer-childrens {
+        .statistics-item-color-default {
+            .statistic,
+            .support-copy {
+                color: var(--semantic-color-content-default-brand-secondary);
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .statistics-item-color-default {
+            .statistic,
+            .support-copy {
+                color: var(
+                    --semantic-color-content-default-brand-secondary-alt
+                );
+            }
+        }
+    }
+}

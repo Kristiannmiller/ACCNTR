@@ -1,0 +1,38 @@
+import { Meta, Controls, Stories } from '@storybook/blocks';
+import * as TabsStories from './Tabs.stories';
+
+<Meta
+    title='Design System/atoms/Tabs/Docs'
+    of={TabsStories}
+/>
+
+# Tabs
+
+Story Link: [#109](https://github.com/ahc-digital/migration-planning-tracking/issues/109)
+
+Description: The tabs component allows content authors to add a series of tabs to the page. Each tab contains a title and will expose a placeholder for other components to be added to
+
+---
+
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+
+- Template name and structure matches specification in "Sitecore Details" section
+- Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+The root tabs component only allows for tabs to be added.
+
+Content authors are able to select between large text and small text for the tab titles. This is done at a root level an applies to all tabs at once.
+
+In Experience Editor, all tabs should show and stack on top of each other.
+
+<Stories />
+
+## Props
+
+<Controls />

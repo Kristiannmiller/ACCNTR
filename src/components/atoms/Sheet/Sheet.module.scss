@@ -1,0 +1,110 @@
+@use 'toolbox' as *;
+
+$animation-duration: 250ms;
+$animation-timing-function: ease-in-out;
+$animation-fill-mode: forwards;
+
+@layer atoms {
+    /**
+* Overlay background
+*/
+    .sheet-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.8);
+        animation-duration: $animation-duration;
+        animation-timing-function: $animation-timing-function;
+        animation-fill-mode: $animation-fill-mode;
+
+        &[data-state='open'] {
+            @include fade-in;
+        }
+
+        &[data-state='closed'] {
+            @include fade-out;
+        }
+    }
+
+    /**
+* Main content
+*/
+    .sheet-content {
+        position: fixed;
+        z-index: 50;
+        box-shadow: 0 var(--semantic-measures-sizing-010)
+            var(--semantic-measures-sizing-020) rgba(0, 0, 0, 0.1);
+        background-color: var(--semantic-color-surface-default-primary);
+        animation-duration: $animation-duration;
+        animation-timing-function: $animation-timing-function;
+        animation-fill-mode: $animation-fill-mode;
+
+        &.side-top,
+        &.side-left,
+        &.side-bottom,
+        &.side-right {
+            inset: 0;
+        }
+
+        &.side-top[data-state='open'] {
+            @include slide-in-from-top;
+        }
+
+        &.side-top[data-state='closed'] {
+            @include slide-out-to-top;
+        }
+
+        &.side-bottom[data-state='open'] {
+            @include slide-in-from-bottom;
+        }
+
+        &.side-bottom[data-state='closed'] {
+            @include slide-out-to-bottom;
+        }
+
+        &.side-left[data-state='open'] {
+            @include slide-in-from-left;
+        }
+
+        &.side-left[data-state='closed'] {
+            @include slide-out-to-left;
+        }
+
+        &.side-right[data-state='open'] {
+            @include slide-in-from-right;
+        }
+
+        &.side-right[data-state='closed'] {
+            @include slide-out-to-right;
+        }
+    }
+
+    .sheet-header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--semantic-measures-spacing-008);
+        text-align: center;
+    }
+
+    .sheet-close {
+        position: absolute;
+        right: var(--semantic-measures-spacing-016);
+        top: var(--semantic-measures-spacing-016);
+        border-radius: var(--semantic-measures-spacing-004);
+        opacity: 0.7;
+        background-color: var(--ring-offset-background);
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        > svg {
+            width: var(--semantic-measures-spacing-012);
+            height: var(--semantic-measures-spacing-012);
+        }
+    }
+}

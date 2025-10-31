@@ -1,0 +1,116 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as LocationAddressStories from './LocationAddress.stories';
+
+<Meta title="Design System/atoms/LocationAddress/Docs" of={LocationAddressStories} />
+
+# LocationAddress
+
+Story Link: [#228]('https://github.com/ahc-digital/migration-planning-tracking/issues/228')
+Story Link: [#227]('https://github.com/ahc-digital/migration-planning-tracking/issues/227')
+
+
+Description: The LocationAddress component is a shared component that correctly formats a location address and conditionally renders it as a link or a p tag.
+
+---
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+
+### Render location detail page link
+```tsx
+<LocationAddress 
+  location={{
+        locationName: 'Oak Lawn campus',
+        image: <JSSImage field={mockSitecoreLocationImage} />,
+        locationDetailPage: (
+            <JSSLink
+                field={{
+                    ...mockSitecoreLink.value,
+                    text: 'Learn about this location'
+                }}
+            />
+        ),
+        addressLine1: '1675 Dempster St.',
+        city: 'Park Ridge',
+        state: 'IL',
+        zip: '60068',
+        defaultPhone: '708-555-5555',
+        emergencyPhone: '708-684-5300',
+        email: 'email@email.com',
+        locationType: 'hospital',
+        hoursOfOperation: 'address1',
+        servicesAvailable: 'address1',
+        locationTour: (
+            <JSSLink
+                field={{
+                    ...mockSitecoreLink.value,
+                    text: 'Learn about this location'
+                }}
+            />
+        )
+    }} 
+  />
+```
+
+### Render location address as text
+```tsx
+<LocationAddress 
+  location={{
+        locationName: 'Oak Lawn campus',
+        image: <JSSImage field={mockSitecoreLocationImage} />,
+        addressLine1: '1675 Dempster St.',
+        city: 'Park Ridge',
+        state: 'IL',
+        zip: '60068',
+        defaultPhone: '708-555-5555',
+        emergencyPhone: '708-684-5300',
+        email: 'email@email.com',
+        locationType: 'hospital',
+        hoursOfOperation: 'address1',
+        servicesAvailable: 'address1',
+        locationTour: (
+            <JSSLink
+                field={{
+                    ...mockSitecoreLink.value,
+                    text: 'Learn about this location'
+                }}
+            />
+        )
+    }} 
+  />
+```
+
+
+### Render location address with custom href url
+```tsx
+<LocationAddress 
+  href="https://www.maps.google.com/?q=1675 Dempster St., Park Ridge, IL 60068"
+  location={{
+        locationName: 'Oak Lawn campus',
+        image: <JSSImage field={mockSitecoreLocationImage} />,
+        addressLine1: '1675 Dempster St.',
+        city: 'Park Ridge',
+        state: 'IL',
+        zip: '60068',
+        defaultPhone: '708-555-5555',
+        emergencyPhone: '708-684-5300',
+        email: 'email@email.com',
+        locationType: 'hospital',
+        hoursOfOperation: 'address1',
+        servicesAvailable: 'address1',
+        locationTour: (
+            <JSSLink
+                field={{
+                    ...mockSitecoreLink.value,
+                    text: 'Learn about this location'
+                }}
+            />
+        )
+    }} 
+  />
+```

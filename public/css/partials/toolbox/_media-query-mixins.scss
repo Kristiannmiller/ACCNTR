@@ -1,0 +1,70 @@
+@use 'variables' as *;
+
+// default/ min-width
+@mixin media-tablet {
+    @media (min-width: $screen-tablet) {
+        @content;
+    }
+}
+
+@mixin media-tablet-lg {
+    @media (min-width: $screen-tablet-lg) {
+        @content;
+    }
+}
+
+@mixin media-desktop {
+    @media (min-width: $screen-desktop) {
+        @content;
+    }
+}
+
+@mixin media-desktop-lg {
+    @media (min-width: $screen-desktop-lg) {
+        @content;
+    }
+}
+
+// max-width
+@mixin media-mobile-max {
+    @media (max-width: $screen-mobile-max) {
+        @content;
+    }
+}
+
+@mixin media-tablet-max {
+    @media (max-width: $screen-tablet-max) {
+        @content;
+    }
+}
+
+@mixin media-tablet-lg-max {
+    @media (max-width: $screen-tablet-lg-max) {
+        @content;
+    }
+}
+
+@mixin media-desktop-max {
+    @media (max-width: $screen-desktop-max) {
+        @content;
+    }
+}
+
+// min-width and max-width
+@mixin media-tablet-only {
+    @media (min-width: $screen-tablet) and (max-width: $screen-tablet-max) {
+        @content;
+    }
+}
+
+@mixin media-tablet-lg-only {
+    @media (min-width: $screen-tablet-lg) and (max-width: $screen-tablet-lg-max) {
+        @content;
+    }
+}
+
+@mixin media-desktop-only {
+    @media (min-width: $screen-desktop) and (max-width: $screen-desktop-max) {
+        @content;
+    }
+}

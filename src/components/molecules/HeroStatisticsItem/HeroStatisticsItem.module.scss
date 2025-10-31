@@ -1,0 +1,123 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .item {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+        row-gap: var(--semantic-measures-spacing-000);
+        text-align: center;
+    }
+
+    .top-text {
+        align-self: end;
+    }
+
+    .statistic-span {
+        display: inline;
+        align-self: center;
+    }
+
+    // Not defined in Figma typography.
+    .top-text,
+    .bottom-text {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        // Helps with vertical alignment when other items in the row wrap lines.
+        flex: 1;
+    }
+
+    // Not defined in Figma typography.
+    .statistic-span,
+    .prefix,
+    .statistic,
+    .suffix {
+        font-size: 3.125rem;
+        line-height: 3.625rem;
+    }
+
+    .superscript-suffix {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        vertical-align: top;
+    }
+
+    @include container-tablet-lg-max {
+        .item {
+            &.item-stacked-mobile {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .top-text {
+                    align-self: center;
+                }
+            }
+        }
+    }
+
+    @include theme-consumer-childrens {
+        .item-color-default {
+            .top-text,
+            .bottom-text,
+            .prefix,
+            .statistic,
+            .suffix,
+            .superscript-suffix {
+                color: var(--semantic-color-content-default-brand-secondary);
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .item-color-default {
+            .top-text,
+            .bottom-text,
+            .prefix,
+            .statistic,
+            .suffix,
+            .superscript-suffix {
+                color: var(
+                    --semantic-color-content-default-brand-secondary-alt
+                );
+            }
+        }
+    }
+
+    @include container-desktop {
+        .item {
+            row-gap: var(--semantic-measures-spacing-016);
+
+            &.item-stacked-desktop {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .top-text {
+                    align-self: center;
+                }
+            }
+        }
+
+        .top-text,
+        .bottom-text {
+            font-size: 1.625rem;
+            line-height: 2.5rem;
+        }
+
+        .statistic-span,
+        .prefix,
+        .statistic,
+        .suffix {
+            font-size: 5rem;
+            line-height: 4.5rem;
+        }
+
+        .superscript-suffix {
+            font-size: 1.25rem;
+            line-height: 1.25rem;
+        }
+    }
+}

@@ -1,0 +1,113 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SearchBoxFormStories from './SearchBoxForm.stories';
+
+<Meta title="Design System/molecules/SearchBoxForm/Docs" of={ SearchBoxFormStories} />
+
+# SearchBoxForm
+
+Story Link: [#458](https://github.com/ahc-digital/migration-planning-tracking/issues/458)
+
+Description: The SearchBoxForm component is a form that displays an input and a submit button. The input displays suggestions as the user types. The suggestions must be supplied by the parent component.
+It's used by the SuggestiveSearch component and the SearchBox component in the Search Solution.
+
+---
+# Acceptance Criteria
+- The user can select a suggestion and the value should populate in the input.
+- It should keyboard accessible.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+const suggestions = [
+  {
+      text: 'Bladder cancer',
+      href: 'https://www.aurorahealthcare.org/services/cancer/bladder-cancer',
+      target: '_blank'
+  },
+  {
+      text: 'Bone/soft tissue cancer',
+      href: 'https://www.aurorahealthcare.org/services/cancer/bone-soft-tissue-cancer',
+      target: '_self'
+  },
+  {
+      text: 'Breast cancer',
+      href: 'https://www.aurorahealthcare.org/services/cancer/breast-cancer/',
+      target: '_self'
+  },
+  {
+      text: 'Cervical cancer 3d',
+      href: 'http://example.com/cervical-cancer-3d',
+      target: '_self'
+  },
+  {
+      text: 'Gynecological cancers',
+      href: 'http://example.com/gynelogical-cancers',
+      target: '_self'
+  },
+  {
+      text: 'Head and neck cancer',
+      href: 'http://example.com/head-and-neck-cancer',
+      target: '_self'
+  },
+  {
+      text: 'Kidney cancer',
+      href: 'http://example.com/kidney-cancer',
+      target: '_self'
+  },
+  {
+      text: 'Leukemia',
+      href: 'http://example.com/leukemia',
+      target: '_self'
+  }
+];
+
+const Form = () => {
+    const [inputValue, setInputValue] = useState<string>('');
+
+    const filteredSuggestions = useMemo(() => {
+        if (inputValue.trim().length <= 0) {
+            return suggestions;
+        }
+
+        return suggestions.filter(({ text }) =>
+            text.toLowerCase().includes(inputValue.toLowerCase())
+        );
+    }, [inputValue]);
+
+    const onChangeCallback = (value: string) => {
+        setInputValue(value);
+    };
+
+    const onSubmitCallback = (e: FormEvent) => {
+        e.preventDefault();
+        const selectedSuggestion = suggestions.find(
+            (s) => s.text === inputValue
+        );
+
+        if (selectedSuggestion) {
+            window.open(selectedSuggestion.href, selectedSuggestion.target);
+        }
+    };
+
+    return (
+        <ContentContainer>
+            <SearchBoxForm
+                labelText="Search by keyword or phrase"
+                placeholderText="Enter list item"
+                submitButtonText="Find now"
+                suggestions={filteredSuggestions}
+                onChangeCallback={onChangeCallback}
+                onSubmitCallback={onSubmitCallback}
+                shouldAutoFocusOnMatch
+                shouldDisableSearchUntilMatch
+                shouldDisableSubmitOnEnter
+            />
+        </ContentContainer>
+    );
+}
+```

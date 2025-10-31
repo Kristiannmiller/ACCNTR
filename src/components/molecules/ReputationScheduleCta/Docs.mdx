@@ -1,0 +1,54 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ReputationScheduleCtaStories from './ReputationScheduleCta.stories';
+
+<Meta title="Design System/molecules/ReputationScheduleCta/Docs" of={ ReputationScheduleCtaStories} />
+
+# ReputationScheduleCta
+
+Story Link: [#237](https://github.com/ahc-digital/migration-planning-tracking/issues/237)
+
+Description: The Reputation Schedule CTA component allows content authors to set up an input field on an Icon CTA that will allow the user to search for a location or doctor based on pre-configured filters in the back-end.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+- Template name and structure matches specification in "Sitecore Details" section
+- Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+Component is visually similar to the Icon CTA components but with an input field.
+
+Component should show error message when no value is supplied to the input field before hitting the button.
+
+User should be redirected to the URL configured for the search type with the search URL field and appropriate filters.
+
+<Stories />
+
+## Props
+
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<ReputationScheduleCta
+  buttonText={<Text field={{value: 'Schedule online'}} />}
+  errorMessage={<RichText field={{value: 'Enter city, state and/or ZIP is required'}} />}
+  filterText="Adolescent Psychiatry"
+  filterType="Specialties"
+  headline={<Text field={{value: 'Lorem ipsum'}} />}
+  headlineTag="h2"
+  icon="instagram"
+  placeholderText="Lorem ipsum dolar set (lorem ipsum)"
+  searchType="Doctor"
+  searchUrl="https://www.advocatehealth.com/find-a-doctor"
+  supportCopy={<RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>'}} />}
+  topColorBar="denimBlue"
+/>
+```

@@ -1,0 +1,13 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .video-asset-base {
+        .video-asset-caption {
+            margin-block-start: var(--semantic-measures-spacing-016);
+
+            p {
+                @include small-p-italic;
+            }
+        }
+    }
+}

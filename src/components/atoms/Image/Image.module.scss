@@ -1,0 +1,9 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .image-base {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}

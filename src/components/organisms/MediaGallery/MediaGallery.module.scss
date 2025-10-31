@@ -1,0 +1,51 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .media-gallery-base {
+        .copy {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: var(--semantic-measures-sizing-016);
+
+            p.headline {
+                @include typography-bold;
+            }
+
+            &-center {
+                text-align: center;
+
+                .cta-container {
+                    justify-content: center;
+                }
+            }
+
+            .cta-container {
+                display: flex;
+                margin-block-start: var(--semantic-measures-sizing-040);
+
+                &-no-margin {
+                    margin-block-start: 0;
+                }
+            }
+        }
+    }
+
+    @include container-desktop {
+        .media-gallery-base {
+            .copy {
+                gap: var(--semantic-measures-sizing-008);
+
+                > * {
+                    padding-inline: var(--semantic-measures-spacing-032);
+                }
+            }
+
+            .cta-container {
+                display: flex;
+                margin-top: var(--semantic-measures-sizing-056);
+                padding: var(--semantic-measures-spacing-000)
+                    var(--semantic-measures-spacing-032);
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .find-a-doctor-base {
+        padding-block: var(--semantic-measures-spacing-024);
+
+        fieldset {
+            display: flex;
+            gap: var(--semantic-measures-spacing-024);
+            flex-direction: column;
+            flex: 1;
+            border: none;
+            padding: 0;
+
+            legend {
+                opacity: 0;
+                height: 0;
+                display: flex;
+            }
+
+            button[type='submit'] {
+                padding-inline: calc(var(--semantic-measures-spacing-072) / 4);
+                height: var(--semantic-measures-spacing-056);
+
+                > svg {
+                    display: none;
+                }
+
+                > span {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    @include media-desktop {
+        .find-a-doctor-base {
+            fieldset {
+                flex-direction: row;
+
+                button[type='submit'] {
+                    > svg {
+                        display: block;
+                    }
+
+                    > span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

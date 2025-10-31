@@ -1,0 +1,40 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .mobile-carousel {
+        .cards-grid {
+            display: none;
+        }
+
+        .cards-carousel {
+            display: block;
+        }
+    }
+
+    .cards-grid {
+        row-gap: var(--semantic-measures-spacing-040);
+    }
+
+    .carousel-controls {
+        margin-block-start: var(--semantic-measures-spacing-032);
+        margin-inline: auto;
+        width: fit-content;
+    }
+
+    @include media-tablet {
+        .mobile-carousel {
+            .cards-grid {
+                display: flex;
+            }
+
+            // !important to override swiper styles
+            .cards-carousel {
+                display: none !important;
+            }
+        }
+
+        .cards-grid {
+            row-gap: var(--semantic-measures-spacing-048);
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .checkbox-base {
+        display: inline-flex;
+        height: var(--semantic-measures-spacing-016);
+        width: var(--semantic-measures-spacing-016);
+        flex-shrink: 0;
+        background: var(--semantic-color-content-inverse-primary);
+        border: var(--semantic-measures-stroke-small) solid
+            var(--semantic-color-content-default-utility-disabled);
+        outline-offset: var(--offset-background);
+        padding: var(--semantic-measures-spacing-002);
+        cursor: pointer;
+
+        &:focus-visible {
+            @include focus-visible;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        &[data-state='checked'] {
+            background-color: var(
+                --semantic-color-content-inverse-brand-secondary
+            );
+            color: var(--semantic-color-content-inverse-primary);
+        }
+
+        .checkbox-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: currentColor;
+
+            .checkbox-icon {
+                height: var(--semantic-measures-spacing-010);
+                width: var(--semantic-measures-spacing-010);
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .checkbox-base {
+            &[data-state='checked'] {
+                background-color: var(
+                    --semantic-color-surface-default-brand-secondary
+                );
+            }
+        }
+    }
+}

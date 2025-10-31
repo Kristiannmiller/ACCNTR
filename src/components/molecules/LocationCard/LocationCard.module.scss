@@ -1,0 +1,113 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .location-card-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .location-card {
+        flex: 1;
+        display: block;
+    }
+
+    .location-image {
+        width: 100%;
+        display: block;
+    }
+
+    .location-emergency-phone {
+        display: flex;
+        gap: var(--semantic-measures-sizing-008);
+        align-items: baseline;
+    }
+
+    .location-phone-link {
+        display: block;
+    }
+
+    .location-card-email {
+        word-break: break-all;
+    }
+
+    .location-card-content {
+        display: flex;
+        flex-direction: column;
+        padding: var(--semantic-measures-sizing-024);
+        gap: var(--semantic-measures-sizing-024);
+    }
+
+    .location-card-icon {
+        width: var(--semantic-measures-sizing-024);
+        height: var(--semantic-measures-sizing-024);
+        flex-shrink: 0;
+    }
+
+    .location-card-cta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--semantic-measures-sizing-016);
+    }
+
+    .cta-button {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .location-name {
+        @include typography-small-paragraph-bold-cons;
+    }
+
+    .location-card-image-wrapper {
+        position: relative;
+
+        .overlay-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            --fifty-percent-black: rgba(0, 0, 0, 0.5);
+            background-color: var(--fifty-percent-black);
+
+            img {
+                width: auto;
+                height: auto;
+                opacity: 0.8;
+            }
+
+            &:hover {
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .location-card-address-info {
+        display: flex;
+        gap: var(--semantic-measures-sizing-016);
+        align-items: center;
+    }
+
+    .children-image {
+        display: none;
+        align-self: center;
+    }
+
+    @include theme-childrens {
+        .children-image {
+            display: block;
+
+            img {
+                display: block;
+            }
+        }
+    }
+}

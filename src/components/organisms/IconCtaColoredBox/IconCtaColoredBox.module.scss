@@ -1,0 +1,7 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .card-container {
+        --grid-gap: var(--semantic-measures-spacing-024);
+    }
+}

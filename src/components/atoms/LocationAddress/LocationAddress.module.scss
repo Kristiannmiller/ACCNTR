@@ -1,0 +1,7 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .location-address {
+        display: grid;
+    }
+}

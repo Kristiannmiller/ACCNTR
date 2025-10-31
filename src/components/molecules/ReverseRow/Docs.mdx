@@ -1,0 +1,62 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as ReverseRowStories from './ReverseRow.stories';
+
+<Meta title="Design System/molecules/ReverseRow/Docs" of={ ReverseRowStories} />
+
+# ReverseRow
+
+Story Link: [#135]('https://github.com/ahc-digital/migration-planning-tracking/issues/135')
+
+Description: The Reverse Row Story is a series of content blocks with an alternating layout. Each block consists of an image or video with accompanying text.
+
+---
+
+# Acceptance Criteria
+
+- For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+- Component is added to storybook, and each content author editable field is editable within storybook.
+
+- Content authors are able to add an image or video. If both are filled out, the video should take precedence over the image.
+
+- Content authors are able to specify placement of the image/video (left or right).
+
+- Content authors are able to remove the padding between rows.
+
+- On mobile, the image will always come before content (image stacked on top).
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<ReverseRow
+    imageSide ={ 'left'}
+    headlineTag = {'p'}
+    contentAlignment = 'center'
+    ctaStyle = 'button'
+    videoId = {
+        <JSSText
+            field={{
+                value: 'vBi8FxvoYvo'
+            }}
+        />
+    }
+    headline = {'When you can’t pencil in an appointment'}
+    supportingCopy = {
+        <JSSText
+            field={{
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+            }}
+        />
+    }
+    image = {
+        <JSSImage field={{ src: mockImages[0].src, alt: mockImages[0].alt }} />
+    }
+    firstCta = {<JSSLink field={mockSitecoreLink} />}
+    secondCta = {<JSSLink field={mockSitecoreLink} />}
+/>
+```

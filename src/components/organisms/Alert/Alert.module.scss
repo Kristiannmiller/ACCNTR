@@ -1,0 +1,9 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    // Hide alerts when the mobile menu is open
+    // so that the navigation bar is positioned correctly at the top of the screen.
+    body:has([data-mobile-menu]) .alert {
+        display: none;
+    }
+}

@@ -1,0 +1,16 @@
+// These are font awesome classes that are used in the project.
+// The comprehensive styles are purposely removed in SvgIcon.
+// Only the following are needed.
+
+.fa-flip-horizontal {
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+g.fa-duotone-group > path.fa-primary {
+    opacity: 0.6;
+}
+
+g.fa-duotone-group > path.fa-secondary {
+    opacity: 0.2;
+}

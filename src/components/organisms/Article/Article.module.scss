@@ -1,0 +1,105 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        --article-gap: var(--semantic-measures-spacing-032);
+        gap: var(--article-gap);
+
+        .article-image + .article-text {
+            margin-block-start: var(--article-gap);
+        }
+
+        time {
+            font-style: italic;
+        }
+
+        .social-media {
+            display: flex;
+            align-items: center;
+            gap: var(--semantic-measures-sizing-016);
+
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .social-icon {
+                    height: var(--semantic-measures-sizing-024);
+                    width: var(--semantic-measures-sizing-024);
+                }
+            }
+        }
+
+        .article-image {
+            margin-block: var(--semantic-measures-spacing-000);
+        }
+
+        .article-image-full-width {
+            > img {
+                width: 100%;
+                max-height: 15rem; // 240px
+            }
+        }
+
+        .article-image-float-right {
+            margin-block-end: var(--semantic-measures-spacing-016);
+
+            > img {
+                max-width: 100%;
+                display: block;
+                margin-inline: auto;
+            }
+        }
+    }
+
+    @include container-tablet {
+        .content-wrapper {
+            .article-image-full-width {
+                > img {
+                    max-height: 28.25rem; // 452px
+                }
+            }
+        }
+    }
+
+    @include container-desktop {
+        .content-wrapper {
+            .article-image-full-width {
+                > img {
+                    max-height: 46.875rem; // 750px
+                }
+            }
+
+            .article-image-float-right {
+                margin-block-end: var(--semantic-measures-spacing-016);
+
+                > img {
+                    width: 100%;
+                }
+            }
+
+            .article-image.article-image-float-right + .article-text {
+                margin-block-start: var(--semantic-measures-spacing-000);
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .content-wrapper {
+            --article-gap: var(--semantic-measures-spacing-024);
+        }
+
+        @include container-desktop {
+            .content-wrapper {
+                --article-gap: var(--semantic-measures-spacing-048);
+
+                .article-image-full-width {
+                    padding-block: var(--semantic-measures-spacing-024);
+                }
+            }
+        }
+    }
+}

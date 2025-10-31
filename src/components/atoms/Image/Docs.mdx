@@ -1,0 +1,41 @@
+import { Meta, Controls, Stories } from '@storybook/blocks';
+import * as ImageStories from './Image.stories';
+
+<Meta
+    title='Design System/atoms/Image/Docs'
+    of={ImageStories}
+/>
+
+# Image
+
+Story Link: [#30](https://github.com/ahc-digital/migration-planning-tracking/issues/30)
+
+Description: The Image atomic component will be used across a variety of molecules and organisms.
+
+---
+
+# Acceptance Criteria
+
+-   Image are wrapped by the Aspect Ratio – Radix Primitives (radix-ui.com)
+-   Images are styled to fit the given aspect ratio.
+
+<Stories />
+
+### Sitecore Implementation Example:
+
+```tsx
+const mockSitecoreImage = {
+    value: {
+        src: 'https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80',
+        alt: 'A random image from Unsplash'
+    }
+};
+<Image ratio='16:9'>
+    <JSSImage field={mockSitecoreImage} />
+</Image>;
+```
+
+## Props
+
+<Controls />
+

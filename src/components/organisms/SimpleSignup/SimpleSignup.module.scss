@@ -1,0 +1,124 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .simple-signup-base {
+        .simple-signup-container {
+            margin-block: var(--semantic-measures-spacing-032);
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-spacing-016);
+
+            &.center {
+                align-items: center;
+                text-align: center;
+            }
+
+            p[data-testid='simple-signup-headline'] {
+                @include typography-bold;
+            }
+
+            form {
+                padding: 0;
+
+                @include container-tablet-max {
+                    width: 100%;
+                }
+            }
+
+            .simple-signup-cta-link {
+                display: block;
+                width: fit-content;
+            }
+        }
+
+        :global {
+            [data-alignment='left'] {
+                width: 100%;
+                background-color: transparent;
+            }
+
+            [data-alignment='center'] {
+                width: 100%;
+                padding: var(--semantic-measures-spacing-000);
+                background-color: transparent;
+                display: flex;
+            }
+
+            .formio-component-hidden {
+                display: none;
+            }
+
+            .formio-form label + div[ref='element'] {
+                margin-top: var(--semantic-measures-spacing-000);
+            }
+
+            [data-testid='form'] {
+                padding: var(--semantic-measures-spacing-000);
+                width: 100%;
+            }
+
+            .formio-form .formio-errors {
+                text-align: left;
+            }
+        }
+    }
+
+    @include container-tablet {
+        .simple-signup-base {
+            .simple-signup-container {
+                gap: var(--semantic-measures-spacing-032);
+
+                :global {
+                    .formio-form {
+                        display: flex;
+                        gap: var(--semantic-measures-spacing-016);
+                    }
+
+                    .help-block.error {
+                        color: var(--base-color-utility-field-error);
+                        @include typography-forms-explainer;
+                    }
+
+                    [data-alignment='center'] .formio-form {
+                        justify-content: center;
+                    }
+
+                    .formio-component-aahemail {
+                        width: 21.25rem;
+                        margin-bottom: 0;
+                    }
+
+                    .formio-form .fromio-component,
+                    .formio-component-aahemail,
+                    .formio-component-button {
+                        margin-bottom: 0;
+                    }
+
+                    .formio-component-button {
+                        width: initial;
+                        white-space: nowrap;
+
+                        button {
+                            border: none;
+                            padding: var(--semantic-measures-spacing-016)
+                                var(--semantic-measures-spacing-032);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include theme-corporate {
+        @include container-tablet {
+            .simple-signup-base {
+                :global {
+                    .formio-component-aahemail {
+                        position: relative;
+                        top: var(--semantic-measures-spacing-010);
+                    }
+                }
+            }
+        }
+    }
+}

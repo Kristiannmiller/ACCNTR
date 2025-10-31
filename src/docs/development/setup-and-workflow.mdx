@@ -1,0 +1,72 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title='Foundation/Developers Guide/Setup and Workflow' />
+
+# Setup
+
+**Note: More details on the setup can be found in the root README.md file of the project.**
+
+## Prerequisites
+
+Before beginning, ensure the following are installed:
+
+- Node.js v20.11.1
+- npm 10.2.4
+- Git
+
+## Installation
+
+1. **Clone the repository:**
+
+```sh
+git clone https://github.com/ahc-digital/component-library.git
+cd component-library
+```
+
+2. **Create a `.env` file in the root of the project:**
+
+```env
+VITE_GOOGLE_MAPS_API_KEY=YOUR_API_KEY
+```
+
+3. **Create a `.npmrc` file in the root of the project:**
+
+```env
+@awesome.me:registry=https://npm.fontawesome.com/
+@fortawesome:registry=https://npm.fontawesome.com/
+//npm.fontawesome.com/:_authToken=YOUR_AUTH_TOKEN
+```
+
+3. **Install the dependencies:**
+
+```sh
+npm install
+```
+
+You're all set! You can now start the development server and follow the workflow instructions.
+
+# Workflow
+
+Before beginning, follow the installation instructions above.
+
+1. **Start the development server:**
+
+```sh
+npm run dev
+```
+
+2. **Open Storybook in a browser:**
+
+Navigate to [http://localhost:6006](http://localhost:6006) to view the Storybook.
+
+3. **Start developing:**
+
+Make changes to the components in the `src/components` directory and see the changes reflected in Storybook.
+
+4. **Create a branch:**
+
+Follow the branch naming conventions in [branch naming conventions](https://github.com/ahc-digital/engineering-standards/wiki/Branch-Naming#branch-naming).
+
+## Next
+**Review the [Deployment and External Usage](/docs/foundation-developers-guide-deployment-and-external-usage--docs).**
+

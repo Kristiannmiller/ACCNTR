@@ -1,0 +1,32 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SheetStories from './Sheet.stories';
+
+<Meta title="Design System/atoms/Sheet/Docs" of={ SheetStories} />
+
+# Sheet
+
+Description: The Sheet component is used to overlay content on top of the page. It's used primarily for the global mobile navigation menu.
+
+---
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Sheet>
+    <SheetTrigger>Open</SheetTrigger>
+    <SheetContent direction='bottom'>
+        <SheetHeader>
+            <SheetTitle>Hello!</SheetTitle>
+            <SheetDescription>
+                This is an example of a sheet sliding in from the
+                bottom.
+            </SheetDescription>
+        </SheetHeader>
+    </SheetContent>
+</Sheet>
+```

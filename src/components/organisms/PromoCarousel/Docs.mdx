@@ -1,0 +1,201 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as PromoCarouselStories from './PromoCarousel.stories';
+
+<Meta title="Design System/organisms/PromoCarousel/Docs" of={PromoCarouselStories} />
+
+# PromoCarousel
+
+Story Link: [#77]('https://github.com/ahc-digital/migration-planning-tracking/issues/77')
+
+Description: The promo carousel is a carousel component that is made up of promo callouts. The presentation of each slide matches that of a promo callout with the addition of the carousel controls. The carousel is populated by adding multiple promo callouts to a placeholder that then builds a carousel from them.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+- Component is added to storybook, and each content author editable field is editable within storybook.
+
+- In Experience Editor, each slide is stacked on top of each other for ease of editing.
+
+- Content authors are able to edit the slide timing (default is 6 seconds).
+
+- Content authors are able to specify a background at the carousel level. This background overrides the background of all individual slides.
+
+- Content authors are able to specify image side at the carousel level. This option overrides the image side selection of all individual slides.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<PromoCarousel
+  slides={[
+    <PromoCallout
+        backgroundColor='wellnessBlue'
+        layout='thirty'
+        textAlignment='left'
+        imageSide='left'
+        headlineTag='p'
+        secondCTAStyle='solid'
+        image={
+            <JSSImage
+                field={{
+                    src: 'https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80',
+                    alt: 'A random image from Unsplash'
+                }}
+            />
+        }
+        firstCTALink={
+            <JSSLink field={{
+            id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}',
+            querystring: '',
+            target: '|Custom',
+            text: 'Learn More',
+            anchor: '',
+            title: 'custom-title',
+            class: 'custom-class',
+            url: '/test-link',
+            linktype: 'internal',
+            href: '/learn-more'
+        }} />
+        }
+        secondCTALink={
+            <JSSLink field={{
+            id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}',
+            querystring: '',
+            target: '|Custom',
+            text: 'Learn More',
+            anchor: '',
+            title: 'custom-title',
+            class: 'custom-class',
+            url: '/test-link',
+            linktype: 'internal',
+            href: '/learn-more'
+        }} />
+        }
+        headline='Slide 3'
+        supportingCopy={
+            <>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+            </>
+        }
+    />,
+        <PromoCallout
+        backgroundColor='wellnessBlue'
+        layout='thirty'
+        textAlignment='left'
+        imageSide='left'
+        headlineTag='p'
+        secondCTAStyle='solid'
+        image={
+            <JSSImage
+                field={{
+                    src: 'https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80',
+                    alt: 'A random image from Unsplash'
+                }}
+            />
+        }
+        firstCTALink={
+            <JSSLink field={{
+            id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}',
+            querystring: '',
+            target: '|Custom',
+            text: 'Learn More',
+            anchor: '',
+            title: 'custom-title',
+            class: 'custom-class',
+            url: '/test-link',
+            linktype: 'internal',
+            href: '/learn-more'
+        }} />
+        }
+        secondCTALink={
+            <JSSLink field={{
+            id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}',
+            querystring: '',
+            target: '|Custom',
+            text: 'Learn More',
+            anchor: '',
+            title: 'custom-title',
+            class: 'custom-class',
+            url: '/test-link',
+            linktype: 'internal',
+            href: '/learn-more'
+        }} />
+        }
+        headline='Slide 3'
+        supportingCopy={
+            <>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+            </>
+        }
+    />,
+    <PromoCallout
+        backgroundColor='wellnessBlue'
+        layout='fifty'
+        textAlignment='left'
+        imageSide='left'
+        headlineTag='p'
+        secondCTAStyle='solid'
+        image={
+            <JSSImage
+                field={{
+                    src: 'https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80',
+                    alt: 'A random image from Unsplash'
+                }}
+            />
+        }
+        firstCTALink={
+            <JSSLink field={{
+            id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}',
+            querystring: '',
+            target: '|Custom',
+            text: 'Learn More',
+            anchor: '',
+            title: 'custom-title',
+            class: 'custom-class',
+            url: '/test-link',
+            linktype: 'internal',
+            href: '/learn-more'
+        }} />
+        }
+        secondCTALink={
+            <JSSLink field={{
+            id: '{64DDFEB8-2924-4CDD-8D6B-F89B19FD2223}',
+            querystring: '',
+            target: '|Custom',
+            text: 'Learn More',
+            anchor: '',
+            title: 'custom-title',
+            class: 'custom-class',
+            url: '/test-link',
+            linktype: 'internal',
+            href: '/learn-more'
+        }} />
+        }
+        headline='Slide 3'
+        supportingCopy={
+            <>
+                <p>Lorem ipsum yada yada. </p>
+                <p>Lorem ipsum yada yada. </p>
+            </>
+        }
+    />
+]}
+/>
+```

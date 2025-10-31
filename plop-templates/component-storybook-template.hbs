@@ -1,0 +1,30 @@
+import { Meta, StoryObj } from '@storybook/react';
+
+// Components
+import { {{pascalCase componentName}} } from '@/components';
+
+// Mocks
+import { mock{{pascalCase componentName}} } from '@/mocks';
+
+// Tests
+import { test{{pascalCase componentName}} } from '@/tests';
+
+export default {
+  title: 'Design System/{{atomicType}}/{{pascalCase componentName}}',
+  component: {{pascalCase componentName}},
+  parameters: {
+      design: {
+          type: 'figma',
+          url: '{{figmaURL}}',
+      },
+      controls: { include: Object.keys(mock{{pascalCase componentName}}.default) }
+  },
+  argTypes: {},
+  args: mock{{pascalCase componentName}}.default,
+} satisfies Meta<typeof {{pascalCase componentName}}>;
+
+  type Story = StoryObj<typeof {{pascalCase componentName}}>;
+
+  export const Default: Story = {
+    play: test{{pascalCase componentName}}.default,
+  };

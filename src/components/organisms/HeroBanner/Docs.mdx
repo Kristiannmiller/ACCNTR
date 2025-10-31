@@ -1,0 +1,53 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as HeroBannerStories from './HeroBanner.stories';
+
+<Meta title="Design System/organisms/HeroBanner/Docs" of={HeroBannerStories} />
+
+# HeroBanner
+
+Story Link: [#74]('https://github.com/ahc-digital/migration-planning-tracking/issues/74')
+
+Description: The hero banner is a banner component that sits at the top of most page types, directly beneath the navigation. The component spans the full width of the page.
+---
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Background image is anchored in the top right and has a max width of 1920px.
+
+Content authors are able to supply an optional background image for mobile specifically.
+
+Content authors are able to change the title alignment from center to left for mobile only.
+
+Content authors are able to specify gradient level in intervals of 20% starting from 0 (default) to 80%.
+
+<Stories />
+
+## Props
+
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<HeroBanner
+    backgroundGradientLevel="20"
+    backgroundImage={{
+        src: 'https://images.unsplash.com/photo-1589402903416-2d02f303d12c?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        alt: 'A random image from Unsplash'
+    }}
+    mobileBackgroundImage='https://images.unsplash.com/photo-1510908072721-6fbd31199630?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    headline={<JSSText field={{value: 'This is a long headline over an image'}} />}
+    supportingCopy=<JSSRichText field={{value: 'This is a supporting copy that will go under the headline.'}} />
+    firstCTALink={<JSSLink field={{ ...mockSitecoreLink.value, text: 'Learn More' }} />}
+    secondCTALink={<JSSLink field={{ ...mockSitecoreLink.value, text: 'Contact Us' }} />}
+    shouldHideImgOnMobile={false}
+    shouldLeftAlignText={false}
+/>
+```

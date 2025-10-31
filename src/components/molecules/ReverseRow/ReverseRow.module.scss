@@ -1,0 +1,140 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .reverse-row-base {
+        .heading {
+            margin-bottom: var(--semantic-measures-spacing-016);
+        }
+
+        p.heading {
+            @include typography-bold;
+        }
+
+        .copy-column {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            padding-top: var(--semantic-measures-spacing-000);
+        }
+
+        .content-center-align {
+            justify-content: center;
+        }
+
+        .content-top-align {
+            justify-content: flex-start;
+        }
+
+        .anchor-links {
+            display: flex;
+            column-gap: var(--semantic-measures-spacing-032);
+        }
+
+        .supporting-copy {
+            margin: var(--semantic-measures-spacing-016)
+                var(--semantic-measures-spacing-000);
+        }
+
+        .reverse-row-card {
+            --grid-gap: var(--semantic-measures-spacing-000);
+        }
+
+        .call-to-action-container {
+            margin-top: var(--semantic-measures-spacing-016);
+        }
+
+        .call-to-action-div {
+            display: flex;
+            flex-direction: row;
+            column-gap: var(--semantic-measures-spacing-016);
+            row-gap: var(--semantic-measures-spacing-016);
+            text-align: center;
+            flex-wrap: wrap;
+
+            .button {
+                max-width: 100%;
+                word-wrap: break-word;
+            }
+        }
+    }
+
+    @include container-tablet-lg {
+        @include theme-corporate {
+            .media-side-padding {
+                .media-container-right {
+                    padding-left: var(--semantic-measures-spacing-080);
+                }
+            }
+        }
+
+        @include theme-consumer {
+            .media-side-padding {
+                .media-container-right {
+                    padding-left: var(--semantic-measures-spacing-024);
+                }
+
+                .media-container-left {
+                    padding-right: var(--semantic-measures-spacing-024);
+                }
+            }
+        }
+
+        .reverse-row-base {
+            .copy-column {
+                padding-left: var(--semantic-measures-spacing-024);
+            }
+
+            .copy-column.copy-column-reverse {
+                padding-left: var(--semantic-measures-spacing-000);
+                padding-right: var(--semantic-measures-spacing-024);
+            }
+        }
+        @include theme-corporate {
+            .reverse-row-base {
+                .copy-column {
+                    padding-left: var(--semantic-measures-spacing-080);
+                }
+
+                .copy-column.copy-column-reverse {
+                    padding-left: var(--semantic-measures-spacing-000);
+                    padding-right: var(--semantic-measures-spacing-080);
+                }
+            }
+        }
+    }
+
+    @include container-tablet-max {
+        .anchor-links {
+            row-gap: var(--semantic-measures-spacing-016);
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .button {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .call-to-action-div {
+            flex-basis: 100%;
+            row-gap: var(--semantic-measures-spacing-016);
+        }
+
+        .copy-column {
+            padding-bottom: var(--semantic-measures-spacing-032);
+        }
+
+        .reverse-row-card {
+            row-gap: var(--semantic-measures-spacing-032);
+            flex-wrap: wrap-reverse;
+            flex-direction: column-reverse;
+        }
+    }
+
+    @include container-mobile-max {
+        .call-to-action-div {
+            flex-direction: column !important;
+            row-gap: var(--semantic-measures-spacing-016);
+        }
+    }
+}

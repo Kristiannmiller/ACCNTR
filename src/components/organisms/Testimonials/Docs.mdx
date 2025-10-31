@@ -1,0 +1,99 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as TestimonialsStories from './Testimonials.stories';
+
+<Meta title="Design System/organisms/Testimonials/Docs" of={ TestimonialsStories} />
+
+# Testimonials
+
+Story Link: [#273](https://github.com/ahc-digital/migration-planning-tracking/issues/273)
+
+Description: The testimonials component is used to display a set of testimonial cards. Each card contains a singular quote and the cards may be arranged in multiple rows and up to three columns.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+-  Template name and structure matches specification in "Sitecore Details" section
+-  Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+All testimonial cards should be sized to the height of the tallest card in the row.
+
+If the 'Show First Row Only on Load' rendering parameter is checked, only the first row of testimonials is show and the rest of the cards are hidden behind a "Show more" CTA functionality. Once the content has been expanded, the "Show More" CTA should disappear.
+
+The testimonial quote should be italic, and the name of the individual providing the quote should be bold.
+
+The quote should be marked as a quote in the HTML markup for accessibility considerations.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<Testimonials
+  backgroundColor="whiteSmoke"
+  contentAlignments="center"
+  expandButtonAlignment="center"
+  expandButtonText="Expand"
+  headline={<Text field={{value: 'Book reviews'}} />}
+  headlineTag="h2"
+  numberOfColumns="2"
+  showOnlyFirstRowOnLoad
+  supportCopy={<RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>'}} />}
+  testimonialCards={[
+    {
+      testimonialAuthor: <Text field={{value: 'Erskine Bowles'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'Former White House chief of staff and former president, University of North Carolina'}} />,
+      testimonialText: <RichText field={{value: '"Gene not only brings readers behind-the-scenes of a major healthcare system\'s work to expand access to healthcare and confront an unprecedented pandemic, but also presents smart, bipartisan policy prescriptions to achieve the transformation our nation desperately needs."'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Lorem Ipsum'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'President, CEO and chairman, Lowe’s Home Improvement'}} />,
+      testimonialText: <RichText field={{value: '“Gene Woods gives us an incredible balance of technical expertise, world class leadership and unmatched authenticity with his book about healthcare. … Whether you\'re an experienced executive or a student dreaming of a better future, this book will inspire you on the art of the possible while providing hope for the future of America’s healthcare system.”'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Lorem Ipsum'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'}} />,
+      testimonialText: <RichText field={{value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Dolor Sit'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna'}} />,
+      testimonialText: <RichText field={{value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Name goes here'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'Title and or association'}} />,
+      testimonialText: <RichText field={{value: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Erskine Bowles'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'Former White House chief of staff and former president, University of North Carolina'}} />,
+      testimonialText: <RichText field={{value: '"Gene not only brings readers behind-the-scenes of a major healthcare system\'s work to expand access to healthcare and confront an unprecedented pandemic, but also presents smart, bipartisan policy prescriptions to achieve the transformation our nation desperately needs."'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Lorem Ipsum'}} />,
+      testimonialAuthorTitle: <Text field={{value: ''}} />,
+      testimonialText: <RichText field={{value: '“Gene Woods gives us an incredible balance of technical expertise, world class leadership and unmatched authenticity with his book about healthcare. … Whether you\'re an experienced executive or a student dreaming of a better future, this book will inspire you on the art of the possible while providing hope for the future of America’s healthcare system.”'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Erskine Bowles'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'Former White House chief of staff and former president, University of North Carolina'}} />,
+      testimonialText: <RichText field={{value: '"Gene not only brings readers behind-the-scenes of a major healthcare system\'s work to expand access to healthcare and confront an unprecedented pandemic, but also presents smart, bipartisan policy prescriptions to achieve the transformation our nation desperately needs."'}} />
+    },
+    {
+      testimonialAuthor: <Text field={{value: 'Lorem Ipsum'}} />,
+      testimonialAuthorTitle: <Text field={{value: 'President, CEO and chairman, Lowe’s Home Improvement'}} />,
+      testimonialText: <RichText field={{value: 'test'}} />
+    }
+  ]}
+/>
+```

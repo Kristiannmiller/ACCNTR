@@ -1,0 +1,47 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as AccordionStories from './Accordion.stories';
+
+<Meta
+    title='Design System/atoms/Accordion/Docs'
+    of={AccordionStories}
+/>
+
+# Accordion
+
+Story Link: [17](https://github.com/ahc-digital/migration-planning-tracking/issues/17)
+
+Description: The accordion component consists of multiple accordion items that can be expanded to reveal a section of rich text. The accordion may optionally have a title and supporting copy that sits above the accordion items, and another optional set of supporting copy that sits below the accordion items.
+
+---
+
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc.) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+All items should be collapsed by default on page load. If the "Open First Item" rendering parameter is checked, the first accordion item should be opened by default.
+
+Clicking anywhere on the Accordion Item title bar should expand that accordion item.
+
+When expanded the '+' icon should change to a '-' icon.
+
+Multiple accordion items should be able to be opened at a time, unless the "Limit to single item" rendering parameter is checked.
+
+Accordion placeholder is configured to accept only Accordion Item renderings and no other renderings can be added.
+
+Anchors within an accordion pane should trigger the opening of that pane when navigated to.
+
+If "Is FAQ" is checked for an accordion item, the schema.org markup should be added for that item.
+
+Title style should update to reflect semantic tag when changed. (Open question, still needs to be confirmed)
+
+<Stories />
+
+## Props
+
+<Controls />

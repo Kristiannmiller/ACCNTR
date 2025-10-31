@@ -1,0 +1,30 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as MultiButtonStories from './MultiButton.stories';
+
+<Meta title="Design System/organisms/MultiButton/Docs" of={ MultiButtonStories} />
+
+# MultiButton
+
+Story Link: [#147](https://github.com/ahc-digital/migration-planning-tracking/issues/147)
+
+Description: The multi-button CTA layout is a set of up to four CTAs with accompanying copy to encourage site users to take action related to page content.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+ - Template name and structure matches specification in "Sitecore Details" section
+ - Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Content authors are able to change the theme of the component.
+
+If only one or two CTAs are filled out, the component should use the compact variant and not stretch full width on desktop and mobile (will still be full width on mobile). This happens automatically without content author intervention.
+
+<Stories />
+
+## Props
+<Controls />

@@ -1,0 +1,145 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as CorporateFooterStories from './CorporateFooter.stories';
+
+<Meta title="Design System/organisms/CorporateFooter/Docs" of={ CorporateFooterStories} />
+
+# CorporateFooter
+
+Story Link: [#152]('https://github.com/ahc-digital/migration-planning-tracking/issues/152')
+
+Description: The corporate footer is a simplified version of the footer to be used on the corporate site exclusively.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<CorporateFooter {...{
+    footerBody: (
+        <>
+            <MultiColumnContainer
+                numberOfColumns='4'
+                columnContents={
+                    <>
+                        <ImageAsset
+                            image={
+                                <JSSImage
+                                    field={{
+                                        value: {
+                                            src: '/images/site-logos/logo-advocate-wht.svg',
+                                            alt: 'Advocate Health Care'
+                                        }
+                                    }}
+                                />
+                            }
+                            imageCTA={<JSSLink field={mockSitecoreLink} />}
+                            imageAlignment='center'
+                        />
+                        <ImageAsset
+                            image={
+                                <JSSImage
+                                    field={{
+                                        value: {
+                                            src: '/images/site-logos/logo-atrium-wht.svg',
+                                            alt: 'Atrium Health'
+                                        }
+                                    }}
+                                />
+                            }
+                            imageCTA={<JSSLink field={mockSitecoreLink} />}
+                            imageAlignment='center'
+                        />
+                        <ImageAsset
+                            image={
+                                <JSSImage
+                                    field={{
+                                        value: {
+                                            src: '/images/site-logos/logo-aurora-wht.svg',
+                                            alt: 'Aurora Health Care'
+                                        }
+                                    }}
+                                />
+                            }
+                            imageCTA={<JSSLink field={mockSitecoreLink} />}
+                            imageAlignment='center'
+                        />
+                        <ImageAsset
+                            image={
+                                <JSSImage
+                                    field={{
+                                        value: {
+                                            src: '/images/site-logos/logo-wakeforest-wht.svg',
+                                            alt: 'Wake Forest University School of Medicine'
+                                        }
+                                    }}
+                                />
+                            }
+                            imageCTA={<JSSLink field={mockSitecoreLink} />}
+                            imageAlignment='center'
+                        />
+                    </>
+                }
+            />
+            <ImageAsset
+                image={
+                    <JSSImage
+                        field={{
+                            value: {
+                                src: '/images/site-logos/now-part-AH-logo.webp',
+                                alt: 'Now part of Advocate Health'
+                            }
+                        }}
+                    />
+                }
+                mobileImage={
+                    <JSSImage
+                        field={{
+                            value: {
+                                src: '/images/site-logos/now-part-AH-logo-M.webp',
+                                alt: 'Now part of Advocate Health'
+                            }
+                        }}
+                    />
+                }
+                imageCTA={<JSSLink field={mockSitecoreLink} />}
+                imageAlignment='center'
+            />
+        </>
+    ),
+    socialMediaLinks: [
+        {
+            link: <a {...mockLinkProps}>youtube</a>,
+            iconName: 'youtube'
+        },
+        {
+            link: <a {...mockLinkProps}>facebook</a>,
+            iconName: 'facebook'
+        },
+        {
+            link: <a {...mockLinkProps}>linkedin</a>,
+            iconName: 'linkedin'
+        }
+    ],
+    copyRightText:
+        '<p class="copyright OneLinkNoTx">© <span id="copyrightYear">2024</span> Advocate Aurora Health</p>',
+    legalPrivacyLink: (
+        <JSSLink
+            field={{ text: 'Policies & notices', href: '/policies-notices' }}
+        />
+    )
+}}/>
+```

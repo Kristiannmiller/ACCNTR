@@ -1,0 +1,53 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .children-animal-motif-base {
+        display: flex;
+
+        > img {
+            width: 100%;
+        }
+
+        .animal {
+            display: none;
+        }
+    }
+
+    @include media-desktop {
+        .children-animal-motif-base {
+            display: flex;
+            gap: var(--semantic-measures-spacing-010);
+            align-items: flex-end;
+            justify-content: center;
+
+            > img {
+                display: none;
+            }
+
+            .animal {
+                display: flex;
+                gap: var(--semantic-measures-spacing-020);
+                align-items: flex-end;
+
+                > img {
+                    max-width: 9.5rem;
+                }
+
+                .bubble {
+                    display: flex;
+                    max-width: 10rem;
+                    gap: var(--semantic-measures-spacing-010);
+                    align-self: baseline;
+                    padding-bottom: var(--semantic-measures-spacing-016);
+                    font-size: var(--semantic-measures-sizing-016);
+                    font-weight: 500;
+                    line-height: 1.5;
+
+                    > svg {
+                        min-width: var(--semantic-measures-sizing-020);
+                    }
+                }
+            }
+        }
+    }
+}

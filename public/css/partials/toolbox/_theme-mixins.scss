@@ -1,0 +1,49 @@
+@mixin in-theme-consumer {
+    [data-theme='Consumer'] & {
+        @content;
+    }
+}
+
+@mixin in-theme-childrens {
+    [data-theme='Childrens'] & {
+        @content;
+    }
+}
+
+@mixin in-theme-consumer-childrens {
+    [data-theme='Consumer'] &,
+    [data-theme='Childrens'] & {
+        @content;
+    }
+}
+
+@mixin in-theme-corporate {
+    [data-theme='Corporate'] & {
+        @content;
+    }
+}
+
+@mixin theme-consumer {
+    [data-theme='Consumer'] {
+        @content;
+    }
+}
+
+@mixin theme-childrens {
+    [data-theme='Childrens'] {
+        @content;
+    }
+}
+
+@mixin theme-consumer-childrens {
+    [data-theme='Consumer'],
+    [data-theme='Childrens'] {
+        @content;
+    }
+}
+
+@mixin theme-corporate {
+    [data-theme='Corporate'] {
+        @content;
+    }
+}

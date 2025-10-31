@@ -1,0 +1,74 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SidePhotoContentCardStories from './SidePhotoContentCard.stories';
+
+<Meta title="Design System/organisms/SidePhotoContentCard/Docs" of={SidePhotoContentCardStories} />
+
+# SidePhotoContentCard
+
+Story Link: [#164]('https://github.com/ahc-digital/component-library/issues/164')
+
+The Side Photo Content Card is used to display a single image alongside a featured link or CTA.
+
+---
+# Acceptance Criteria
+
+Side Photo Card Rendering
+
+**Fields:**
+
+Headline - Single Line Text [Required]
+
+Support Copy - Rich Text [Optional]
+
+CTA button - General Link [Required]
+
+Secondary CTA button - General Link [Optional]
+
+**Rendering Parameters:**
+
+Title type: H2, H3, Paragraph Bold [Default]
+
+Content layout: 50/50 [Default], 60/40
+
+Image side: Left [Default], Right
+
+Secondary CTA style: Outlined, Link, Solid [Default]
+
+Corporate Theme Needed? Yes
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<SidePhotoContentCard 
+    headline={<JSSText field={{ value: 'General story headling' }} />}
+    headlineTag="p"
+    supportCopy={(
+        <JSSRichText
+            field={{
+                value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>'
+            }}
+        />
+    )}
+    ctaButton={(
+        <JSSLink field={{ value: { text: 'Button 1', url: '/', href: '/' } }} />
+    )}
+    secondaryCtaButton={(
+        <JSSLink field={{ value: { text: 'Button 2', url: '/', href: '/' } }} />
+    )}
+    image={(
+        <JSSImage
+            field={{
+                value: mockImages[2]
+            }}
+        />
+    )}
+    secondaryCtaStyle="solid1"
+    layout="forty"
+    imageSide="left"
+/>
+```

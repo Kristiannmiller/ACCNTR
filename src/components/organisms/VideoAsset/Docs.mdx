@@ -1,0 +1,49 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as VideoAssetStories from './VideoAsset.stories';
+
+<Meta title="Design System/organisms/VideoAsset/Docs" of={ VideoAssetStories} />
+
+# VideoAsset
+
+Story Link: [#236](https://github.com/ahc-digital/migration-planning-tracking/issues/236)
+
+Description: The video asset component allows content authors to add a video asset with an optional text caption
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+Caption is optional but if supplied, should always be positioned below the video asset and is aligned to the left.
+
+Video asset should always be 100% the width of its container.
+
+Video controls are consistent with the default YouTube API that we've already implemented.
+
+<Stories />
+
+## Props
+- className [Optional]
+  - Allows you to add a classname
+
+- videoId 
+  - The Id of the youtube video 
+
+- caption [Optional]
+  - Allows you to add a caption under the video
+
+
+## Example Usage(s)
+```tsx
+<VideoAsset
+  caption="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<a href=&quot;#&quot;>Lorem ipsum dolor sit amet,</a> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  videoId="vBi8FxvoYvo"
+/>
+```

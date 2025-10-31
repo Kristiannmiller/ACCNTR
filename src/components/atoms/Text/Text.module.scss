@@ -1,0 +1,255 @@
+@use 'toolbox' as *;
+
+// Put core text styles in core layer
+// so that they can be overridden by the override classes
+// defined in atoms below.
+@layer core {
+    .h1 {
+        @include xl-h1-mobile;
+    }
+
+    .h2 {
+        @include large-h2-mobile;
+    }
+
+    .h3 {
+        @include medium-h3-mobile;
+    }
+
+    .h4 {
+        @include small-h4-mobile;
+    }
+
+    .p {
+        @include small-p;
+    }
+
+    @include media-desktop {
+        .h1 {
+            @include xl-h1;
+        }
+
+        .h2 {
+            @include large-h2;
+        }
+
+        .h3 {
+            @include medium-h3;
+        }
+
+        .h4 {
+            @include small-h4;
+        }
+    }
+}
+
+@layer atoms {
+    .base {
+        @include typography-base;
+        color: var(--semantic-color-content-default-primary);
+
+        &.inverse {
+            @include text-inverse;
+        }
+    }
+
+    @include theme-consumer-childrens {
+        .xl-heading {
+            @include typography-xl-h1---consumer;
+        }
+
+        .xl-heading-mobile {
+            @include typography-xl-h1---consumer---mobile;
+        }
+
+        .large-heading {
+            @include typography-large-h2--consumer;
+        }
+
+        .large-heading-mobile {
+            @include typography-large-h2---consumer---mob;
+        }
+
+        .medium-heading {
+            @include typography-medium-h3--consumer;
+        }
+
+        .medium-heading-mobile {
+            @include typography-medium-h3---consumer---mo;
+        }
+
+        .small-heading {
+            @include typography-small-h4--consumer;
+        }
+
+        .small-heading-mobile {
+            @include typography-small-h4---consumer---mob;
+        }
+
+        .small-paragraph {
+            @include typography-small-p---paragraph-consu;
+        }
+
+        .small-paragraph-bold {
+            @include typography-small-paragraph-bold-cons;
+        }
+
+        .small-link {
+            @include typography-small-link;
+        }
+
+        .small-link-mobile {
+            @include typography-small-link-mobile;
+        }
+
+        @include media-tablet {
+            .tablet-xl-heading {
+                @include typography-xl-h1---consumer;
+            }
+
+            .tablet-xl-heading-mobile {
+                @include typography-xl-h1---consumer---mobile;
+            }
+
+            .tablet-large-heading {
+                @include typography-large-h2--consumer;
+            }
+
+            .tablet-large-heading-mobile {
+                @include typography-large-h2---consumer---mob;
+            }
+
+            .tablet-medium-heading {
+                @include typography-medium-h3--consumer;
+            }
+
+            .tablet-medium-heading-mobile {
+                @include typography-medium-h3---consumer---mo;
+            }
+
+            .tablet-small-heading {
+                @include typography-small-h4--consumer;
+            }
+
+            .tablet-small-heading-mobile {
+                @include typography-small-h4---consumer---mob;
+            }
+
+            .tablet-small-paragraph {
+                @include typography-small-p---paragraph-consu;
+            }
+
+            .tablet-small-paragraph-bold {
+                @include typography-small-paragraph-bold-cons;
+            }
+
+            .tablet-small-link {
+                @include typography-small-link;
+            }
+
+            .tablet-small-link-mobile {
+                @include typography-small-link-mobile;
+            }
+        }
+    }
+
+    @include theme-corporate {
+        .corp-xl-heading {
+            @include typography-xl-h1---corporate;
+        }
+
+        .corp-xl-heading-mobile {
+            @include typography-xl-h1---corporate---mobil;
+        }
+
+        .corp-large-heading {
+            @include typography-large-h2---corporate;
+        }
+
+        .corp-large-heading-mobile {
+            @include typography-large-h2---corporate---mo;
+        }
+
+        .corp-medium-heading {
+            @include typography-medium-h3---corporate;
+        }
+
+        .corp-medium-heading-mobile {
+            @include typography-medium-h3---corporate---m;
+        }
+
+        .corp-small-heading {
+            @include typography-small-h4---corporate;
+        }
+
+        .corp-small-heading-mobile {
+            @include typography-small-h4---corporate---mo;
+        }
+
+        .corp-small-paragraph {
+            @include typography-small-p---paragraph-corpo;
+        }
+
+        .corp-small-paragraph-bold {
+            @include typography-small-paragraph-bold-corp;
+        }
+
+        .corp-small-link {
+            @include typography-small-corp-link;
+        }
+
+        .corp-small-link-mobile {
+            @include typography-small-corp-link-mobile;
+        }
+
+        @include media-tablet {
+            .tablet-corp-xl-heading {
+                @include typography-xl-h1---corporate;
+            }
+
+            .tablet-corp-xl-heading-mobile {
+                @include typography-xl-h1---corporate---mobil;
+            }
+
+            .tablet-corp-large-heading {
+                @include typography-large-h2---corporate;
+            }
+
+            .tablet-corp-large-heading-mobile {
+                @include typography-large-h2---corporate---mo;
+            }
+
+            .tablet-corp-medium-heading {
+                @include typography-medium-h3---corporate;
+            }
+
+            .tablet-corp-medium-heading-mobile {
+                @include typography-medium-h3---corporate---m;
+            }
+
+            .tablet-corp-small-heading {
+                @include typography-small-h4---corporate;
+            }
+
+            .tablet-corp-small-heading-mobile {
+                @include typography-small-h4---corporate---mo;
+            }
+
+            .tablet-corp-small-paragraph {
+                @include typography-small-p---paragraph-corpo;
+            }
+
+            .tablet-corp-small-paragraph-bold {
+                @include typography-small-paragraph-bold-corp;
+            }
+
+            .tablet-corp-small-link {
+                @include typography-small-corp-link;
+            }
+
+            .tablet-corp-small-link-mobile {
+                @include typography-small-corp-link-mobile;
+            }
+        }
+    }
+}

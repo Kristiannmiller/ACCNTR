@@ -1,0 +1,10 @@
+// Combats a bug in the Swiper library where inactive slides are visible.
+.swiper.swiper-fade .swiper-wrapper {
+    > :not(.swiper-slide-active) {
+        opacity: 0 !important;
+    }
+
+    > .swiper-slide-active {
+        opacity: 1 !important;
+    }
+}

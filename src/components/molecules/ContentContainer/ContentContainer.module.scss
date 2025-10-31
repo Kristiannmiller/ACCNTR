@@ -1,0 +1,123 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .content-container {
+        &.spacing-72-48,
+        &.spacing-72-24,
+        &.spacing-40-24 {
+            --outer-spacing: var(--semantic-measures-spacing-040);
+            --inner-spacing: var(--semantic-measures-spacing-024);
+        }
+
+        &.spacing-72-32 {
+            --outer-spacing: var(--semantic-measures-spacing-048);
+            --inner-spacing: var(--semantic-measures-spacing-032);
+        }
+
+        &.spacing-64-40 {
+            --outer-spacing: var(--semantic-measures-spacing-032);
+            --inner-spacing: var(--semantic-measures-spacing-024);
+        }
+
+        &[data-background-color='true'] {
+            padding-block: var(--outer-spacing);
+        }
+
+        &[data-background-color='false'] {
+            margin-block: var(--outer-spacing);
+        }
+    }
+
+    .text-center {
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    p.headline {
+        @include typography-bold;
+    }
+
+    .headline-with-icon {
+        display: flex;
+        gap: var(--semantic-measures-spacing-016);
+        width: fit-content;
+        margin-inline: 0 auto;
+        align-items: center;
+
+        svg {
+            height: var(--semantic-measures-sizing-024);
+        }
+
+        &.headline-icon-top {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &.text-center {
+            margin-inline: auto;
+        }
+    }
+
+    .support-copy,
+    .support-copy + .support-copy-bottom,
+    .support-copy + .cta,
+    .support-copy-bottom + .cta {
+        margin-top: var(--semantic-measures-spacing-016);
+    }
+
+    .headline + .content,
+    .support-copy + .content,
+    .content + .support-copy-bottom,
+    .content + .cta {
+        margin-top: var(--inner-spacing);
+    }
+
+    .cta {
+        width: stretch;
+        text-align: center;
+
+        &.cta-link {
+            display: block;
+            width: fit-content;
+        }
+    }
+
+    .cta-center {
+        margin-inline: auto;
+    }
+
+    @include media-tablet-lg {
+        .cta {
+            width: fit-content;
+        }
+    }
+
+    @include media-desktop {
+        .content-container {
+            &.spacing-72-48 {
+                --outer-spacing: var(--semantic-measures-spacing-072);
+                --inner-spacing: var(--semantic-measures-spacing-048);
+            }
+
+            &.spacing-72-32 {
+                --outer-spacing: var(--semantic-measures-spacing-072);
+                --inner-spacing: var(--semantic-measures-spacing-032);
+            }
+
+            &.spacing-72-24 {
+                --outer-spacing: var(--semantic-measures-spacing-072);
+                --inner-spacing: var(--semantic-measures-spacing-024);
+            }
+
+            &.spacing-64-40 {
+                --outer-spacing: var(--semantic-measures-spacing-064);
+                --inner-spacing: var(--semantic-measures-spacing-040);
+            }
+
+            &.spacing-40-24 {
+                --outer-spacing: var(--semantic-measures-spacing-040);
+                --inner-spacing: var(--semantic-measures-spacing-024);
+            }
+        }
+    }
+}

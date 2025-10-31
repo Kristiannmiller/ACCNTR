@@ -1,0 +1,129 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as TopStatisticsStories from './TopStatistics.stories';
+
+<Meta title="Design System/organisms/TopStatistics/Docs" of={TopStatisticsStories} />
+
+# TopStatistics
+
+Story Link: [#205]('https://github.com/ahc-digital/migration-planning-tracking/issues/205')
+
+The TopStatistics is a variant of statistics that displays the statistics in a grid format with the statistic above the support copy.
+
+---
+# Acceptance Criteria
+
+**Statistics Hero Rendering**
+
+Rendering Name: C50 - Top Statistics
+
+Template Name: C50 - Top Statistics
+
+Allowed Renderings: C50 - Top Statistics Item
+
+**Fields**
+  - Headline - Single Line Text [Optional]
+  - Support copy - Rich Text [Optional]
+  - Should use Content Author rich text profile
+  - Support copy bottom - Rich Text [Optional]
+  - Should use Content Author rich text profile
+  - CTA - General Link [Optional]
+
+**Rendering Parameters**
+  - Title type - Droplink
+    - H2
+    - H3
+    - Paragraph bold [Default]
+  - Content alignments - Droplink
+    - Center [Default]
+    - Left
+  - Cta alignment - Droplink
+    - Center [Default]
+    - Left
+  - Number of columns - Droplink
+    - 1
+    - 2
+    - 3
+    - 4 [Default]
+  - Background color - Droplink
+    - White [Default]
+    - White Smoke
+    - Denim Blue
+
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+Content authors are able to specify the number of columns in the grid. Multiple rows should be supported as more statistics are added.
+
+Content authors are able to select the background color. The default is white, and white smoke and denim are also valid options.
+
+Statistics should aligned on the same plane. Top text should grow up as it increases in length and bottom text should grow down.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<TopStatistics {...{
+    backgroundColor: 'white',
+    numberOfColumns: '3',
+    contentAlignments: 'center',
+    ctaAlignment: 'center',
+    headline: <JSSText field={{ value: 'Get the care you need' }} />,
+    headlineTag: 'p',
+    supportCopy: (
+        <JSSRichText
+            field={{
+                value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'
+            }}
+        />
+    ),
+    supportCopyBottom: (
+        <JSSRichText
+            field={{
+                value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'
+            }}
+        />
+    ),
+    cta: <JSSLink field={{ href: '#', text: 'Learn More' }} />,
+    children: (
+        <>
+            <TopStatisticsItem
+                {...{
+                    statistic: <JSSText field={{ value: '100%' }} />,
+                    supportCopy: (
+                        <JSSRichText
+                            field={{
+                                value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>'
+                            }}
+                        />
+                    )
+                }}
+            />
+            <TopStatisticsItem
+                {...{
+                    statistic: <JSSText field={{ value: '125% increase' }} />,
+                    supportCopy: (
+                        <JSSRichText
+                            field={{
+                                value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>'
+                            }}
+                        />
+                    )
+                }}
+            />
+        </>
+    )
+}} />
+```

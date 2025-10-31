@@ -1,0 +1,82 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .location-info {
+        .location-info-map-wrapper {
+            padding: 0;
+            margin-block-end: var(--semantic-measures-sizing-024);
+            position: relative;
+            min-height: 15rem;
+            overflow: hidden;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+        }
+
+        .location-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--semantic-measures-sizing-016);
+
+            .location-info-name {
+                @include small-p-bold;
+            }
+
+            dl,
+            dd,
+            dt {
+                margin: 0;
+            }
+
+            dt {
+                @include typography-bold;
+                display: inline-block;
+                margin-inline-end: var(--semantic-measures-sizing-008);
+            }
+
+            dd {
+                display: inline;
+
+                * {
+                    margin: 0;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    margin-top: var(--semantic-measures-sizing-016);
+                }
+            }
+
+            dl dd:last-child::after {
+                display: none;
+            }
+        }
+    }
+
+    @include container-desktop {
+        .location-info {
+            display: flex;
+            gap: var(--semantic-measures-sizing-024);
+
+            .location-info-map-wrapper {
+                width: 50%;
+                margin-block-end: 0;
+                padding-bottom: initial;
+                height: initial;
+                min-height: initial;
+            }
+
+            .location-info-wrapper {
+                width: 50%;
+            }
+        }
+    }
+}

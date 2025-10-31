@@ -1,0 +1,39 @@
+import { Meta, Controls, Stories } from '@storybook/blocks';
+import * as SvgIconStories from './SvgIcon.stories';
+
+<Meta
+    title='Design System/atoms/SvgIcon/Docs'
+    of={SvgIconStories}
+/>
+
+# SVGIcon
+
+Story Link: [#43](https://github.com/ahc-digital/migration-planning-tracking/issues/29)
+
+Description: The SvgIcon atomic component will be used across a variety of molecules and organisms.
+
+----
+
+### Font awesome pro icons
+
+You will need an .npmrc file with the following code to view the Font Awesome pro icons when you run this locally.
+
+```
+@awesome.me:registry=https://npm.fontawesome.com/
+@fortawesome:registry=https://npm.fontawesome.com/
+//npm.fontawesome.com/:_authToken=YOURAPIKEYHERE
+```
+
+ Replace 'YOURAPIKEYHERE' with the font awesome api key.
+You can find the font awesome api key in Teams
+***Digital & Consumer First Technology -> Technology -> Files -> SvgIcon api key.docx***
+
+# Acceptance Criteria
+
+-   Uses FontAwesome.
+
+-   Defines a set of officially supported icons.
+
+<Stories />
+
+<Controls />

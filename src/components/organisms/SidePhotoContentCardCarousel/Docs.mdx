@@ -1,0 +1,68 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SidePhotoContentCardCarouselStories from './SidePhotoContentCardCarousel.stories';
+
+<Meta title="Design System/organisms/SidePhotoContentCardCarousel/Docs" of={ SidePhotoContentCardCarouselStories} />
+
+# SidePhotoContentCardCarousel
+
+Story Link: [#175]('https://github.com/ahc-digital/migration-planning-tracking/issues/175')
+
+Description: The side photo content card carousel is a carousel component that is made up of side photo content cards. The presentation of each slide matches that of a side photo content card with the addition of the carousel controls. The carousel is populated by adding multiple side photo content cards to a placeholder that then builds a carousel from them.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+- Template name and structure matches specification in "Sitecore Details" section
+- Content authors are able to add, modify, and remove the component via experience editor
+- For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+- Component is added to storybook, and each content author editable field is editable within storybook.
+
+- Should implement the exclude from translation class around the entire component.
+
+- The top of the container should be the anchor target with the id from the rendering parameter.
+
+- In Experience Editor, each slide is stacked on top of each other for ease of editing.
+
+- Content authors are able to edit the slide timing (default is 6 seconds).
+
+- All slides should be forced to have the same layout, as dictated by the carousel itself. This overrides any layout options on the component cards
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<SidePhotoContentCardCarousel
+{...{
+        supportCopy: <JSSRichText field={{ value: '<p>Support copy</p>' }} />,
+        headline: <JSSText field={{ value: 'Headline' }} />,
+        cta: (
+            <JSSLink field={{ value: { text: 'CTA', url: '/', href: '/' } }} />
+        ),
+        backgroundColor: 'white',
+        slides: [
+            <SidePhotoContentCard {...mockSidePhotoContentCards.default} />,
+            <SidePhotoContentCard
+                {...mockSidePhotoContentCards.noOptionalProps}
+                layout='forty'
+            />,
+            <SidePhotoContentCard
+                {...mockSidePhotoContentCards.noOptionalProps}
+                imageSide='right'
+            />
+        ],
+        layout: 'fifty',
+        imageSide: 'left',
+        slideTimingSeconds: 6,
+        headlineAlignment: 'center',
+        ctaAlignment: 'center',
+        supportCopyAlignment: 'center',
+        headlineTag: 'p'
+    }}
+/>
+```

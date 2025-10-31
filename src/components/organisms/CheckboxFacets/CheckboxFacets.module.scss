@@ -1,0 +1,54 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .checkbox-facets-base {
+        display: flex;
+        flex-direction: column;
+        gap: var(--semantic-measures-sizing-016);
+
+        .checkbox-facets-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--semantic-measures-sizing-016);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.25s ease;
+
+            &--open {
+                max-height: 100vh;
+                overflow: visible;
+                opacity: 1;
+                padding: var(--semantic-measures-sizing-024);
+            }
+
+            .heading {
+                display: none;
+            }
+
+            .facets-list {
+                display: flex;
+                flex-direction: column;
+                gap: var(--semantic-measures-sizing-016);
+            }
+        }
+    }
+
+    @include media-desktop {
+        .checkbox-facets-base {
+            .toggle-button {
+                display: none;
+            }
+
+            .checkbox-facets-wrapper {
+                max-height: none;
+                opacity: 1;
+                padding: var(--semantic-measures-sizing-024);
+
+                .heading {
+                    display: initial;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title='Foundation/Developers Guide/Architecture' />
+
+# Architecture Overview
+This document provides an overview of the architecture of the React Component Library.
+It outlines the structure, key components, and philosophies behind the Component Library. It is important to note that
+this project tries to frame itself as CMS-agnostic, meaning that it should be able to be used in any CMS or web application.
+As it stands today, the project has a heavy focus on Sitecore and many of the components are built with Sitecore in mind.
+
+This architecture is subject to change as the project evolves and grows and should be maintained as a living document.
+
+---
+
+### Key Folders
+
+- **components/**: Reusable React components organized by atomic design. See [components.mdx](./components.mdx).
+- **docs/**: Global documentation files.
+- **hooks/**: Custom hooks.
+- **mocks/**: Mock data for testing and boilerplate content.
+- **plop-templates/**: Plop templates for generating new components.
+- **public/**: Static assets and public files. This also contains the root styling and theming.
+- **sb-tools/**: Storybook tools and utilities.
+- **src/**: Contains the source code for the project.
+- **static/**: Static typescript objects that represent the structure of the components.
+- **tests/**: Unit tests for components. See [testing.mdx](./testing.mdx).
+- **types/**: Common typescript types and interfaces.
+- **utils/**: Utility functions and helpers.
+
+### Key Files
+- **.env**: Environment variables. This should never be committed to the repository.
+- **.npmrc**: NPM configuration. This is being used to set the registry of Font Awesome. This should never be committed to the repository.
+
+#### .env
+This file contains environment variables that are used in the project. This file should never be committed to the repository.
+The file should be created in the root of the project and should contain the following variables:
+
+```env
+VITE_GOOGLE_MAPS_API_KEY=YOUR_API_KEY
+```
+
+#### .npmrc
+This file contains the NPM configuration for the project. This file should never be committed to the repository.
+The file should be created in the root of the project and should contain the following variables:
+
+```env
+@awesome.me:registry=https://npm.fontawesome.com/
+@fortawesome:registry=https://npm.fontawesome.com/
+//npm.fontawesome.com/:_authToken=YOUR_AUTH_TOKEN
+```
+
+## Next
+**Review the [Setup and Workflow](/docs/foundation-developers-guide-setup-and-workflow--docs).**
+

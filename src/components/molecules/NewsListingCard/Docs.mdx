@@ -1,0 +1,41 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as NewsListingCardStories from './NewsListingCard.stories';
+
+<Meta title="Design System/molecules/NewsListingCard/Docs" of={ NewsListingCardStories} />
+
+# NewsListingCard
+
+Story Link: [#329](https://github.com/ahc-digital/migration-planning-tracking/issues/329)
+
+Description: The NewsListingCard component is being used in the NewsListing component.
+
+
+---
+# Acceptance Criteria
+
+The component is created within Sitecore and meets the following criteria:
+- Template name and structure matches specification in "Sitecore Details" section
+- Content authors are able to add, modify, and remove the component via experience editor
+
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+News Listing card contains the Image, Result Type Text, Support Copy Text and Headline. 
+
+<Stories />
+
+## Props
+<Controls />
+
+## Example Usage(s)
+```tsx     
+<NewsListingCard
+   image={<JSSImage field={{ src: mockImages[1].src, alt: mockImages[1].alt }} />}
+   headline={<JSSLink field={{href: '#',text: 'Headline for search result'}}/>}
+   supportCopyText = {<JSSRichText field={{value: 'Body copy for search result. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ve'}}/>}
+/>
+```
+

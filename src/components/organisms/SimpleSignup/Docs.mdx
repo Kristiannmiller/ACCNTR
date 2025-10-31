@@ -1,0 +1,46 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as SimpleSignupStories from './SimpleSignup.stories';
+
+<Meta title="Design System/organisms/SimpleSignup/Docs" of={ SimpleSignupStories} />
+
+# SimpleSignup
+
+Story Link: [#362](https://github.com/ahc-digital/migration-planning-tracking/issues/362)
+
+Description: The Simple Sign Up component wraps a form.io form with some extra supporting copy and is to be used for email sign up forms.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+The sign-up form will come from Form.io using the provided form id. The form itself is responsible for any submit text, placeholder text, validation, etc and specifics of the form behavior are not part of this component's acceptance criteria. The component is only concerned with rendering the correct form for the given ID.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+<SimpleSignup
+  alignment="center"
+  backgroundColor="white"
+  cta={<Link field={{value: {href: 'https://www.google.com', text: 'Link here'}}} />}
+  headline={<Text field={{value: 'Simple Sign Up'}} />}
+  headlineTag="h2"
+  supportCopy={<RichText field={{value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'}} />}
+>
+  <React.Fragment key=".0" />
+</SimpleSignup>
+```

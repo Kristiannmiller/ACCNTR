@@ -1,0 +1,99 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    .image-asset {
+        .image-wrapper {
+            display: block;
+            line-height: 0;
+            width: fit-content;
+            margin-inline: auto;
+
+            .image {
+                height: auto;
+                width: auto;
+                max-width: 100%;
+
+                &.desktop {
+                    display: none;
+                }
+
+                &.mobile {
+                    display: block;
+                }
+            }
+        }
+
+        &.image-asset-right {
+            .image-wrapper {
+                margin-inline: auto 0;
+            }
+        }
+
+        &.image-asset-left {
+            .image-wrapper {
+                margin-inline: 0 auto;
+            }
+        }
+
+        &.image-border {
+            .image {
+                border: var(--semantic-measures-stroke-small) solid
+                    var(--semantic-color-border-default-tertiary);
+            }
+        }
+
+        .image-caption {
+            padding-block: var(--semantic-measures-sizing-016);
+
+            :not(a) {
+                @include typography-italic;
+            }
+        }
+    }
+
+    @include container-tablet {
+        .image-asset {
+            .image-figure {
+                display: table;
+                margin-inline: auto;
+            }
+
+            .image-wrapper {
+                display: table-row;
+            }
+
+            .image-caption {
+                display: table-caption;
+                caption-side: bottom;
+            }
+
+            &.image-asset-right {
+                .image-figure {
+                    margin-inline: auto 0;
+                }
+            }
+
+            &.image-asset-left {
+                .image-figure {
+                    margin-inline: 0 auto;
+                }
+            }
+        }
+    }
+
+    @include container-desktop {
+        .image-asset {
+            .image-wrapper {
+                .image {
+                    &.desktop {
+                        display: block;
+                    }
+
+                    &.mobile {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

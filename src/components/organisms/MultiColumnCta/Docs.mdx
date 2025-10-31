@@ -1,0 +1,84 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as MultiColumnCtaStories from './MultiColumnCta.stories';
+
+<Meta title="Design System/organisms/MultiColumnCta/Docs" of={ MultiColumnCtaStories} />
+
+# MultiColumnCta
+
+Story Link: [#133]('https://github.com/ahc-digital/migration-planning-tracking/issues/133')
+
+Description: 
+
+The Multi-Column CTA component is a rich text component that supports multiple blocks of rich text in a column arrangement. Content authors can select between 1-4 columns as well as a background color.
+
+---
+# Acceptance Criteria
+The component is created within Sitecore and meets the following criteria:
+
+Template name and structure matches specification in "Sitecore Details" section
+Content authors are able to add, modify, and remove the component via experience editor
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Content authors are able to select between 1 to 4 columns.
+
+Content authors are able to select between white and smoke grey themes for the the background.
+
+Content authors are able to select the semantic tag (h2, h3, etc) for the titles and the title alignment.
+
+<Stories />
+
+## Props
+<Controls />
+
+- backgroundColor
+  - Allows you to choose background color. Default is White.
+
+- headline [Required]
+  - Text for the headline
+
+- headlineTag
+  - Allows you to choose p, h1 or h2 tag for the headline. Default is p.
+
+- supportingCopy [Required]
+  - Supporting copy source
+
+- textAlignment
+  - Allows you to change text alignment. Default is left.
+
+- columns
+  - Allows you to choose between 1-4 columns. Default is 2. 
+
+
+## Example Usage(s)
+```tsx
+<MultiColumnCta
+    backgroundColor={args.backgroundColor}
+    textAlignment={args.textAlignment}
+    {...args}>
+    <ColumnCta
+        headline='Contact in Illinois'
+        headlineTag='p'
+        <Anchor {...args}>
+            <JssLink field={mockSitecoreLink} />
+        </Anchor>
+        supportingCopy='<p>Call Advocate at 800-3-ADVOCATE to schedule an appointment.</p><p>Paragraph text appears here and can wrap. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </p><p><b>One to two line subheader is here</b></p><p><a href="#" >A one-line link goes here</a></p><p><a href="#" >A one-line link goes here</a></p>'
+    />
+    <ColumnCta
+        headline='COVID help and info'
+        headlineTag='p'
+        supportingCopy='<p>Schedule your vaccination, get a COVID test and find answers to your questions.</p><p><a href="#" >Advocate Resource Center</a></p><p><a href="#" >Aurora Resource Center</a></p>'
+    />
+    <ColumnCta
+        headline='LiveWell help'
+        headlineTag='p'
+        supportingCopy='<p>Check the FAQ or call us at</p><p><a href="#" >855-624-9366</a></p><p><a href="#" >LiveWell FAQ</a></p>'
+    />
+    <ColumnCta
+        headline='Short subheading'
+        headlineTag='p'
+        supportingCopy='<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur  </p><ul><li><a href="#" >Sample Link is here and wraps to two lines</a></li><li><a href="#" >Sample Link is here and wraps to two lines</a></li><li><a href="#" >Sample Link is here and wraps to two lines</a></li></ul><p><a href="#" >View all lorem ipsum</a></p>'
+    />
+</MultiColumnCta>
+```

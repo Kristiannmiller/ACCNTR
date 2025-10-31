@@ -1,0 +1,10 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    // Ensure the dropdown floats above other elements. Styles must be applied to the container element.
+    // See more here: https://stackoverflow.com/questions/76607899/why-does-container-type-inline-size-seem-to-mess-with-stacking-overflow-rules
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+}

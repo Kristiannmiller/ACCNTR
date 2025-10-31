@@ -1,0 +1,87 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .accordion-base {
+        display: flex;
+        flex-direction: column;
+        box-shadow: $elevation-1;
+    }
+
+    .accordion-trigger {
+        width: 100%;
+        display: flex;
+        border: none;
+        cursor: pointer;
+        align-items: center;
+        text-align: left;
+        gap: var(--semantic-measures-sizing-008);
+        justify-content: space-between;
+        background-color: var(--semantic-color-border-inverse-secondary);
+        @include small-p;
+        padding: var(--semantic-measures-sizing-016)
+            var(--semantic-measures-sizing-032);
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+
+    .accordion-item {
+        overflow: hidden;
+        width: 100%;
+        @include small-p;
+        border-block-start: var(--semantic-measures-spacing-001) solid
+            var(--semantic-color-border-inverse-tertiary);
+
+        &:last-child {
+            border-bottom: var(--semantic-measures-spacing-001) solid
+                var(--semantic-color-border-inverse-tertiary);
+        }
+
+        &[data-state='open'] {
+            background-color: var(--semantic-color-border-inverse-primary);
+        }
+    }
+
+    .accordion-content {
+        padding: var(--semantic-measures-sizing-008)
+            var(--semantic-measures-sizing-032)
+            var(--semantic-measures-sizing-048)
+            var(--semantic-measures-sizing-032);
+    }
+}
+
+// Move fontawesome styles outside of layer to prevent specificity issues
+.accordion-trigger[data-state='open'] {
+    background-color: var(--semantic-color-surface-default-primary);
+
+    .accordion-trigger-text {
+        @include typography-bold;
+    }
+
+    [data-icon='plus'] {
+        display: none;
+    }
+
+    [data-icon='minus'] {
+        display: block;
+    }
+}
+
+.accordion-trigger[data-state='closed'] {
+    [data-icon='plus'] {
+        display: block;
+    }
+
+    [data-icon='minus'] {
+        display: none;
+    }
+}
+
+[data-state='closed'] .accordion-content {
+    display: none;
+}
+
+[data-state='open'] .accordion-content {
+    display: block;
+}

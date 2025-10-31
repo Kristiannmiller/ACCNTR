@@ -1,0 +1,524 @@
+@use 'toolbox' as *;
+
+// Mixins
+@mixin focus-visible {
+    border-radius: var(--semantic-measures-spacing-004);
+    outline-offset: calc(2 * var(--semantic-measures-stroke-small));
+    outline: var(--semantic-measures-stroke-medium) solid
+        var(--semantic-color-border-default-utility-focus-dark);
+}
+
+@mixin select-chevron-after {
+    content: '';
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Pro 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path d="M212.7 363.3c6.2 6.2 16.4 6.2 22.6 0l160-160c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L224 329.4 75.3 180.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l160 160z"/></svg>');
+    display: inline-block;
+    position: absolute;
+    right: var(--semantic-measures-spacing-020);
+    top: var(--semantic-measures-spacing-020);
+    width: var(--semantic-measures-spacing-016);
+    height: var(--semantic-measures-spacing-016);
+    background-repeat: no-repeat;
+    transform: rotate(0deg);
+    transition: all 0.25s ease-in-out;
+}
+
+// Atoms Layer
+@layer atoms {
+    // Formio Form Styles
+    .formio-form {
+        // Component Styles
+        .formio-component {
+            width: 100%;
+            margin-bottom: var(--semantic-measures-spacing-016);
+
+            // Error State
+            &.has-error {
+                input,
+                textarea,
+                .formio-choices {
+                    border-color: var(
+                        --semantic-color-content-default-utility-field-error
+                    );
+
+                    background-color: var(
+                        --semantic-color-tint-default-utility-error
+                    );
+                }
+
+                label {
+                    color: var(
+                        --semantic-color-content-default-utility-field-error
+                    );
+                }
+            }
+
+            &.has-error {
+                select {
+                    border-color: var(
+                        --semantic-color-content-default-utility-field-error
+                    ) !important;
+                }
+            }
+        }
+
+        // Label Styles
+        label {
+            line-height: var(--semantic-measures-spacing-024);
+            @include typography-forms-field_label;
+            @include typography-bold;
+
+            // Element margin adjustment
+            + div[ref='element'] {
+                margin-top: var(--semantic-measures-spacing-004);
+            }
+        }
+
+        // Disabled Label Styles
+        label:has(+ div > input[disabled='disabled']) {
+            color: var(--semantic-color-content-default-utility-disabled);
+        }
+
+        // Error Wrapper Styles
+        .formio-error-wrapper {
+            color: var(--semantic-color-content-default-utility-field-error);
+
+            .choices__item--choice {
+                color: var(--semantic-color-content-default-primary);
+            }
+
+            input,
+            textarea,
+            .choices {
+                background-color: var(
+                    --semantic-color-surface-default-utility-negative
+                ) !important;
+            }
+        }
+
+        // Help Block Styles
+        .help-block {
+            margin-block-start: var(--semantic-measures-spacing-004);
+            color: var(--semantic-color-content-default-utility-field-error);
+            font-size: 0.875rem;
+            font-style: italic;
+            font-weight: 500;
+            margin-top: var(--semantic-measures-spacing-008);
+        }
+
+        // Component Button Styles
+        .formio-component-button {
+            .has-error {
+                display: none;
+            }
+        }
+
+        // Aahradio Component Styles
+        .formio-component-aahradio {
+            .help-block {
+                margin-block-start: 0;
+            }
+        }
+
+        // Error Text Styles
+        .form-text.error {
+            color: var(--semantic-color-content-default-utility-field-error);
+            font-size: 0.875rem;
+        }
+
+        // Disabled Input Styles
+        input[disabled='disabled'] {
+            border-color: var(
+                --semantic-color-border-default-tertiary
+            ) !important;
+            cursor: not-allowed;
+        }
+
+        input[disabled='disabled']::placeholder {
+            color: var(--semantic-color-content-default-utility-disabled);
+        }
+
+        // Autocomplete Input Styles
+        .formio-select-autocomplete-input {
+            display: none !important;
+        }
+
+        // Input and Textarea Styles
+        input[type='text'],
+        input[type='email'],
+        textarea {
+            border: var(--semantic-measures-spacing-001) solid
+                var(--semantic-color-border-default-tertiary);
+            background: var(--semantic-color-border-inverse-primary);
+            display: flex;
+            padding: 1.1875rem var(--semantic-measures-spacing-016);
+            width: 100%;
+            gap: var(--semantic-measures-spacing-004);
+            box-sizing: border-box;
+            line-height: initial;
+
+            // Placeholder Styles
+            &::placeholder {
+                color: var(--semantic-color-content-default-secondary);
+                @include typography-forms-field-text;
+            }
+
+            // Focus Styles
+            &:focus,
+            &:focus-visible {
+                @include focus-visible;
+            }
+        }
+
+        textarea {
+            margin-bottom: var(--semantic-measures-spacing-008);
+
+            [ref='charcount'] {
+                font-size: 0.875rem;
+            }
+        }
+
+        [ref='element']:has([ref='charcount'])
+            + .formio-errors.invalid-feedback
+            > .help-block.error {
+            margin-top: var(--semantic-measures-spacing-004);
+        }
+
+        // Form Group and Choices Styles
+        .form-group.formio-choices > .selection.dropdown {
+            cursor: pointer;
+            border: var(--semantic-measures-spacing-001) solid
+                var(--semantic-color-border-default-tertiary);
+            @include typography-forms-field-text;
+            @include typography-bold;
+            color: var(--semantic-color-border-default-primary);
+            opacity: 1;
+            margin-block-end: 0;
+
+            &:focus,
+            &:focus-visible {
+                @include focus-visible;
+            }
+
+            // Down Arrow for Select Boxes
+            &::after {
+                @include select-chevron-after;
+            }
+        }
+    }
+
+    .form-group.formio-choices.is-open > .selection.dropdown::after {
+        transform: rotate(-180deg);
+        transition: all 0.25s ease-in-out;
+    }
+
+    /** Developer note: Form.io changes the dom structure on mobile for select dropdowns. */
+    .formio-component-select {
+        display: flex;
+        flex-direction: column;
+
+        &:not(.formio-hidden) {
+            &:after {
+                @include select-chevron-after;
+                top: 2.8rem;
+            }
+
+            select {
+                appearance: none;
+                border: var(--semantic-measures-spacing-001) solid
+                    var(--semantic-color-surface-default-brand-hover-utility);
+                border-radius: 0;
+                box-shadow: none;
+                margin-top: var(--semantic-measures-spacing-004);
+                color: var(--semantic-color-content-default-secondary);
+                height: var(--semantic-measures-spacing-056);
+                font-size: 0.875rem;
+                padding: var(--semantic-measures-spacing-016);
+
+                &:focus-visible,
+                &:focus-within {
+                    @include focus-visible;
+                }
+            }
+        }
+
+        &:has(> label + select) {
+            :after {
+                @include select-chevron-after;
+                top: 2.8rem;
+            }
+        }
+
+        &.formio-modified {
+            select {
+                color: initial;
+            }
+        }
+    }
+
+    // Choices Styles
+    .choices {
+        position: relative;
+        font-size: var(--semantic-measures-spacing-016);
+    }
+
+    .choices:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Choices State Styles - Controlled by Form.io */
+    .choices.is-disabled .choices__inner,
+    .choices.is-disabled .choices__input {
+        cursor: not-allowed;
+        user-select: none;
+    }
+
+    .choices.is-disabled .choices__item {
+        cursor: not-allowed;
+    }
+
+    // Choices List Styles
+    .choices__list--single {
+        display: inline-block;
+        padding: var(--semantic-measures-spacing-004)
+            var(--semantic-measures-spacing-016)
+            var(--semantic-measures-spacing-004)
+            var(--semantic-measures-spacing-004);
+
+        .choices__item--selectable {
+            padding: var(--semantic-measures-spacing-020)
+                var(--semantic-measures-spacing-010);
+        }
+    }
+
+    // Dropdown Styles
+    .dropdown {
+        height: var(--semantic-measures-spacing-056);
+        display: flex;
+        align-items: center;
+    }
+
+    // Dropdown List Styles
+    .choices__list--dropdown {
+        visibility: hidden;
+        z-index: 1;
+        position: absolute;
+        max-height: var(--semantic-measures-spacing-160);
+        background-color: var(--semantic-color-border-inverse-primary);
+        border: var(--semantic-measures-spacing-001) solid
+            --semantic-color-surface-default-brand-hover-utility;
+        top: calc(100% + var(--semantic-measures-spacing-008));
+        overflow: hidden;
+        will-change: visibility;
+        left: -1px;
+        width: calc(100% + var(--semantic-measures-spacing-002));
+    }
+
+    .choices__list--dropdown.is-active {
+        visibility: visible;
+        @include typography-forms-field-text;
+        z-index: 10;
+        max-height: 14rem;
+        overflow: auto;
+        box-shadow: $elevation-3;
+    }
+
+    // Choices List Item Styles
+    .choices__list--dropdown .choices__item {
+        position: relative;
+        padding: var(--semantic-measures-spacing-010)
+            var(--semantic-measures-spacing-016);
+        @include typography-forms-field-text;
+    }
+
+    // Container Tablet LG Mixin
+    @mixin container-tablet-lg {
+        .choices__list--dropdown .choices__item--selectable {
+            padding: var(--semantic-measures-spacing-016);
+        }
+    }
+
+    // Highlighted Selectable Item Styles
+    .choices__list--dropdown .choices__item--selectable.is-highlighted {
+        background-color: var(--semantic-color-surface-default-secondary);
+    }
+
+    // Selectable and Disabled Item Styles
+    .choices__item {
+        cursor: default;
+    }
+
+    .choices__item--selectable {
+        cursor: pointer;
+    }
+
+    .choices__item--disabled {
+        cursor: not-allowed;
+        user-select: none;
+        opacity: 0.5;
+    }
+
+    // Hidden Choices
+    .choices [hidden] {
+        display: none;
+    }
+
+    // Placeholder Styles for Choices
+    .choices__placeholder {
+        @include typography-forms-field-text-bold;
+        opacity: 1;
+        outline: none;
+    }
+
+    // Button inside Choices
+    .choices__item.choices__item--selectable {
+        overflow: inherit;
+
+        button {
+            display: none;
+        }
+    }
+
+    // Button Primary Styles
+    .btn-primary {
+        display: flex;
+        padding: var(--semantic-measures-spacing-008)
+            var(--semantic-measures-spacing-032);
+        border-radius: var(--semantic-measures-spacing-004);
+        color: var(--semantic-color-border-inverse-primary);
+        background: var(--semantic-color-surface-default-brand-secondary);
+        border: var(--semantic-measures-spacing-002) solid
+            var(--semantic-color-surface-default-brand-secondary);
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        gap: var(--semantic-measures-spacing-008);
+        width: 100%;
+
+        &:hover {
+            background: var(--semantic-color-surface-default-brand-primary);
+            border-color: var(--semantic-color-surface-default-brand-primary);
+        }
+
+        &:focus {
+            text-decoration: underline;
+            outline-offset: var(--base-scale-003);
+            background: var(--semantic-color-surface-default-brand-secondary);
+            outline: var(--base-scale-002) solid
+                var(--semantic-color-content-default-primary);
+        }
+
+        @include typography-small-button-text;
+
+        &.inline {
+            display: inline-flex;
+            margin-right: var(--semantic-measures-spacing-016);
+        }
+    }
+
+    // Anchor Button Primary Styles
+    a.btn-primary {
+        text-decoration: none;
+    }
+
+    // Feedback Styles
+    .has-feedback {
+        position: relative;
+    }
+}
+
+// Global Box Sizing Reset
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Media Query for Desktop
+@include media-desktop {
+    .formio-form {
+        .btn-primary {
+            width: fit-content;
+            padding: var(--semantic-measures-spacing-016)
+                var(--semantic-measures-spacing-032);
+        }
+
+        .formio-component-select {
+            &:not(.formio-hidden) {
+                &:after {
+                    display: none;
+                }
+            }
+
+            &.formio-modified {
+                select {
+                    color: initial;
+                }
+            }
+        }
+    }
+}
+
+// corporate button styles
+$light-blue-gradient: linear-gradient(
+    180deg,
+    var(--semantic-color-content-default-brand-secondary-alt) 0%,
+    var(--semantic-color-content-default-brand-primary) 100%
+);
+$dark-blue-gradient: linear-gradient(
+    180deg,
+    var(--semantic-color-border-default-brand-primary) 0%,
+    rgba(0, 12, 18, 1) 100%
+);
+
+$disabled-gray: var(--semantic-color-surface-default-utility-disabled);
+$white: var(--semantic-color-content-inverse-primary);
+$eclipse-gray: var(--semantic-color-content-default-primary);
+
+@include theme-corporate {
+    .formio-form {
+        .btn-primary {
+            @include typography-small-corp-button-text;
+            border-radius: var(--semantic-measures-radius-full);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--semantic-measures-spacing-016);
+            border: none;
+            background: $light-blue-gradient;
+            color: $white;
+            padding: var(--semantic-measures-spacing-016)
+                var(--semantic-measures-spacing-040);
+
+            &:hover {
+                background: $dark-blue-gradient;
+            }
+
+            &:visited {
+                color: $white;
+            }
+
+            &:focus {
+                text-decoration: underline;
+                outline-offset: var(--base-scale-003);
+                outline: var(--base-scale-002) solid $eclipse-gray;
+            }
+
+            &:active {
+                background: $dark-blue-gradient;
+                text-decoration: none;
+            }
+
+            &:disabled {
+                background: $disabled-gray;
+                color: $white;
+                cursor: not-allowed;
+            }
+        }
+
+        @include media-desktop {
+            .btn-primary {
+                padding: var(--semantic-measures-spacing-024)
+                    var(--semantic-measures-spacing-048);
+            }
+        }
+    }
+}

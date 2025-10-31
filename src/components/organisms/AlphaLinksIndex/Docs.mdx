@@ -1,0 +1,70 @@
+import { Meta, Stories, Controls } from '@storybook/blocks';
+import * as AlphaLinksIndexStories from './AlphaLinksIndex.stories';
+
+<Meta title="Design System/organisms/AlphaLinksIndex/Docs" of={ AlphaLinksIndexStories} />
+
+# AlphaLinksIndex
+
+Story Link: [#198]('https://github.com/ahc-digital/migration-planning-tracking/issues/198')
+
+Description: The A-Z Index displays a list of alphabetical links that can be filtered by starting letter.
+
+---
+# Acceptance Criteria
+For ADA, component should be fully operable via keyboard (tab index, panel toggling, etc) without mouse interaction. Component must also pass Storybook ADA plugin validation.
+
+Component is added to storybook, and each content author editable field is editable within storybook.
+
+Should implement the exclude from translation class around the entire component.
+
+The top of the container should be the anchor target with the id from the rendering parameter.
+
+If there are no links under a particular bucket, the letter for that bucket should be greyed out and not interactable.
+
+The active bucket should be underlined and bold, as well as slightly larger.
+
+The columns of links should be evenly sized.
+
+The bottom support copy is always left aligned.
+
+On mobile and tablet, the A-Z bucket links is swipable left to right. The currently selected letter is centered on the screen when selected. If you are on A, there is empty space to the left. If you are on Z, there is empty space to the right.
+
+Links under a letter should be rendering across columns rather than down a single column then the next column.
+
+<Stories />
+
+## Props
+<Controls />
+
+
+## Example Usage(s)
+```tsx
+
+const props = {
+    headline: (
+        <JSSText field={{ value: 'When you can’t pencil in an appointment' }} />
+    ),
+    topSupportCopy: (
+        <JSSRichText
+            field={{
+                value: '<p>Dr. David Callaway joins unique network examining leadership examples of recent presidents</p>'
+            }}
+        />
+    ),
+    bottomSupportCopy: (
+        <JSSRichText
+            field={{
+                value: '<p>Dr. David Callaway joins unique network examining leadership examples of recent presidents</p>'
+            }}
+        />
+    ),
+    linkItemFolder: alphabetizedSitecoreLinkNodes,
+    headlineTag: 'p',
+    headlineAlignment: 'center',
+    backgroundTheme: 'whiteSmoke'
+};
+
+// type of linkItemFolder: {[index: string]: Array<ReactNode>};
+
+<AlphaLinksIndex {...props} />
+```

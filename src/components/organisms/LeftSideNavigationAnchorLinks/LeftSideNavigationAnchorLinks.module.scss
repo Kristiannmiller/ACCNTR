@@ -1,0 +1,98 @@
+@use 'toolbox' as *;
+
+@layer organisms {
+    div:not(.left-side-navigation-anchor-links-base) {
+        .anchor-back {
+            display: none;
+        }
+    }
+
+    div:has(.left-side-navigation-anchor-links-base) {
+        .anchor-back {
+            position: sticky;
+            bottom: var(--semantic-measures-sizing-016);
+            right: var(--semantic-measures-sizing-016);
+            z-index: 40;
+            justify-content: flex-end;
+
+            &[data-hide='show'] {
+                display: flex;
+                @include fade-in;
+                animation-duration: 1s;
+            }
+
+            &[data-hide='hide'] {
+                @include fade-out;
+                animation-duration: 1s;
+            }
+
+            a {
+                position: absolute;
+                bottom: var(--semantic-measures-sizing-008);
+                margin-right: var(--semantic-measures-sizing-008);
+                color: var(--semantic-color-border-inverse-primary);
+                border-radius: var(--semantic-measures-radius-medium);
+                padding: var(--semantic-measures-sizing-016)
+                    var(--semantic-measures-sizing-032);
+                cursor: pointer;
+            }
+        }
+    }
+
+    @include theme-corporate {
+        div:has(.left-side-navigation-anchor-links-base) .anchor-back a {
+            background: var(
+                --semantic-color-content-default-brand-secondary-alt
+            );
+        }
+    }
+
+    @include theme-consumer-childrens {
+        div:has(.left-side-navigation-anchor-links-base) .anchor-back a {
+            background: var(--semantic-color-border-default-brand-secondary);
+        }
+    }
+
+    .left-side-navigation-anchor-desktop {
+        display: none;
+
+        @include media-desktop {
+            display: block;
+        }
+    }
+
+    .left-side-navigation-anchor-mobile {
+        display: block;
+
+        @include media-desktop {
+            display: none;
+        }
+    }
+
+    .left-side-navigation-anchor-links-base {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 10;
+
+        a:not(.active-scroll-spy) {
+            font-weight: initial;
+        }
+
+        .active-scroll-spy {
+            @include typography-bold;
+        }
+    }
+
+    @include media-desktop {
+        .left-side-navigation-anchor-links-base {
+            inset-inline: 0;
+            inset-block-start: var(--header-height);
+        }
+
+        div:has(.left-side-navigation-anchor-links-base) {
+            .anchor-back {
+                display: none;
+            }
+        }
+    }
+}

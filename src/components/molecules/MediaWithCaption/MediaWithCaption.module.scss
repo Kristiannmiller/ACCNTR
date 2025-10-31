@@ -1,0 +1,74 @@
+@use 'toolbox' as *;
+
+@layer molecules {
+    .media-with-caption-base {
+        margin-bottom: var(--semantic-measures-spacing-024);
+
+        img {
+            object-fit: cover;
+            object-position: top;
+            height: auto;
+        }
+
+        &.image-border {
+            img {
+                border: var(--semantic-measures-stroke-small) solid
+                    var(--semantic-color-border-default-tertiary);
+            }
+        }
+
+        .image-link {
+            line-height: var(--semantic-measures-spacing-000);
+        }
+
+        figcaption {
+            margin-top: var(--semantic-measures-spacing-016);
+            text-align: left;
+            font-style: italic;
+
+            * {
+                font-style: italic;
+            }
+        }
+    }
+
+    @include container-tablet-lg {
+        .media-with-caption-base {
+            display: grid;
+            margin-bottom: var(--semantic-measures-spacing-032);
+
+            // Clearfix
+            &::after {
+                content: '';
+                clear: both;
+                display: table;
+            }
+
+            &.media-left {
+                float: left;
+                margin-right: var(--semantic-measures-spacing-024);
+            }
+
+            &.media-right {
+                float: right;
+                margin-left: var(--semantic-measures-spacing-024);
+            }
+
+            &.media-size-20 {
+                width: 20%;
+            }
+
+            &.media-size-30 {
+                width: 30%;
+            }
+
+            &.media-size-40 {
+                width: 40%;
+            }
+
+            &.media-size-50 {
+                width: 50%;
+            }
+        }
+    }
+}

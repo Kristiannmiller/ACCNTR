@@ -1,0 +1,87 @@
+@use 'toolbox' as *;
+
+@layer atoms {
+    .controls-absolute {
+        position: absolute;
+        z-index: 1;
+        inset-inline: 0;
+        height: 0;
+
+        > div {
+            height: 0;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 2.75rem;
+            transform: translateX(-50%);
+            left: 50%;
+            z-index: 2;
+        }
+    }
+
+    .carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 2.75rem;
+        gap: var(--semantic-measures-spacing-016);
+
+        .pagination {
+            display: flex;
+        }
+
+        button,
+        [role='button'] {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--semantic-color-border-default-primary);
+
+            > svg {
+                height: 1.375rem;
+            }
+
+            &.dot {
+                border-radius: 50%;
+                cursor: pointer;
+                height: var(--semantic-measures-spacing-016);
+                margin: 0.875rem;
+                width: var(--semantic-measures-spacing-016);
+                border: var(--base-scale-001) solid
+                    var(--semantic-color-border-default-primary);
+
+                &-active {
+                    border: var(--base-scale-001) solid
+                        var(--semantic-color-border-default-primary);
+                    background-color: var(
+                        --semantic-color-content-default-primary
+                    );
+                }
+            }
+        }
+
+        &.inverse {
+            button {
+                color: var(--semantic-color-border-inverse-primary);
+
+                &.dot {
+                    border: var(--base-scale-001) solid
+                        var(--semantic-color-content-inverse-primary);
+
+                    &-active {
+                        border: var(--base-scale-001) solid
+                            var(--semantic-color-content-inverse-primary);
+                        background: var(
+                            --semantic-color-content-inverse-primary
+                        );
+                    }
+                }
+            }
+        }
+    }
+}
